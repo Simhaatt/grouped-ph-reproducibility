@@ -191,11 +191,19 @@ def parse_psi_necessity():
 
 # ------------------------------------------------------------------ figures
 def _spearman(x, y):
-    a = np.argsort(np.argsort(np.asarray(x, float))).astype(float)
-    b = np.argsort(np.argsort(np.asarray(y, float))).astype(float)
-    a -= a.mean()
-    b -= b.mean()
-    return float((a * b).sum() / np.sqrt((a ** 2).sum() * (b ** 2).sum()))
+    """Delegates to kanrel.stats.spearman, which averages tied ranks.
+
+    This file previously had its own `argsort(argsort(...))`, which assigns
+    ORDINAL ranks and so breaks ties by position.  Modal bin mass is quoted to
+    three decimals and several configurations collide, so the figure was drawing
+    a slightly different statistic from the one its own caption named.  Five
+    files carried a copy of this and every one of them was wrong the same way.
+    """
+    import sys as _sys
+    from pathlib import Path as _P
+    _sys.path.insert(0, str(_P(__file__).resolve().parent.parent))
+    from kanrel.stats import spearman as _s
+    return _s(x, y)
 
 
 def fig1_crossover():

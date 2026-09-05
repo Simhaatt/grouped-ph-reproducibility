@@ -36,6 +36,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 warnings.filterwarnings("ignore")
 
 from kanrel import data as D
+from kanrel.stats import spearman
 from experiments.crossover import COHORTS, coarsen
 # REGIME lives in paper/figures.py, which is not an importable package, so it is
 # loaded by path rather than duplicated -- a second copy would be free to drift
@@ -49,18 +50,6 @@ REGIME = _figs.REGIME
 
 SRC = Path(__file__).resolve().parent / "protocol_decomp.txt"
 OUT = Path(__file__).resolve().parent / "ordering_variable.txt"
-
-
-def spearman(u, v):
-    u, v = np.asarray(u, float), np.asarray(v, float)
-    ok = np.isfinite(u) & np.isfinite(v)
-    if ok.sum() < 3:
-        return float("nan")
-    ru = np.argsort(np.argsort(u[ok])).astype(float)
-    rv = np.argsort(np.argsort(v[ok])).astype(float)
-    ru -= ru.mean()
-    rv -= rv.mean()
-    return float((ru * rv).sum() / np.sqrt((ru ** 2).sum() * (rv ** 2).sum()))
 
 
 def parse_dt(path):

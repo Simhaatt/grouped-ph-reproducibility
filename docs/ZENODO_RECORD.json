@@ -1,0 +1,13 @@
+{
+  "version": "1.0.0",
+  "doi": "10.5281/zenodo.22347056",
+  "concept_doi": "10.5281/zenodo.22347055",
+  "publication_date": "2026-09-05",
+  "license": "cc-by-4.0",
+  "github_release": "https://github.com/Simhaatt/grouped-ph-reproducibility/releases/tag/v1.0.0",
+  "archived_commit": "b8fbad8272131cc5b5119cb996bc5c3d46f07013",
+  "archive_checksum": "md5:6b537440c28a926fb6006b45a6144f6d",
+  "archive_checksum_verified": true,
+  "frozen_result_files_verified": 93,
+  "note": "Archiving is confirmed. Outstanding scientific review items are not marked complete by this publication."
+}

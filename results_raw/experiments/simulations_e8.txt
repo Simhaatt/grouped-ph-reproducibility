@@ -36,18 +36,19 @@ E8  MODAL BIN MASS vs ROWS PER INTERVAL, CROSSED.  On real cohorts the
       16000   20     800     mid   0.230     0.256      719  +0.01447  0.00211  +0.01430  +0.00017
       16000   20     800    high   0.503     0.510      789  +0.09120  0.00360  +0.08513  +0.00607
 
-total 1454s -> [PROJECT_ROOT]\experiments\simulations_e8.txt
+total 1454s -> F:\kanreliability\experiments\simulations_e8.txt
 
     ORDERING over 27 cells, Spearman against D_T:
-      modal bin mass (section 6.3)   rho = -0.1422
-      modal EVENT mass               rho = +0.8742
-      events per bin                 rho = +0.3712
-      The variable with the largest |rho| is the one section 6.3
-      should be using.  They are indistinguishable on real cohorts.
+      modal bin mass (section 6.3)   rho = -0.1469
+      modal EVENT mass               rho = +0.8745
+      events per bin                 rho = +0.3777
+      The largest |rho| is the variable section 6.3 should use.
 
-    COMPUTED AFTER THE RUN.  The block above was meant to print inside
-    e8() but the str.replace that inserted it silently matched nothing,
-    so the run finished without it.  These numbers are read back from
-    the table in this same file rather than recomputed by refitting,
-    so they are the same 27 cells; simulations.py now emits them
-    directly and the insertion is asserted.
+    RECOMPUTED 2026-09-05 on these same 27 cells.  The correlations first
+    printed here used argsort(argsort(x)), which assigns ORDINAL ranks and breaks
+    ties by position; Spearman's coefficient averages tied ranks.  An external
+    reproducibility audit of the release repository flagged the gap at -0.1422
+    against -0.1469 and was exactly right.  The definition now lives once, in
+    kanrel/stats.py, checked against scipy on 200 tied samples.  Only the
+    statistic changed -- the cells above are the original run and were not
+    refitted.  The ranking of the three variables is unaffected.

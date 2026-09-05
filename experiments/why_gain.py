@@ -44,6 +44,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 warnings.filterwarnings("ignore")
 
 from kanrel import data as D
+from kanrel.stats import spearman
 from kanrel.fit import fit, to_tensors
 from kanrel.hazard import DiscreteHazardKAN
 from experiments.real_data import continuous_columns, split
@@ -63,12 +64,7 @@ def nonmonotonicity(eff):
     return float(1.0 - abs(dv.sum()) / tot) if tot > 1e-12 else 0.0
 
 
-def spearman(a, b):
-    ra = np.argsort(np.argsort(a)).astype(float)
-    rb = np.argsort(np.argsort(b)).astype(float)
-    ra -= ra.mean(); rb -= rb.mean()
-    den = np.sqrt((ra ** 2).sum() * (rb ** 2).sum())
-    return float((ra * rb).sum() / den) if den > 0 else float("nan")
+# spearman lives in kanrel.stats; this file had its own ordinal-rank copy.
 
 
 def risk_index(m, X):

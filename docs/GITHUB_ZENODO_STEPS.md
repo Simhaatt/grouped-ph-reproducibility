@@ -1,3 +1,5 @@
+Publication completed: GitHub v1.0.0 is archived at https://doi.org/10.5281/zenodo.22347056 (2026-09-05). Citation updates are on main. Do not repeat repository creation or create a duplicate Zenodo upload. No second release is required just to add DOI links.
+
 Current setup: repository created at https://github.com/Simhaatt/grouped-ph-reproducibility. The owner explicitly approved uploading this unreleased draft publicly. URL metadata has been filled. Public draft upload does not mean v1.0.0 has been released or the remaining review items are resolved. The steps below also document the full workflow; do not create a duplicate repository.
 
 # Exactly what to create, and when

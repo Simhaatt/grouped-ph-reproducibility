@@ -1,5 +1,5 @@
 cff-version: 1.2.0
-message: "Please cite the version-specific Zenodo DOI after release."
+message: "Please cite the archived v1.0.0 reproducibility package using the DOI below."
 type: software
 title: "Grouped Proportional Hazards under Coarse Time: Information Loss and Baseline Estimation"
 authors:
@@ -11,7 +11,7 @@ authors:
     given-names: "Sudheesh Kumar"
     affiliation: "Applied Statistics Unit, Indian Statistical Institute, Chennai, Tamil Nadu, India"
 version: 1.0.0
-# date-released: YYYY-MM-DD (set on publication)
-# doi: ZENODO_VERSION_DOI (set after Zenodo archiving)
+date-released: 2026-09-05
+doi: 10.5281/zenodo.22347056
 repository-code: https://github.com/Simhaatt/grouped-ph-reproducibility
 license: CC-BY-4.0

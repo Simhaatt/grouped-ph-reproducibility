@@ -42,6 +42,7 @@ warnings.filterwarnings("ignore")
 from kanrel import data as D
 from experiments.real_data import split
 from experiments.significance import paired_bootstrap
+from kanrel.stats import spearman
 from experiments.formulation_ci import cox_linear_per_unit, ours_linear_per_unit
 
 N_SPLITS = 3
@@ -114,10 +115,7 @@ def sweep(label, make, bins):
         Ts = np.array([r[0] for r in rows], float)
         ef = np.array([r[1] for r in rows])
         # Spearman between T and the effect: the prediction is a NEGATIVE slope.
-        rt = np.argsort(np.argsort(Ts)).astype(float)
-        re = np.argsort(np.argsort(ef)).astype(float)
-        rt -= rt.mean(); re -= re.mean()
-        rho = float((rt * re).sum() / np.sqrt((rt**2).sum() * (re**2).sum()))
+        rho = spearman(Ts, ef)
         flips = (ef.max() > 0) and (ef.min() < 0)
         print(f"\n  corr(T, formulation effect) = {rho:+.3f}"
               f"   (prediction: NEGATIVE)")
@@ -199,10 +197,7 @@ def pooled():
         return
     m = np.array([a[1] for a in ALL])
     e = np.array([a[2] for a in ALL])
-    ra = np.argsort(np.argsort(m)).astype(float)
-    rb = np.argsort(np.argsort(e)).astype(float)
-    ra -= ra.mean(); rb -= rb.mean()
-    rho = float((ra * rb).sum() / np.sqrt((ra ** 2).sum() * (rb ** 2).sum()))
+    rho = spearman(m, e)
     print()
     print("=" * 92)
     ncoh = len({a[0] for a in ALL})

@@ -27,6 +27,12 @@
       "identifier": "https://github.com/Simhaatt/grouped-ph-reproducibility",
       "relation": "isSupplementTo",
       "scheme": "url"
+    },
+    {
+      "identifier": "10.5281/zenodo.22347055",
+      "relation": "isVersionOf",
+      "scheme": "doi"
     }
-  ]
+  ],
+  "publication_date": "2026-09-05"
 }

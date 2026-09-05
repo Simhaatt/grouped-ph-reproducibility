@@ -60,6 +60,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 warnings.filterwarnings("ignore")
 
 from experiments import cox_arms as CA
+from kanrel.stats import spearman, stable_seed
 from experiments.protocol_decomp import nb_se
 
 OUT = Path(__file__).resolve().parent
@@ -207,8 +208,7 @@ def e5(log):
                 for T in (2, 4, 8, 20, 40):
                     rows, modal = [], []
                     for s in range(REPS):
-                        rng = np.random.default_rng(hash((shape, censor, n, T, s))
-                                                    % (2**32))
+                        rng = np.random.default_rng(stable_seed(shape, censor, n, T, s))
                         X, idx, ev = sim_weibull_grouped(n, T, beta, shape, rng,
                                                          censor)
                         modal.append(np.bincount(idx, minlength=T).max() / n)
@@ -240,7 +240,7 @@ def e6(log):
             for scale in (1.0, 2.0):
                 rows, modal = [], []
                 for s in range(REPS):
-                    rng = np.random.default_rng(hash((n, T, scale, s)) % (2**32))
+                    rng = np.random.default_rng(stable_seed(n, T, scale, s))
                     X, idx, ev = sim_discrete(n, T, beta, rng, "cloglog",
                                               scale=scale)
                     modal.append(np.bincount(idx, minlength=T).max() / n)
@@ -275,8 +275,7 @@ def e7(log):
             for scale in (1.0, 2.0):
                 rows, modal = [], []
                 for s in range(REPS):
-                    rng = np.random.default_rng(hash((n, T, scale, s, "L"))
-                                                % (2**32))
+                    rng = np.random.default_rng(stable_seed(n, T, scale, s, "L"))
                     X, idx, ev = sim_discrete(n, T, beta, rng, "logit",
                                               scale=scale)
                     modal.append(np.bincount(idx, minlength=T).max() / n)
@@ -323,8 +322,7 @@ def e8(log):
                 a0 = np.full(T, lvl)
                 rows, modal, evmodal, evbin = [], [], [], []
                 for s in range(REPS):
-                    rng = np.random.default_rng(hash((n, T, lvl, s, "F"))
-                                                % (2**32))
+                    rng = np.random.default_rng(stable_seed(n, T, lvl, s, "F"))
                     X, idx, ev = sim_discrete(n, T, beta, rng, "cloglog", a0=a0)
                     modal.append(np.bincount(idx, minlength=T).max() / n)
                     ec = np.bincount(idx[ev == 1], minlength=T)
@@ -358,13 +356,7 @@ def e8(log):
     if len(surface) >= 6:
         a = np.array(surface)
 
-        def _rho(u, v):
-            ru = np.argsort(np.argsort(u)).astype(float)
-            rv = np.argsort(np.argsort(v)).astype(float)
-            ru -= ru.mean()
-            rv -= rv.mean()
-            return float((ru * rv).sum() /
-                         np.sqrt((ru ** 2).sum() * (rv ** 2).sum()))
+        _rho = spearman
 
         log("")
         log(f"    ORDERING over {len(a)} cells, Spearman against D_T:")
@@ -416,7 +408,7 @@ def e6c(log):
             for T in (2, 4, 8, 20, 40):
                 acc, modal = [], []
                 for s in range(REPS):
-                    rng = np.random.default_rng(hash((n, scale, s, "C")) % (2**32))
+                    rng = np.random.default_rng(stable_seed(n, scale, s, "C"))
                     X, idx0, ev = sim_discrete(n, T0, beta, rng, "cloglog",
                                                scale=scale)
                     idx = np.minimum((idx0 * T) // T0, T - 1)   # merge adjacent
@@ -437,11 +429,7 @@ def e6c(log):
             if len(rows) >= 3:
                 Ts = np.array([r[0] for r in rows], float)
                 ef = np.array([r[1] for r in rows])
-                ra = np.argsort(np.argsort(Ts)).astype(float)
-                rb = np.argsort(np.argsort(ef)).astype(float)
-                ra -= ra.mean(); rb -= rb.mean()
-                rho = float((ra * rb).sum() /
-                            np.sqrt((ra ** 2).sum() * (rb ** 2).sum()))
+                rho = spearman(Ts, ef)
                 flips = bool((ef > 0).any() and (ef < 0).any())
                 log(f"      corr(T, D_T) = {rho:+.3f}   sign flips: {flips}"
                     f"   (section 6.2 predicts negative, and a flip)")
@@ -489,7 +477,7 @@ def e6d(log):
         for T in (5, 10, 20, 40, 80, 160):
             acc, modal = [], []
             for s in range(REPS):
-                rng = np.random.default_rng(hash((n, s, T, "D")) % (2**32))
+                rng = np.random.default_rng(stable_seed(n, s, T, "D"))
                 X, idx0, ev = sim_discrete(n, T0, beta, rng, "cloglog")
                 idx = np.minimum((idx0 * T) // T0, T - 1)
                 modal.append(np.bincount(idx, minlength=T).max() / n)

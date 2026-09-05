@@ -43,6 +43,7 @@ from kanrel.likelihood import make_targets, nll
 from experiments import cox_arms as CA
 from experiments.baselines import standardize
 from experiments.crossover import COHORTS, coarsen
+from kanrel.stats import spearman
 from experiments.protocol_decomp import nb_se
 from experiments.real_data import split
 
@@ -156,11 +157,7 @@ def run(name, base, grid, log):
             ok = np.isfinite(ef)
             if ok.sum() < 3:
                 continue
-            ra = np.argsort(np.argsort(Ts[ok])).astype(float)
-            rb = np.argsort(np.argsort(ef[ok])).astype(float)
-            ra -= ra.mean(); rb -= rb.mean()
-            rho = float((ra * rb).sum() /
-                        np.sqrt((ra ** 2).sum() * (rb ** 2).sum()))
+            rho = spearman(Ts[ok], ef[ok])
             span = float(np.nanmax(ef[ok]) - np.nanmin(ef[ok]))
             lbl = "q=T (free)" if q == "T" else f"q={q} (fixed)"
             log(f"    {lbl:<14} rho = {rho:+.3f}   range of D_T = {span:.5f}")

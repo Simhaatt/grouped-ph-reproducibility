@@ -2,7 +2,7 @@
 
 **Simhaa T. T. · Sudheesh Kumar Kattumannil**
 
-Reproducibility package, version 1.0.0 (unreleased). Prepared from the supplied manuscript and existing aggregate experiment outputs. **Frozen-output reproduction is available; public release is pending the items in [docs/RELEASE_BLOCKERS.md](docs/RELEASE_BLOCKERS.md).**
+Reproducibility package, version 1.0.0, published 5 September 2026. [Archived release and version DOI](https://doi.org/10.5281/zenodo.22347056). Frozen-output reproduction is available. [Outstanding scientific review items and limitations](docs/RELEASE_BLOCKERS.md) remain documented; publication does not establish a complete independent model refit.
 
 The study separates information lost by grouping survival times from the effects of reconstructing a Cox baseline after estimating coefficients. It develops an exact finite-grid information-loss identity, a small-bin quadratic expansion, and a profiled coefficient-information result. Empirical comparisons hold the Efron Cox coefficient fixed while comparing Breslow and Kalbfleisch-Prentice/profile baselines with grouped complementary-log-log joint maximum likelihood. Event-concentration experiments distinguish concentration of failures from concentration of all exits.
 
@@ -72,7 +72,9 @@ Every main figure and table has a source map in [docs/EXPERIMENT_MAP.md](docs/EX
 
 ## Citation, licence and contact
 
-Cite this package's version-specific Zenodo DOI once issued. Repository URL: `https://github.com/Simhaatt/grouped-ph-reproducibility`. DOI and release date are intentionally not invented. See `CITATION.cff` and `.zenodo.json`; the latter still contains explicit publication-blocking placeholders.
+Cite: Simhaa T. T. and Sudheesh Kumar Kattumannil (2026). *Grouped Proportional Hazards under Coarse Time: Information Loss and Baseline Estimation* (version 1.0.0). Zenodo. https://doi.org/10.5281/zenodo.22347056.
+
+Use the **version DOI [10.5281/zenodo.22347056](https://doi.org/10.5281/zenodo.22347056)** for the paper's exact archived package. The [concept DOI](https://doi.org/10.5281/zenodo.22347055) identifies the version series. [GitHub source](https://github.com/Simhaatt/grouped-ph-reproducibility) includes post-release citation updates; the v1.0.0 tag and archived files remain unchanged. See CITATION.cff and docs/ZENODO_RECORD.json.
 
 The authors' original material is licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/); see LICENSE and NOTICE.md for scope. Third-party material retains its own terms. Author names, affiliations and ORCID have been confirmed by the repository owner. Contact: Simhaa T. T., simhaa2310510@ssn.edu.in. Editable supplement source is not required at the owner's direction; the supplied supplement PDF is retained for numerical provenance.
 

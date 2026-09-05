@@ -509,12 +509,12 @@ drg720 & 30 & 0.0990 & 0.00306 & 0.00056 & -0.00001 & 0.00002 \\
 \end{table}
 \FloatBarrier
 
-All 12 $D_B$ values were resolved and positive. Three of the 12 $D_{KP}$ values were also resolved and positive: drg640 at $T=6$, and drg540 at $T=6$ and $T=15$. The profile-baseline residual therefore is not identically zero. It is small relative to the original effect: across the 12 rows it ranged from $-0.33\%$ to $1.33\%$ of $D_B$, corresponding to a baseline share between 98.7\% and 100.2\%. The residual was ordered by tie concentration in this validation set (Spearman correlation 0.832 with the stored modal-exit mass), but the sample is too small and the grid dependence too strong to justify a numerical threshold.
+All 12 $D_B$ values were resolved and positive. Three of the 12 $D_{KP}$ values were also resolved and positive: drg640 at $T=6$, and drg540 at $T=6$ and $T=15$. The profile-baseline residual therefore is not identically zero. It is small relative to the original effect: across the 12 rows it ranged from $-0.33\%$ to $1.33\%$ of $D_B$, corresponding to a baseline share between 98.7\% and 100.2\%. The residual was ordered by tie concentration in this validation set (Spearman correlation 0.853 with the stored modal-exit mass), but the sample is too small and the grid dependence too strong to justify a numerical threshold.
 
 \subsection{Event concentration rather than censoring concentration}
 \label{sec:event-sim}
 
-On the native discrete cohorts, $M_T^{(A)}$ and $M_T^{(E)}$ move together, so their empirical correlations with $D_B$ do not identify which feature matters. A 27-cell simulation was therefore constructed to vary the concentration of censoring independently of the concentration of failures. Across these cells, the Spearman correlation between $D_B$ and the modal mass of all exits was $-0.1422$. The corresponding correlation with modal event mass was 0.8742. Events per interval had correlation 0.3712.
+On the native discrete cohorts, $M_T^{(A)}$ and $M_T^{(E)}$ move together, so their empirical correlations with $D_B$ do not identify which feature matters. A 27-cell simulation was therefore constructed to vary the concentration of censoring independently of the concentration of failures. Across these cells, the Spearman correlation between $D_B$ and the modal mass of all exits was $-0.1469$. The corresponding correlation with modal event mass was 0.8745. Events per interval had correlation 0.3777. These are average-rank Spearman coefficients. An earlier version of the analysis code assigned ordinal ranks to tied printed masses, giving $-0.1422$, 0.8742 and 0.3712 on the same 27 cells; the revision changes the statistic and not the simulation, and it does not alter the ordering of the three measures.
 
 \begin{figure}[!htbp]
 \centering
@@ -602,11 +602,11 @@ Not applicable.
 
 \subsection*{Data availability}
 
-All datasets analysed in this study are publicly available from their original sources. SUPPORT data are available through the Vanderbilt University Department of Biostatistics \citep{support1995,vanderbiltSupport2026}. SPARCS data are provided by the New York State Department of Health \citep{nysdoh2012sparcs}. The clinic and music datasets are distributed with the DRSA study \citep{ren2019drsa}. The remaining benchmark cohorts are documented in their original publications and public survival-analysis distributions \citep{kvamme2019pycox,curtis2012metabric,dispenzieri2012flchain,breslow1999nwtco,foekens2000rotterdam,schumacher1994gbsg,katzman2018deepsurv}. No new participant-level data were collected.
+All datasets analysed in this study are publicly available from their original sources. SUPPORT data are available through the Vanderbilt University Department of Biostatistics \citep{support1995,vanderbiltSupport2026}. SPARCS data are provided by the New York State Department of Health \citep{nysdoh2012sparcs}. The clinic and music datasets are distributed with the DRSA study \citep{ren2019drsa}. The remaining benchmark cohorts are documented in their original publications and public survival-analysis distributions \citep{kvamme2019pycox,curtis2012metabric,dispenzieri2012flchain,breslow1999nwtco,foekens2000rotterdam,schumacher1994gbsg,katzman2018deepsurv}. No new participant-level data were collected. Third-party participant-level datasets are not included in the code archive. Dataset-access instructions and frozen aggregate results are available at \url{https://doi.org/10.5281/zenodo.22347056}; users must obtain source data under the providers' applicable access conditions.
 
 \subsection*{Code availability}
 
-Code for data preparation, model fitting, numerical verification, and generation of the reported tables will be released in a public GitHub repository and archived on Zenodo. The repository URL and Zenodo DOI will be inserted before submission.
+Code and frozen aggregate results are archived on Zenodo as version 1.0.0 at \url{https://doi.org/10.5281/zenodo.22347056} \citep{simhaa2026groupedcode}. Development source is available at \url{https://github.com/Simhaatt/grouped-ph-reproducibility}. The archive includes scripts for data preparation, model fitting, numerical verification, and regeneration of tables and figures from frozen outputs. Reproduction limitations are documented in the repository; third-party raw datasets are not redistributed.
 
 \subsection*{Use of generative artificial intelligence}
 
