@@ -1,0 +1,63 @@
+======================================================================================================================
+E13-E18  FLEXIBILITY COMPARISON WITH VALIDATION-BASED SELECTION,
+         MATCHED CAPACITY, EQUAL TUNING BUDGET AND FOUR METRICS
+======================================================================================================================
+======================================================================================================================
+nwtco   n=4028  T=20  p=8   20 seeds
+======================================================================================================================
+    seed 0: q*=8 lam*=0.1 kan*=(10, 0.01)  [101s]
+    seed 1: q*=6 lam*=10 kan*=(6, 0.0)  [76s]
+    seed 2: q*=10 lam*=0.1 kan*=(6, 0.0)  [62s]
+    seed 3: q*=10 lam*=1 kan*=(6, 0.0)  [88s]
+    seed 4: q*=6 lam*=10 kan*=(6, 0.0)  [88s]
+    seed 5: q*=6 lam*=10 kan*=(10, 0.01)  [137s]
+    seed 6: q*=4 lam*=10 kan*=(6, 0.0)  [83s]
+    seed 7: q*=4 lam*=1 kan*=(6, 0.0)  [89s]
+    seed 8: q*=12 lam*=10 kan*=(14, 0.01)  [130s]
+    seed 9: q*=4 lam*=1 kan*=(6, 0.0)  [80s]
+    seed 10: q*=6 lam*=1 kan*=(6, 0.0)  [110s]
+    seed 11: q*=10 lam*=0.1 kan*=(10, 0.01)  [159s]
+    seed 12: q*=4 lam*=0.1 kan*=(14, 0.01)  [180s]
+    seed 13: q*=6 lam*=10 kan*=(6, 0.0)  [100s]
+    seed 14: q*=6 lam*=1 kan*=(10, 0.01)  [164s]
+    seed 15: q*=8 lam*=1 kan*=(10, 0.01)  [161s]
+    seed 16: q*=4 lam*=1 kan*=(6, 0.0)  [108s]
+    seed 17: q*=4 lam*=1 kan*=(10, 0.01)  [152s]
+    seed 18: q*=6 lam*=10 kan*=(6, 0.0)  [87s]
+    seed 19: q*=8 lam*=1 kan*=(10, 0.01)  [159s]
+
+  arm                          nll      c_antolini           c_uno             ibs             ici
+  linear              0.7865+-0.045    0.7052+-0.023    0.7042+-0.023    0.0607+-0.004    0.0192+-0.004
+  GAM(q*)             0.7825+-0.046    0.7004+-0.024    0.6986+-0.025    0.0590+-0.003    0.0204+-0.005
+  P-spline(lam*)      0.7817+-0.046    0.7014+-0.024    0.6997+-0.025    0.0588+-0.003    0.0203+-0.005
+  KAN(matched)        0.7803+-0.044    0.7008+-0.025    0.6992+-0.026    0.0595+-0.003    0.0195+-0.005
+  KAN(tuned)          0.7797+-0.043    0.7016+-0.022    0.6997+-0.023    0.0591+-0.003    0.0222+-0.006
+  KAN-deep            0.7861+-0.041    0.6964+-0.026    0.6948+-0.027    0.0600+-0.003    0.0231+-0.007
+  GAM+pairs           0.7825+-0.046    0.7004+-0.024    0.6986+-0.025    0.0590+-0.003    0.0204+-0.005
+
+  PAIRED DIFFERENCES against the validation-selected GAM (E13 headline).
+  Positive = the arm is better.  NB SE is Nadeau-Bengio corrected.
+    arm                                nll            c_antolini                 c_uno                   ibs                   ici
+    P-spline(lam*)       +0.00076+-0.00129      +0.00097+-0.00276      +0.00101+-0.00274      +0.00013+-0.00023      +0.00011+-0.00186 
+    linear               -0.00401+-0.00258      +0.00485+-0.00568      +0.00553+-0.00593      -0.00173+-0.00051*     +0.00118+-0.00340 
+    KAN(tuned)           +0.00274+-0.00281      +0.00118+-0.00303      +0.00110+-0.00310      -0.00017+-0.00035      -0.00174+-0.00342 
+    KAN(matched)         +0.00216+-0.00264      +0.00043+-0.00396      +0.00054+-0.00410      -0.00053+-0.00046      +0.00090+-0.00264 
+    KAN-deep             -0.00359+-0.00773      -0.00401+-0.00446      -0.00387+-0.00437      -0.00102+-0.00116      -0.00267+-0.00462 
+    GAM+pairs            +0.00000+-0.00000      +0.00000+-0.00000      +0.00000+-0.00000      +0.00000+-0.00000      +0.00000+-0.00000 
+
+  selected q*: [8, 6, 10, 10, 6, 6, 4, 4, 12, 4, 6, 10, 4, 6, 6, 8, 4, 4, 6, 8]
+  selected lambda*: [0.1, 10.0, 0.1, 1.0, 10.0, 10.0, 10.0, 1.0, 10.0, 1.0, 1.0, 0.1, 0.1, 10.0, 1.0, 1.0, 1.0, 1.0, 10.0, 1.0]
+  selected KAN (grid_size, l1): [(10, 0.01), (6, 0.0), (6, 0.0), (6, 0.0), (6, 0.0), (10, 0.01), (6, 0.0), (6, 0.0), (14, 0.01), (6, 0.0), (6, 0.0), (10, 0.01), (14, 0.01), (6, 0.0), (10, 0.01), (10, 0.01), (6, 0.0), (10, 0.01), (6, 0.0), (10, 0.01)]
+
+  * marks a difference exceeding 1.96 Nadeau-Bengio standard errors.
+  KAN(matched) spans the SAME function space as GAM(q*); a gap there is
+  optimisation or regularisation, never representation.
+
+wrote [PROJECT_ROOT]\experiments\flexibility_nwtco.txt
+
+  NOTE ADDED AFTER THE RUN.  The GAM+pairs row above is exactly +0.00000 +- 0.00000
+  on all five metrics because nwtco has fewer than two continuous columns, so the
+  pairwise-interaction list is empty and the design is byte-identical to GAM(q*).
+  That row is NOT a finding of "no interaction effect"; it is the absence of an
+  experiment.  experiments/flexibility.py now skips the arm and says so instead of
+  printing zeros.  E18's conclusion on this cohort rests on KAN-deep alone.

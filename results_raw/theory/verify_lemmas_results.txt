@@ -1,0 +1,127 @@
+====================================================================================================
+E10-E12  NUMERICAL VERIFICATION OF SECTION 4, AND ITS LINK TO SECTION 7
+====================================================================================================
+
+====================================================================================================
+E10a  EXACTNESS OF THE GROUPED LIKELIHOOD ON AN UNEQUAL GRID
+      P(k = t) from the Bernoulli product must equal S(a_{t-1}) - S(a_t)
+====================================================================================================
+  increasing   worst |P_exact - P_grouped| over 4 ragged grids x 3 covariate values = 1.110e-16
+  decreasing   worst |P_exact - P_grouped| over 4 ragged grids x 3 covariate values = 1.110e-16
+  bathtub      worst |P_exact - P_grouped| over 4 ragged grids x 3 covariate values = 1.110e-16
+  -> EXACT (machine precision); equal spacing is not used anywhere in the derivation.
+
+====================================================================================================
+E10b  THEOREM 3: order and constant of the information loss
+      predicted  I_inf - I_T  ~  (Delta^2/12) int_0^tau S lambda^3
+====================================================================================================
+  hazard          s0  log-log slope   coef ratio   at T=2048   reading
+  increasing    0.00         2.0000       1.0000   1.827e-08   matches
+  increasing    0.05         2.0000       1.0000   1.656e-08   matches
+  decreasing    0.00         1.9875       0.8484   1.873e-08   DEVIATES
+  decreasing    0.05         2.0000       1.0000   1.141e-08   matches
+  bathtub       0.00         1.9999       1.0000   3.941e-09   matches
+  bathtub       0.05         1.9999       1.0000   2.872e-09   matches
+  slope 2 and ratio 1 are the predictions.  The decreasing hazard at
+  s0 = 0 is where (A2) fails and the theory is expected to strain.
+
+====================================================================================================
+E10c/E10e  THEOREM 3' PROFILED: both terms, and the sign question
+      loss_known    = I_inf  - I_T   (baseline known, Theorem 3)
+      loss_profiled = I*_inf - I*_T  (baseline estimated, Theorem 3')
+      credit        = loss_known - loss_profiled, the drift credit
+      vbar drift    = max_s |d vbar / ds|, the thing the credit tracks
+====================================================================================================
+  hazard        beta  vbar drift  loss_known   loss_prof      credit  credit %   slope   sign
+  increasing     0.5      0.4437   5.923e-05   4.516e-05   1.407e-05     23.76   2.000   positive
+  increasing     1.5      1.0654   2.727e-04   1.094e-04   1.634e-04     59.91   2.000   positive
+  increasing     3.0      2.0330   1.470e-03   2.035e-04   1.266e-03     86.16   1.999   positive
+  increasing     5.0      5.9679   1.247e-02   5.155e-04   1.196e-02     95.87   1.987   positive
+  decreasing     0.5      0.7569   6.712e-05   4.364e-05   2.347e-05     34.97   1.981   positive
+  decreasing     1.5      2.3287   6.973e-04   1.277e-04   5.696e-04     81.69   1.980   positive
+  decreasing     3.0      6.1344   2.111e-02   9.127e-04   2.020e-02     95.68   1.979   positive
+  decreasing     5.0     42.4527   2.001e-01   1.229e-02   1.878e-01     93.86   1.842   positive
+  bathtub        0.5      0.2648   1.528e-05   9.785e-06   5.495e-06     35.96   1.999   positive
+  bathtub        1.5      0.8075   1.629e-04   2.965e-05   1.333e-04     81.80   1.999   positive
+  bathtub        3.0      2.5454   5.388e-03   2.106e-04   5.177e-03     96.09   2.000   positive
+  bathtub        5.0     19.2126   1.583e-01   4.652e-03   1.537e-01     97.06   2.008   positive
+
+  The credit column is the second term of Theorem 3'.  It grows with
+  vbar drift, which is what the theorem says it tracks, and it is a
+  SUBTRACTION -- estimating the baseline costs less grouping loss, not
+  more, so Theorem 3's known-baseline figure is conservative.
+
+  E10e answer: was the profiled loss ever negative in this sweep? NO
+  Over 12 configurations spanning three hazard shapes and four effect
+  sizes, I*_inf - I*_T stayed strictly positive.  That is consistent
+  with Lemma 3.2: profiling subtracts a credit from the loss but does
+  not reverse its sign.  It is a numerical finding over this design
+  space, not a proof, and the paper should say so in those words.
+
+====================================================================================================
+E11  MONTE CARLO: does (n I*_T)^{-1} describe the estimator actually fitted?
+====================================================================================================
+  true beta = 0.8;  covariate uniform on [-1.0, -0.5, 0.0, 0.5, 1.0]
+      T       n  reps      I*_T    pred SD    emp SD   ratio  mean bias
+      4    4000   200   0.27332    0.03024   0.02963   0.980   +0.00228
+      8    4000   200   0.27601    0.03010   0.02827   0.939   -0.00053
+     16    4000   200   0.27670    0.03006   0.03137   1.043   +0.00045
+     32    4000   200   0.27688    0.03005   0.02939   0.978   +0.00068
+  ratio near 1 means Theorem 3' describes the fitted joint MLE, not
+  only an abstract information quantity.
+
+====================================================================================================
+E12  LINKING THE DELTA^2 RULE TO THE R1 COHORTS
+     predicted relative loss from the FITTED baseline, against the
+     observed inflation of SE(beta) as the grid is coarsened
+====================================================================================================
+
+  flchain   n=7874  finest T=20
+        T  pred rel loss  pred SE ratio  obs SE ratio    mean SE
+        4  FAILED TypeError
+        6  FAILED TypeError
+       10  FAILED TypeError
+       20  FAILED TypeError
+    The first row is the reference, so its observed ratio is 1 by
+    construction; the comparison is whether the two columns move
+    together across the remaining rows.
+
+  support-pycox   n=8873  finest T=20
+        T  pred rel loss  pred SE ratio  obs SE ratio    mean SE
+        4  FAILED TypeError
+        6  FAILED TypeError
+       10  FAILED TypeError
+       20  FAILED TypeError
+    The first row is the reference, so its observed ratio is 1 by
+    construction; the comparison is whether the two columns move
+    together across the remaining rows.
+
+  nwtco   n=4028  finest T=20
+        T  pred rel loss  pred SE ratio  obs SE ratio    mean SE
+        4  FAILED TypeError
+        6  FAILED TypeError
+       10  FAILED TypeError
+       20  FAILED TypeError
+    The first row is the reference, so its observed ratio is 1 by
+    construction; the comparison is whether the two columns move
+    together across the remaining rows.
+
+  metabric   n=1904  finest T=20
+        T  pred rel loss  pred SE ratio  obs SE ratio    mean SE
+        4  FAILED TypeError
+        6  FAILED TypeError
+       10  FAILED TypeError
+       20  FAILED TypeError
+    The first row is the reference, so its observed ratio is 1 by
+    construction; the comparison is whether the two columns move
+    together across the remaining rows.
+
+====================================================================================================
+VERDICTS
+====================================================================================================
+  E10a     PASS
+  E10b     CHECK OUTPUT
+  E10c/e   PASS
+  E11      PASS
+
+wrote [PROJECT_ROOT]\theory\verify_lemmas_results.txt

@@ -1,0 +1,232 @@
+### spline input clamping: True   winsorising: True
+========================================================================================
+flchain: paired bootstrap on 5 INDEPENDENT splits (fair baseline)
+========================================================================================
+
+  flchain s0       n_test=  2362  l1=0.01  clamp=True  wins=True
+    NLL  linear 1.2082   KAN 1.1915
+    diff (linear - KAN) = +0.01675   95% CI [-0.00050, +0.04327]   -> not significant
+    C-index  linear 0.8071   KAN 0.8096   delta +0.0025
+    C delta  95% CI [-0.0010, +0.0059]   -> not significant
+    top-5 rows carry  92.8% of the mean   max |d_i| = 25.308
+
+  flchain s1       n_test=  2362  l1=0.01  clamp=True  wins=True
+    NLL  linear 1.2457   KAN 1.2408
+    diff (linear - KAN) = +0.00488   95% CI [-0.00186, +0.01372]   -> not significant
+    C-index  linear 0.8036   KAN 0.8050   delta +0.0015
+    C delta  95% CI [-0.0015, +0.0045]   -> not significant
+    top-5 rows carry  69.1% of the mean   max |d_i| = 7.658
+
+  flchain s2       n_test=  2362  l1=0.01  clamp=True  wins=True
+    NLL  linear 1.2092   KAN 1.2329
+    diff (linear - KAN) = -0.02365   95% CI [-0.03374, -0.01387]   -> worse
+    C-index  linear 0.7985   KAN 0.7897   delta -0.0089
+    C delta  95% CI [-0.0158, -0.0019]   -> worse
+    top-5 rows carry   6.2% of the mean   max |d_i| = 3.102
+
+  flchain s3       n_test=  2362  l1=0.01  clamp=True  wins=True
+    NLL  linear 1.2012   KAN 1.1941
+    diff (linear - KAN) = +0.00708   95% CI [+0.00124, +0.01376]   -> SIGNIFICANT
+    C-index  linear 0.7966   KAN 0.7998   delta +0.0031
+    C delta  95% CI [-0.0001, +0.0064]   -> not significant
+    top-5 rows carry  15.6% of the mean   max |d_i| = 4.943
+
+  flchain s4       n_test=  2362  l1=0.01  clamp=True  wins=True
+    NLL  linear 1.2467   KAN 1.2392
+    diff (linear - KAN) = +0.00755   95% CI [-0.00002, +0.01617]   -> not significant
+    C-index  linear 0.7817   KAN 0.7859   delta +0.0042
+    C delta  95% CI [+0.0002, +0.0081]   -> SIGNIFICANT
+    top-5 rows carry  39.5% of the mean   max |d_i| = 6.850
+
+  NLL diff across splits : +0.00252 +/- 0.01532   min -0.02365  max +0.01675
+  C   diff across splits : +0.0005 +/- 0.0053   min -0.0089  max +0.0042
+  splits whose OWN 95% NLL CI excludes zero: 1/5
+  splits whose OWN 95% C-INDEX CI excludes zero: 1/5   <- the headline metric
+  sign consistency: 4/5 positive
+  top-5-row share of the mean: 44.7% (min 6.2%, max 92.8%)  -> n/a -- effect not resolvable, share divides by noise
+  worst single-row |d_i| across splits: 25.31   (>10 means one row can move a 2362-row mean by 0.0107)
+========================================================================================
+nwtco: paired bootstrap on 5 INDEPENDENT splits (fair baseline)
+========================================================================================
+
+  nwtco s0         n_test=  1208  l1=0.01  clamp=True  wins=True
+    NLL  linear 0.6994   KAN 0.6948
+    diff (linear - KAN) = +0.00453   95% CI [+0.00057, +0.00881]   -> SIGNIFICANT
+    C-index  linear 0.6748   KAN 0.6834   delta +0.0087
+    C delta  95% CI [-0.0040, +0.0229]   -> not significant
+    top-5 rows carry  66.9% of the mean   max |d_i| = 0.991
+
+  nwtco s1         n_test=  1208  l1=0.01  clamp=True  wins=True
+    NLL  linear 0.8037   KAN 0.7918
+    diff (linear - KAN) = +0.01187   95% CI [+0.00390, +0.02046]   -> SIGNIFICANT
+    C-index  linear 0.7234   KAN 0.7288   delta +0.0054
+    C delta  95% CI [-0.0132, +0.0246]   -> not significant
+    top-5 rows carry  45.8% of the mean   max |d_i| = 1.525
+
+  nwtco s2         n_test=  1208  l1=0.01  clamp=True  wins=True
+    NLL  linear 0.7871   KAN 0.7789
+    diff (linear - KAN) = +0.00826   95% CI [+0.00180, +0.01492]   -> SIGNIFICANT
+    C-index  linear 0.6847   KAN 0.6865   delta +0.0018
+    C delta  95% CI [-0.0189, +0.0237]   -> not significant
+    top-5 rows carry  50.2% of the mean   max |d_i| = 1.227
+
+  nwtco s3         n_test=  1208  l1=0.01  clamp=True  wins=True
+    NLL  linear 0.8099   KAN 0.8020
+    diff (linear - KAN) = +0.00795   95% CI [+0.00039, +0.01610]   -> SIGNIFICANT
+    C-index  linear 0.6891   KAN 0.6913   delta +0.0022
+    C delta  95% CI [-0.0186, +0.0259]   -> not significant
+    top-5 rows carry  68.3% of the mean   max |d_i| = 1.539
+
+  nwtco s4         n_test=  1208  l1=0.01  clamp=True  wins=True
+    NLL  linear 0.7275   KAN 0.7229
+    diff (linear - KAN) = +0.00464   95% CI [-0.00394, +0.01364]   -> not significant
+    C-index  linear 0.7155   KAN 0.7076   delta -0.0080
+    C delta  95% CI [-0.0287, +0.0153]   -> not significant
+    top-5 rows carry  97.2% of the mean   max |d_i| = 1.338
+
+  NLL diff across splits : +0.00745 +/- 0.00304   min +0.00453  max +0.01187
+  C   diff across splits : +0.0020 +/- 0.0062   min -0.0080  max +0.0087
+  splits whose OWN 95% NLL CI excludes zero: 4/5
+  splits whose OWN 95% C-INDEX CI excludes zero: 0/5   <- the headline metric
+  sign consistency: 5/5 positive
+  top-5-row share of the mean: 65.7% (min 45.8%, max 97.2%)  -> TAIL-DRIVEN, do not quote
+  worst single-row |d_i| across splits: 1.54   (>10 means one row can move a 1208-row mean by 0.0013)
+========================================================================================
+rotgbsg: paired bootstrap on 5 INDEPENDENT splits (fair baseline)
+========================================================================================
+
+  rotgbsg s0       n_test=   670  l1=0.01  clamp=True  wins=True
+    NLL  linear 2.2640   KAN 2.2229
+    diff (linear - KAN) = +0.04115   95% CI [+0.02148, +0.06058]   -> SIGNIFICANT
+    C-index  linear 0.6609   KAN 0.6860   delta +0.0252
+    C delta  95% CI [+0.0100, +0.0403]   -> SIGNIFICANT
+    top-5 rows carry   2.2% of the mean   max |d_i| = 2.420
+
+  rotgbsg s1       n_test=   670  l1=0.01  clamp=True  wins=True
+    NLL  linear 2.3343   KAN 2.2855
+    diff (linear - KAN) = +0.04884   95% CI [+0.02767, +0.07325]   -> SIGNIFICANT
+    C-index  linear 0.6740   KAN 0.6936   delta +0.0196
+    C delta  95% CI [+0.0073, +0.0326]   -> SIGNIFICANT
+    top-5 rows carry  35.3% of the mean   max |d_i| = 4.729
+
+  rotgbsg s2       n_test=   670  l1=0.01  clamp=True  wins=True
+    NLL  linear 2.2890   KAN 2.2657
+    diff (linear - KAN) = +0.02332   95% CI [+0.01142, +0.03483]   -> SIGNIFICANT
+    C-index  linear 0.6599   KAN 0.6832   delta +0.0232
+    C delta  95% CI [+0.0102, +0.0370]   -> SIGNIFICANT
+    top-5 rows carry   2.8% of the mean   max |d_i| = 0.888
+
+  rotgbsg s3       n_test=   670  l1=0.01  clamp=True  wins=True
+    NLL  linear 2.3093   KAN 2.2828
+    diff (linear - KAN) = +0.02642   95% CI [+0.00637, +0.04693]   -> SIGNIFICANT
+    C-index  linear 0.6741   KAN 0.6798   delta +0.0058
+    C delta  95% CI [-0.0083, +0.0216]   -> not significant
+    top-5 rows carry  29.6% of the mean   max |d_i| = 2.889
+
+  rotgbsg s4       n_test=   670  l1=0.01  clamp=True  wins=True
+    NLL  linear 2.2323   KAN 2.1785
+    diff (linear - KAN) = +0.05376   95% CI [+0.03713, +0.07113]   -> SIGNIFICANT
+    C-index  linear 0.6743   KAN 0.7180   delta +0.0437
+    C delta  95% CI [+0.0271, +0.0606]   -> SIGNIFICANT
+    top-5 rows carry   6.8% of the mean   max |d_i| = 1.929
+
+  NLL diff across splits : +0.03870 +/- 0.01344   min +0.02332  max +0.05376
+  C   diff across splits : +0.0235 +/- 0.0136   min +0.0058  max +0.0437
+  splits whose OWN 95% NLL CI excludes zero: 5/5
+  splits whose OWN 95% C-INDEX CI excludes zero: 4/5   <- the headline metric
+  sign consistency: 5/5 positive
+  top-5-row share of the mean: 15.3% (min 2.2%, max 35.3%)  -> broad-based
+  worst single-row |d_i| across splits: 4.73   (>10 means one row can move a 670-row mean by 0.0071)
+========================================================================================
+support-pycox: paired bootstrap on 5 INDEPENDENT splits (fair baseline)
+========================================================================================
+
+  support-pycox s0 n_test=  2662  l1=0.01  clamp=True  wins=True
+    NLL  linear 2.5509   KAN 2.5477
+    diff (linear - KAN) = +0.00318   95% CI [-0.00328, +0.00942]   -> not significant
+    C-index  linear 0.6050   KAN 0.6163   delta +0.0113
+    C delta  95% CI [+0.0050, +0.0176]   -> SIGNIFICANT
+    top-5 rows carry -108.0% of the mean   max |d_i| = 2.736
+
+  support-pycox s1 n_test=  2662  l1=0.01  clamp=True  wins=True
+    NLL  linear 2.5879   KAN 2.5807
+    diff (linear - KAN) = +0.00718   95% CI [+0.00066, +0.01385]   -> SIGNIFICANT
+    C-index  linear 0.5932   KAN 0.6085   delta +0.0153
+    C delta  95% CI [+0.0079, +0.0220]   -> SIGNIFICANT
+    top-5 rows carry -28.0% of the mean   max |d_i| = 1.799
+
+  support-pycox s2 n_test=  2662  l1=0.01  clamp=True  wins=True
+    NLL  linear 2.5722   KAN 2.5692
+    diff (linear - KAN) = +0.00299   95% CI [-0.00467, +0.01044]   -> not significant
+    C-index  linear 0.6038   KAN 0.6173   delta +0.0135
+    C delta  95% CI [+0.0072, +0.0200]   -> SIGNIFICANT
+    top-5 rows carry -104.1% of the mean   max |d_i| = 2.449
+
+  support-pycox s3 n_test=  2662  l1=0.01  clamp=True  wins=True
+    NLL  linear 2.5970   KAN 2.5932
+    diff (linear - KAN) = +0.00377   95% CI [-0.00306, +0.01045]   -> not significant
+    C-index  linear 0.5977   KAN 0.6074   delta +0.0097
+    C delta  95% CI [+0.0030, +0.0162]   -> SIGNIFICANT
+    top-5 rows carry -49.1% of the mean   max |d_i| = 2.190
+
+  support-pycox s4 n_test=  2662  l1=0.01  clamp=True  wins=True
+    NLL  linear 2.5569   KAN 2.5528
+    diff (linear - KAN) = +0.00412   95% CI [-0.00246, +0.01075]   -> not significant
+    C-index  linear 0.6080   KAN 0.6166   delta +0.0086
+    C delta  95% CI [+0.0017, +0.0159]   -> SIGNIFICANT
+    top-5 rows carry -42.3% of the mean   max |d_i| = 2.175
+
+  NLL diff across splits : +0.00425 +/- 0.00170   min +0.00299  max +0.00718
+  C   diff across splits : +0.0117 +/- 0.0028   min +0.0086  max +0.0153
+  splits whose OWN 95% NLL CI excludes zero: 1/5
+  splits whose OWN 95% C-INDEX CI excludes zero: 5/5   <- the headline metric
+  sign consistency: 5/5 positive
+  top-5-row share of the mean: -66.3% (min -108.0%, max -28.0%)  -> n/a -- effect not resolvable, share divides by noise
+  worst single-row |d_i| across splits: 2.74   (>10 means one row can move a 2662-row mean by 0.0010)
+========================================================================================
+metabric: paired bootstrap on 5 INDEPENDENT splits (fair baseline)
+========================================================================================
+
+  metabric s0      n_test=   571  l1=0.01  clamp=True  wins=True
+    NLL  linear 2.2018   KAN 2.1933
+    diff (linear - KAN) = +0.00847   95% CI [-0.01229, +0.02937]   -> not significant
+    C-index  linear 0.6328   KAN 0.6417   delta +0.0089
+    C delta  95% CI [-0.0104, +0.0297]   -> not significant
+    top-5 rows carry  23.7% of the mean   max |d_i| = 1.709
+
+  metabric s1      n_test=   571  l1=0.01  clamp=True  wins=True
+    NLL  linear 2.2544   KAN 2.2479
+    diff (linear - KAN) = +0.00652   95% CI [-0.01436, +0.02621]   -> not significant
+    C-index  linear 0.6206   KAN 0.6309   delta +0.0103
+    C delta  95% CI [-0.0052, +0.0263]   -> not significant
+    top-5 rows carry  79.9% of the mean   max |d_i| = 1.781
+
+  metabric s2      n_test=   571  l1=0.01  clamp=True  wins=True
+    NLL  linear 2.2163   KAN 2.2153
+    diff (linear - KAN) = +0.00101   95% CI [-0.01845, +0.02059]   -> not significant
+    C-index  linear 0.5972   KAN 0.6066   delta +0.0095
+    C delta  95% CI [-0.0079, +0.0269]   -> not significant
+    top-5 rows carry -647.2% of the mean   max |d_i| = 1.379
+
+  metabric s3      n_test=   571  l1=0.01  clamp=True  wins=True
+    NLL  linear 2.1498   KAN 2.1440
+    diff (linear - KAN) = +0.00576   95% CI [-0.01428, +0.02557]   -> not significant
+    C-index  linear 0.6397   KAN 0.6514   delta +0.0117
+    C delta  95% CI [-0.0054, +0.0304]   -> not significant
+    top-5 rows carry -27.7% of the mean   max |d_i| = 1.941
+
+  metabric s4      n_test=   571  l1=0.01  clamp=True  wins=True
+    NLL  linear 2.1931   KAN 2.1822
+    diff (linear - KAN) = +0.01088   95% CI [-0.00438, +0.02645]   -> not significant
+    C-index  linear 0.6297   KAN 0.6439   delta +0.0142
+    C delta  95% CI [-0.0005, +0.0284]   -> not significant
+    top-5 rows carry  83.1% of the mean   max |d_i| = 1.436
+
+  NLL diff across splits : +0.00653 +/- 0.00367   min +0.00101  max +0.01088
+  C   diff across splits : +0.0109 +/- 0.0021   min +0.0089  max +0.0142
+  splits whose OWN 95% NLL CI excludes zero: 0/5
+  splits whose OWN 95% C-INDEX CI excludes zero: 0/5   <- the headline metric
+  sign consistency: 5/5 positive
+  top-5-row share of the mean: -97.6% (min -647.2%, max 83.1%)  -> n/a -- effect not resolvable, share divides by noise
+  worst single-row |d_i| across splits: 1.94   (>10 means one row can move a 571-row mean by 0.0034)
+EXIT=0

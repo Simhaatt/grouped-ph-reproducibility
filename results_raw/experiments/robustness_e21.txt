@@ -1,0 +1,33 @@
+====================================================================================================
+E21  GRID CONSTRUCTION: equal-width vs equal-count vs native
+     Modal bin mass is the paper's ordering variable and it is highly
+     sensitive to which convention produced it.
+====================================================================================================
+  cohort                T                    native               equal-width               equal-count
+                                modal           D_T       modal           D_T       modal           D_T
+  support2/slos         6      0.4814      +0.03726      0.4814      +0.03726      0.1943      +0.01627   IDENTICAL: native==equal-width
+  support2/slos        10      0.3063      +0.01634      0.3063      +0.01634      0.1450      +0.00548   IDENTICAL: native==equal-width
+  support2/slos        15      0.2699      +0.00878      0.2699      +0.00878      0.1102      +0.00142   IDENTICAL: native==equal-width
+  sparcs/drg302         6      0.9023      +0.29319      0.9023      +0.29319      0.6673      +0.16146   IDENTICAL: native==equal-width
+  sparcs/drg302        10      0.6673      +0.14316      0.6673      +0.14316      0.5448      +0.11476   IDENTICAL: native==equal-width
+  sparcs/drg302        15      0.7184      +0.16835      0.7184      +0.16835      0.5448      +0.09650   IDENTICAL: native==equal-width
+  drsa/clinic           5      0.7730      +0.11135      0.7730      +0.11135      0.3546      +0.02298   IDENTICAL: native==equal-width
+  drsa/clinic          10      0.6313      +0.06395      0.6313      +0.06395      0.3546      +0.01423   IDENTICAL: native==equal-width
+  drsa/clinic          25      0.4745      +0.02649      0.4745      +0.02649      0.3546      +0.01035   IDENTICAL: native==equal-width
+  flchain               4      0.6929      +0.00044      0.6929      +0.00044      0.4637      +0.00940   IDENTICAL: native==equal-width
+  flchain               6      0.6106      -0.00065      0.6106      -0.00065      0.4637      +0.00388   IDENTICAL: native==equal-width
+  flchain              10      0.5575      +0.00031      0.5575      +0.00031      0.4637      -0.00335   IDENTICAL: native==equal-width
+  support-pycox         4      0.4898      +0.00856      0.4898      +0.00856      0.3042      +0.01163   IDENTICAL: native==equal-width
+  support-pycox         6      0.3903      +0.00382      0.3903      +0.00382      0.3027      +0.00580   IDENTICAL: native==equal-width
+  support-pycox        10      0.3027      +0.00166      0.3027      +0.00166      0.2047      +0.00219   IDENTICAL: native==equal-width
+  drsa/music            6      0.4315      +0.01975      0.4315      +0.01975      0.1737      +0.01323   IDENTICAL: native==equal-width
+  drsa/music           12      0.2331      +0.00706      0.2331      +0.00706      0.0922      +0.00498   IDENTICAL: native==equal-width
+  drsa/music           30      0.0955      +0.00116      0.0955      +0.00116      0.0410      +0.00113   IDENTICAL: native==equal-width
+  nwtco                 4      0.8488      -0.00030      0.8488      -0.00030      0.7157      +0.00016   IDENTICAL: native==equal-width
+  nwtco                 6      0.7964      -0.00020      0.7964      -0.00020      0.8294      +0.00007   IDENTICAL: native==equal-width
+  nwtco                10      0.7654      -0.00017      0.7654      -0.00017      0.7964      -0.00006   IDENTICAL: native==equal-width
+  metabric              4      0.3771      +0.00529      0.3771      +0.00529      0.3188      +0.00613   IDENTICAL: native==equal-width
+  metabric              6      0.2621      +0.00229      0.2621      +0.00229      0.2127      +0.00235   IDENTICAL: native==equal-width
+  metabric             10      0.1786      +0.00038      0.1786      +0.00038      0.1786      +0.00133   IDENTICAL: native==equal-width
+
+total 4025s -> [PROJECT_ROOT]\experiments\robustness_e21.txt

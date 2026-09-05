@@ -1,0 +1,164 @@
+========================================================================================================
+E9  NUISANCE DIMENSION vs TIE HANDLING
+    alpha = B(t) gamma with dim(gamma) = q held FIXED as T varies.
+    D_T = NLL(Cox/Efron + Breslow) - NLL(grouped, constrained baseline).
+    20 splits; NB SE is Nadeau-Bengio corrected.
+========================================================================================================
+
+========================================================================================================
+metabric
+========================================================================================================
+     T   modal  free alpha                 q=3                 q=5                 q=8       q=T (control)
+                                  D_T    NB SE        D_T    NB SE        D_T    NB SE        D_T    NB SE
+     4   0.377           4   +0.00761  0.00485   +0.00761  0.00485   +0.00761  0.00485   +0.00761  0.00485   [10s]
+     6   0.262           6   +0.00236  0.00355   +0.00280  0.00362   +0.00394  0.00333   +0.00394  0.00333   [10s]
+    10   0.179          10   +0.00444  0.00282   +0.00441  0.00267   +0.00274  0.00235   +0.00164  0.00232   [14s]
+    20   0.109          20   +0.00780  0.00319   +0.00839  0.00311   +0.00720  0.00302   -0.00002  0.00135   [23s]
+
+  TREND IN D_T ACROSS THE GRID SWEEP (Spearman with T; the paper
+  predicts NEGATIVE -- the grouped model loses as T rises)
+    q=3 (fixed)    rho = +0.400   range of D_T = 0.00544
+    q=5 (fixed)    rho = +0.400   range of D_T = 0.00559
+    q=8 (fixed)    rho = -0.400   range of D_T = 0.00487
+    q=T (free)     rho = -1.000   range of D_T = 0.00763
+
+  If the fixed-q rows have a much smaller range than q=T, the
+  coarsening trend is a nuisance-DIMENSION effect.  If the ranges
+  match, it is tie handling and section 5.4's second cost is not
+  the mechanism.
+
+========================================================================================================
+nwtco
+========================================================================================================
+     T   modal  free alpha                 q=3                 q=5                 q=8       q=T (control)
+                                  D_T    NB SE        D_T    NB SE        D_T    NB SE        D_T    NB SE
+     4   0.849           4   -0.00005  0.00041   -0.00005  0.00041   -0.00005  0.00041   -0.00005  0.00041   [10s]
+     6   0.796           6   +0.00005  0.00091   +0.00022  0.00064   -0.00009  0.00029   -0.00009  0.00029   [15s]
+    10   0.765          10   +0.00163  0.00066   +0.00142  0.00065   +0.00053  0.00062   -0.00008  0.00017   [26s]
+    20   0.716          20   +0.00480  0.00148   +0.00452  0.00141   +0.00378  0.00130   -0.00009  0.00008   [104s]
+
+  TREND IN D_T ACROSS THE GRID SWEEP (Spearman with T; the paper
+  predicts NEGATIVE -- the grouped model loses as T rises)
+    q=3 (fixed)    rho = +1.000   range of D_T = 0.00485
+    q=5 (fixed)    rho = +1.000   range of D_T = 0.00458
+    q=8 (fixed)    rho = +0.800   range of D_T = 0.00387
+    q=T (free)     rho = -0.400   range of D_T = 0.00004
+
+  If the fixed-q rows have a much smaller range than q=T, the
+  coarsening trend is a nuisance-DIMENSION effect.  If the ranges
+  match, it is tie handling and section 5.4's second cost is not
+  the mechanism.
+
+========================================================================================================
+flchain
+========================================================================================================
+     T   modal  free alpha                 q=3                 q=5                 q=8       q=T (control)
+                                  D_T    NB SE        D_T    NB SE        D_T    NB SE        D_T    NB SE
+     4   0.693           4   +0.00151  0.00253   +0.00151  0.00253   +0.00151  0.00253   +0.00151  0.00253   [24s]
+     6   0.611           6   -0.00013  0.00238   +0.00022  0.00227   +0.00044  0.00229   +0.00044  0.00229   [756s]
+    10   0.558          10   +0.00135  0.00073   +0.00110  0.00065   +0.00060  0.00059   +0.00036  0.00062   [985s]
+    20   0.464          20   +0.00268  0.00050   +0.00240  0.00047   +0.00174  0.00049   +0.00002  0.00030   [637s]
+
+  TREND IN D_T ACROSS THE GRID SWEEP (Spearman with T; the paper
+  predicts NEGATIVE -- the grouped model loses as T rises)
+    q=3 (fixed)    rho = +0.400   range of D_T = 0.00280
+    q=5 (fixed)    rho = +0.400   range of D_T = 0.00219
+    q=8 (fixed)    rho = +0.400   range of D_T = 0.00130
+    q=T (free)     rho = -1.000   range of D_T = 0.00150
+
+  If the fixed-q rows have a much smaller range than q=T, the
+  coarsening trend is a nuisance-DIMENSION effect.  If the ranges
+  match, it is tie handling and section 5.4's second cost is not
+  the mechanism.
+
+========================================================================================================
+support-pycox
+========================================================================================================
+     T   modal  free alpha                 q=3                 q=5                 q=8       q=T (control)
+                                  D_T    NB SE        D_T    NB SE        D_T    NB SE        D_T    NB SE
+     4   0.490           4   +0.00892  0.00173   +0.00892  0.00173   +0.00892  0.00173   +0.00892  0.00173   [48s]
+     6   0.390           6   +0.00067  0.00127   +0.00272  0.00132   +0.00416  0.00116   +0.00416  0.00116   [78s]
+    10   0.303          10   +0.00063  0.00091   +0.00153  0.00085   +0.00199  0.00080   +0.00170  0.00077   [126s]
+    20   0.186          20   -0.00235  0.00120   -0.00012  0.00098   -0.00024  0.00075   +0.00042  0.00045   [135s]
+
+  TREND IN D_T ACROSS THE GRID SWEEP (Spearman with T; the paper
+  predicts NEGATIVE -- the grouped model loses as T rises)
+    q=3 (fixed)    rho = -1.000   range of D_T = 0.01127
+    q=5 (fixed)    rho = -1.000   range of D_T = 0.00903
+    q=8 (fixed)    rho = -1.000   range of D_T = 0.00916
+    q=T (free)     rho = -1.000   range of D_T = 0.00849
+
+  If the fixed-q rows have a much smaller range than q=T, the
+  coarsening trend is a nuisance-DIMENSION effect.  If the ranges
+  match, it is tie handling and section 5.4's second cost is not
+  the mechanism.
+
+========================================================================================================
+drsa/clinic
+========================================================================================================
+     T   modal  free alpha                 q=3                 q=5                 q=8       q=T (control)
+                                  D_T    NB SE        D_T    NB SE        D_T    NB SE        D_T    NB SE
+     5   0.773           5   +0.10489  0.00764   +0.10464  0.00762   +0.10464  0.00762   +0.10464  0.00762   [51s]
+    10   0.631          10   +0.05813  0.00877   +0.05884  0.00884   +0.05777  0.00648   +0.05785  0.00643   [193s]
+    25   0.475          25   +0.01609  0.01015   +0.02157  0.01070   +0.03032  0.00815   +0.02269  0.00422   [235s]
+    50   0.355          50   +0.00170  0.01341   +0.00946  0.01377   +0.02445  0.01249   +0.00842  0.00252   [513s]
+
+  TREND IN D_T ACROSS THE GRID SWEEP (Spearman with T; the paper
+  predicts NEGATIVE -- the grouped model loses as T rises)
+    q=3 (fixed)    rho = -1.000   range of D_T = 0.10319
+    q=5 (fixed)    rho = -1.000   range of D_T = 0.09517
+    q=8 (fixed)    rho = -1.000   range of D_T = 0.08019
+    q=T (free)     rho = -1.000   range of D_T = 0.09621
+
+  If the fixed-q rows have a much smaller range than q=T, the
+  coarsening trend is a nuisance-DIMENSION effect.  If the ranges
+  match, it is tie handling and section 5.4's second cost is not
+  the mechanism.
+
+========================================================================================================
+support2/slos
+========================================================================================================
+     T   modal  free alpha                 q=3                 q=5                 q=8       q=T (control)
+                                  D_T    NB SE        D_T    NB SE        D_T    NB SE        D_T    NB SE
+     6   0.481           6   +0.03812  0.00457   +0.03927  0.00454   +0.03928  0.00446   +0.03928  0.00446   [329s]
+    10   0.306          10   +0.01186  0.00336   +0.01812  0.00325   +0.01861  0.00317   +0.01839  0.00305   [426s]
+    15   0.270          15   -0.01439  0.00356   +0.00069  0.00264   +0.00976  0.00261   +0.01019  0.00233   [819s]
+    20   0.217          20   -0.03926  0.00438   -0.01951  0.00341   +0.00030  0.00249   +0.00624  0.00177   [625s]
+    30   0.145          30   -0.06175  0.00402   -0.04016  0.00250   -0.01584  0.00224   +0.00257  0.00130   [426s]
+    60   0.076          60   -0.06676  0.00440   -0.04409  0.00243   -0.01758  0.00167   +0.00041  0.00069   [1279s]
+
+  TREND IN D_T ACROSS THE GRID SWEEP (Spearman with T; the paper
+  predicts NEGATIVE -- the grouped model loses as T rises)
+    q=3 (fixed)    rho = -1.000   range of D_T = 0.10488
+    q=5 (fixed)    rho = -1.000   range of D_T = 0.08336
+    q=8 (fixed)    rho = -1.000   range of D_T = 0.05686
+    q=T (free)     rho = -1.000   range of D_T = 0.03887
+
+  If the fixed-q rows have a much smaller range than q=T, the
+  coarsening trend is a nuisance-DIMENSION effect.  If the ranges
+  match, it is tie handling and section 5.4's second cost is not
+  the mechanism.
+
+========================================================================================================
+sparcs/drg302
+========================================================================================================
+     T   modal  free alpha                 q=3                 q=5                 q=8       q=T (control)
+                                  D_T    NB SE        D_T    NB SE        D_T    NB SE        D_T    NB SE
+     6   0.902           6   +0.29352  0.00261   +0.29337  0.00261   +0.29336  0.00261   +0.29336  0.00261   [351s]
+    10   0.667          10   +0.14221  0.00270   +0.14278  0.00270   +0.14302  0.00263   +0.14313  0.00264   [328s]
+    15   0.718          15   +0.05950  0.00513   +0.09920  0.00434   +0.16027  0.00347   +0.16779  0.00350   [501s]
+    30   0.545          30   -0.14464  0.00519   -0.09419  0.00570   +0.01362  0.00395   +0.06698  0.00220   [1399s]
+
+  TREND IN D_T ACROSS THE GRID SWEEP (Spearman with T; the paper
+  predicts NEGATIVE -- the grouped model loses as T rises)
+    q=3 (fixed)    rho = -1.000   range of D_T = 0.43816
+    q=5 (fixed)    rho = -1.000   range of D_T = 0.38756
+    q=8 (fixed)    rho = -0.800   range of D_T = 0.27974
+    q=T (free)     rho = -0.800   range of D_T = 0.22638
+
+  If the fixed-q rows have a much smaller range than q=T, the
+  coarsening trend is a nuisance-DIMENSION effect.  If the ranges
+  match, it is tie handling and section 5.4's second cost is not
+  the mechanism.
+
+wrote [PROJECT_ROOT]\experiments\nuisance_dim.txt

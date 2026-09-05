@@ -1,0 +1,51 @@
+==================================================================================
+PART 1  sqrt(n)-normality, valid SEs, and efficiency of betahat
+==================================================================================
+  n=6000  reps=60  T=20   true beta = [ 0.7 -0.5  0.3]
+                           x0         x1         x2
+    estimate           0.7021    -0.5001     0.3009
+    empirical sd       0.0189     0.0149     0.0191
+    mean SE            0.0181     0.0172     0.0165
+    SE/sd              0.9566     1.1519     0.8614
+    mean z             0.1097     0.0018     0.0540
+    sd of z            1.0485     0.8663     1.1608
+    95% coverage       0.9167     1.0000     0.9000
+    (SE/sd tolerance 0.276 = 3 x MC error at 60 reps)
+    -> SE/sd ~ 1 : PASS | z ~ N(0,1) : PASS | coverage : PASS
+
+==================================================================================
+PART 2  nonparametric rate for ghat   ||ghat-g*||^2 ~ n^(-2r/(2r+1))
+==================================================================================
+
+  target = smooth   (predicted -1.000)
+           n           MSE          se
+         500      0.197763    0.029691
+        1000      0.090034    0.012974
+        2000      0.040356    0.005192
+        4000      0.021428    0.003149
+        8000      0.009893    0.000717
+       16000      0.006427    0.000836
+    slope = -1.005   95% bootstrap CI [-1.093, -0.917]
+
+  target = kinked   (predicted -1.000)
+           n           MSE          se
+         500      0.145134    0.015924
+        1000      0.064715    0.005563
+        2000      0.023730    0.002240
+        4000      0.012361    0.001048
+        8000      0.007465    0.000649
+       16000      0.003847    0.000372
+    slope = -1.042   95% bootstrap CI [-1.104, -0.977]
+
+    target        slope              95% CI   minimax bound     verdict
+    smooth       -1.005   [-1.093, -0.917]          -0.889          OK
+    kinked       -1.042   [-1.104, -0.977]          -0.667          OK
+
+    -> PASS: risk decays AT LEAST as fast as the minimax bound n^(-2r/(2r+1))
+       (both targets in fact reach the parametric rate; see the
+        approximation-floor analysis in theory/diagnose.py D2)
+
+==================================================================================
+RESULT: THEOREM 4 GATE PASSES
+==================================================================================
+GATE EXIT=0

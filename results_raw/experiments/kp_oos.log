@@ -1,0 +1,32 @@
+========================================================================================================
+OUT-OF-SAMPLE TEST OF THE KP-NULL
+  New SPARCS APR-DRG cohorts, none used to form any claim in the paper.
+  10 splits per configuration; NB SE is Nadeau-Bengio corrected.
+  Each cohort capped at 50,000 rows (see MAX_ROWS); still a new population.
+  D_T > 0 favours the grouped joint MLE.  'res' is |D_T| > 1.96 NB SE.
+========================================================================================================
+  cohort                    n   T   modal  D_T Breslow    NB SE  res     D_T KP    NB SE  res   base%
+  sparcs/drg640@T6      50000   6  0.9884     +0.42344  0.00131  yes   +0.00340  0.00051  yes   99.2%   [50s]
+  sparcs/drg640@T15     50000  15  0.6489     +0.17770  0.00217  yes   +0.00048  0.00150   no   99.7%   [205s]
+  sparcs/drg640@T30     50000  30  0.5831     +0.10006  0.00187  yes   +0.00067  0.00152   no   99.4%   [649s]
+  sparcs/drg560@T6      50000   6  0.9900     +0.42706  0.00311  yes   +0.00188  0.00221   no   99.6%   [48s]
+  sparcs/drg560@T15     50000  15  0.6525     +0.19123  0.00296  yes   +0.00017  0.00150   no   99.9%   [236s]
+  sparcs/drg560@T30     50000  30  0.6012     +0.13561  0.00258  yes   +0.00040  0.00044   no   99.7%   [954s]
+  sparcs/drg540@T6      50000   6  0.9372     +0.34261  0.00217  yes   +0.00455  0.00075  yes   98.7%   [35s]
+  sparcs/drg540@T15     50000  15  0.7754     +0.21119  0.00244  yes   +0.00175  0.00029  yes   99.2%   [147s]
+  sparcs/drg540@T30     50000  30  0.4657     +0.07957  0.00198  yes   +0.00017  0.00011   no   99.8%   [777s]
+  sparcs/drg720@T6      50000   6  0.4207     +0.05641  0.00176  yes   +0.00037  0.00022   no   99.3%   [29s]
+  sparcs/drg720@T15     50000  15  0.1946     +0.01167  0.00097  yes   -0.00001  0.00006   no  100.0%   [111s]
+  sparcs/drg720@T30     50000  30  0.0990     +0.00306  0.00056  yes   -0.00001  0.00002   no  100.2%   [430s]
+
+========================================================================================================
+READING
+========================================================================================================
+  configurations: 12
+  resolved POSITIVE under Breslow: 12/12
+  resolved POSITIVE under KP:      3/12
+
+  SOME configurations DO show a resolved grouped advantage under KP.
+  That contradicts the 21/21 in-sample result and must be reported
+  rather than reconciled -- it would mean the KP-null is a property
+  of the original cohorts and not of the estimator.

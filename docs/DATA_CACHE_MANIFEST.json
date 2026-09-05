@@ -1,0 +1,95 @@
+[
+  {
+    "dataset": "flchain",
+    "rows": 7874,
+    "columns": [
+      "rownames",
+      "age",
+      "sex",
+      "sample.yr",
+      "kappa",
+      "lambda",
+      "flc.grp",
+      "creatinine",
+      "mgus",
+      "futime",
+      "death",
+      "chapter"
+    ],
+    "sha256": "9fd207eaab0b0d1af182753293effa56c041902470b8238cfdc58fb68b893df7"
+  },
+  {
+    "dataset": "gbsg",
+    "rows": 2232,
+    "columns": [
+      "x0",
+      "x1",
+      "x2",
+      "x3",
+      "x4",
+      "x5",
+      "x6",
+      "duration",
+      "event"
+    ],
+    "sha256": "a173b4ccb254350d0e502d7e44d2e50b7ad2d8a2d66d98abb5cc5c9d0439bc8e"
+  },
+  {
+    "dataset": "metabric",
+    "rows": 1904,
+    "columns": [
+      "x0",
+      "x1",
+      "x2",
+      "x3",
+      "x4",
+      "x5",
+      "x6",
+      "x7",
+      "x8",
+      "duration",
+      "event"
+    ],
+    "sha256": "92c0e13b5de0d615964e90c4cc9dcaf2999491900cb608565f489bd13be64a31"
+  },
+  {
+    "dataset": "nwtco",
+    "rows": 4028,
+    "columns": [
+      "rownames",
+      "seqno",
+      "instit",
+      "histol",
+      "stage",
+      "study",
+      "rel",
+      "edrel",
+      "age",
+      "in.subcohort"
+    ],
+    "sha256": "bdf9241473cd7ab166e76b82089a3ccd917ce5914eed9e7195c8466e77b96087"
+  },
+  {
+    "dataset": "support",
+    "rows": 8873,
+    "columns": [
+      "x0",
+      "x1",
+      "x2",
+      "x3",
+      "x4",
+      "x5",
+      "x6",
+      "x7",
+      "x8",
+      "x9",
+      "x10",
+      "x11",
+      "x12",
+      "x13",
+      "duration",
+      "event"
+    ],
+    "sha256": "577899db4bee5884c4b48e2e4132d718c733420a0428baec7c9fd2858595b3ae"
+  }
+]

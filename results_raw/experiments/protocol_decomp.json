@@ -1,0 +1,342 @@
+[
+ {
+  "cohort": "metabric",
+  "T": 4,
+  "n": 1904,
+  "modal": 0.37710084033613445,
+  "cost_full": 527408.0,
+  "dmax": 276,
+  "n_sub": null,
+  "sub_cost": null
+ },
+ {
+  "cohort": "metabric",
+  "T": 6,
+  "n": 1904,
+  "modal": 0.2620798319327731,
+  "cost_full": 422688.0,
+  "dmax": 221,
+  "n_sub": null,
+  "sub_cost": null
+ },
+ {
+  "cohort": "metabric",
+  "T": 10,
+  "n": 1904,
+  "modal": 0.17857142857142858,
+  "cost_full": 213248.0,
+  "dmax": 111,
+  "n_sub": null,
+  "sub_cost": null
+ },
+ {
+  "cohort": "metabric",
+  "T": 20,
+  "n": 1904,
+  "modal": 0.1092436974789916,
+  "cost_full": 110432.0,
+  "dmax": 57,
+  "n_sub": null,
+  "sub_cost": null
+ },
+ {
+  "cohort": "nwtco",
+  "T": 4,
+  "n": 4028,
+  "modal": 0.8488083416087389,
+  "cost_full": 588088.0,
+  "dmax": 145,
+  "n_sub": null,
+  "sub_cost": null
+ },
+ {
+  "cohort": "nwtco",
+  "T": 6,
+  "n": 4028,
+  "modal": 0.7964250248262165,
+  "cost_full": 487388.0,
+  "dmax": 120,
+  "n_sub": null,
+  "sub_cost": null
+ },
+ {
+  "cohort": "nwtco",
+  "T": 10,
+  "n": 4028,
+  "modal": 0.7653922542204568,
+  "cost_full": 253764.0,
+  "dmax": 62,
+  "n_sub": null,
+  "sub_cost": null
+ },
+ {
+  "cohort": "nwtco",
+  "T": 20,
+  "n": 4028,
+  "modal": 0.7157398212512414,
+  "cost_full": 140980.0,
+  "dmax": 34,
+  "n_sub": null,
+  "sub_cost": null
+ },
+ {
+  "cohort": "flchain",
+  "T": 4,
+  "n": 7874,
+  "modal": 0.6929133858267716,
+  "cost_full": 4283456.0,
+  "dmax": 543,
+  "n_sub": null,
+  "sub_cost": null
+ },
+ {
+  "cohort": "flchain",
+  "T": 6,
+  "n": 7874,
+  "modal": 0.6106172212344425,
+  "cost_full": 3433064.0,
+  "dmax": 435,
+  "n_sub": null,
+  "sub_cost": null
+ },
+ {
+  "cohort": "flchain",
+  "T": 10,
+  "n": 7874,
+  "modal": 0.5575311150622301,
+  "cost_full": 1732280.0,
+  "dmax": 219,
+  "n_sub": null,
+  "sub_cost": null
+ },
+ {
+  "cohort": "flchain",
+  "T": 20,
+  "n": 7874,
+  "modal": 0.4636779273558547,
+  "cost_full": 874014.0,
+  "dmax": 110,
+  "n_sub": null,
+  "sub_cost": null
+ },
+ {
+  "cohort": "support-pycox",
+  "T": 4,
+  "n": 8873,
+  "modal": 0.4898005184266877,
+  "cost_full": 14010467.0,
+  "dmax": 1578,
+  "n_sub": null,
+  "sub_cost": null
+ },
+ {
+  "cohort": "support-pycox",
+  "T": 6,
+  "n": 8873,
+  "modal": 0.39028513467823733,
+  "cost_full": 11100123.0,
+  "dmax": 1250,
+  "n_sub": null,
+  "sub_cost": null
+ },
+ {
+  "cohort": "support-pycox",
+  "T": 10,
+  "n": 8873,
+  "modal": 0.302716105037755,
+  "cost_full": 6299830.0,
+  "dmax": 709,
+  "n_sub": null,
+  "sub_cost": null
+ },
+ {
+  "cohort": "support-pycox",
+  "T": 20,
+  "n": 8873,
+  "modal": 0.1856192944888989,
+  "cost_full": 3283010.0,
+  "dmax": 369,
+  "n_sub": null,
+  "sub_cost": null
+ },
+ {
+  "cohort": "drsa/clinic",
+  "T": 5,
+  "n": 4828,
+  "modal": 0.7729908864954432,
+  "cost_full": 17139400.0,
+  "dmax": 3549,
+  "n_sub": 3306,
+  "sub_cost": 7997214.0
+ },
+ {
+  "cohort": "drsa/clinic",
+  "T": 10,
+  "n": 4828,
+  "modal": 0.6313173156586578,
+  "cost_full": 14522624.0,
+  "dmax": 3007,
+  "n_sub": null,
+  "sub_cost": null
+ },
+ {
+  "cohort": "drsa/clinic",
+  "T": 25,
+  "n": 4828,
+  "modal": 0.4745236122618061,
+  "cost_full": 11065776.0,
+  "dmax": 2291,
+  "n_sub": null,
+  "sub_cost": null
+ },
+ {
+  "cohort": "drsa/clinic",
+  "T": 50,
+  "n": 4828,
+  "modal": 0.35459817729908866,
+  "cost_full": 8270364.0,
+  "dmax": 1712,
+  "n_sub": null,
+  "sub_cost": null
+ },
+ {
+  "cohort": "support2/slos",
+  "T": 6,
+  "n": 9105,
+  "modal": 0.4813838550247117,
+  "cost_full": 28890165.0,
+  "dmax": 3172,
+  "n_sub": 4756,
+  "sub_cost": 7994836.0
+ },
+ {
+  "cohort": "support2/slos",
+  "T": 10,
+  "n": 9105,
+  "modal": 0.30631521142229545,
+  "cost_full": 19448280.0,
+  "dmax": 2135,
+  "n_sub": 5780,
+  "sub_cost": 7999520.0
+ },
+ {
+  "cohort": "support2/slos",
+  "T": 15,
+  "n": 9105,
+  "modal": 0.2698517298187809,
+  "cost_full": 16580205.0,
+  "dmax": 1820,
+  "n_sub": 6324,
+  "sub_cost": 7999860.0
+ },
+ {
+  "cohort": "support2/slos",
+  "T": 20,
+  "n": 9105,
+  "modal": 0.21702361339923118,
+  "cost_full": 12819840.0,
+  "dmax": 1407,
+  "n_sub": null,
+  "sub_cost": null
+ },
+ {
+  "cohort": "support2/slos",
+  "T": 30,
+  "n": 9105,
+  "modal": 0.14497528830313014,
+  "cost_full": 8986635.0,
+  "dmax": 986,
+  "n_sub": null,
+  "sub_cost": null
+ },
+ {
+  "cohort": "support2/slos",
+  "T": 60,
+  "n": 9105,
+  "modal": 0.07556287753981329,
+  "cost_full": 4570710.0,
+  "dmax": 501,
+  "n_sub": null,
+  "sub_cost": null
+ },
+ {
+  "cohort": "sparcs/drg302",
+  "T": 6,
+  "n": 34233,
+  "modal": 0.9023164782519791,
+  "cost_full": 1057457370.0,
+  "dmax": 30889,
+  "n_sub": 2986,
+  "sub_cost": 7996508.0
+ },
+ {
+  "cohort": "sparcs/drg302",
+  "T": 10,
+  "n": 34233,
+  "modal": 0.6672508982560688,
+  "cost_full": 781984419.0,
+  "dmax": 22842,
+  "n_sub": 3505,
+  "sub_cost": 7998410.0
+ },
+ {
+  "cohort": "sparcs/drg302",
+  "T": 15,
+  "n": 34233,
+  "modal": 0.7184003739082172,
+  "cost_full": 841926402.0,
+  "dmax": 24593,
+  "n_sub": 3347,
+  "sub_cost": 7999330.0
+ },
+ {
+  "cohort": "sparcs/drg302",
+  "T": 30,
+  "n": 34233,
+  "modal": 0.5448251686968715,
+  "cost_full": 638513916.0,
+  "dmax": 18651,
+  "n_sub": 3854,
+  "sub_cost": 7997050.0
+ },
+ {
+  "cohort": "drsa/music",
+  "T": 6,
+  "n": 50000,
+  "modal": 0.43152,
+  "cost_full": 766800000.0,
+  "dmax": 15335,
+  "n_sub": 5076,
+  "sub_cost": 7999776.0
+ },
+ {
+  "cohort": "drsa/music",
+  "T": 12,
+  "n": 50000,
+  "modal": 0.23308,
+  "cost_full": 396900000.0,
+  "dmax": 7937,
+  "n_sub": 7187,
+  "sub_cost": 7999131.0
+ },
+ {
+  "cohort": "drsa/music",
+  "T": 30,
+  "n": 50000,
+  "modal": 0.09554,
+  "cost_full": 167500000.0,
+  "dmax": 3349,
+  "n_sub": 11089,
+  "sub_cost": 7995169.0
+ },
+ {
+  "cohort": "drsa/music",
+  "T": 60,
+  "n": 50000,
+  "modal": 0.04868,
+  "cost_full": 87800000.0,
+  "dmax": 1755,
+  "n_sub": 14971,
+  "sub_cost": 7994514.0
+ }
+]

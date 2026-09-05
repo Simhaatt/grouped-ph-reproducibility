@@ -1,0 +1,11 @@
+{
+  "configurations": 34,
+  "positive_B": 29,
+  "nonpositive_KP": 31,
+  "resolved_positive_KP": 0,
+  "validation_resolved_KP": 3,
+  "rho_all_legacy": -0.14224664224664224,
+  "rho_events_legacy": 0.8742368742368741,
+  "rho_all_tie_aware": -0.1468791619172371,
+  "rho_events_tie_aware": 0.8744655264346268
+}

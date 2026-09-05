@@ -1,0 +1,6 @@
+# Frozen-output regeneration; versions observed during preparation.
+numpy==2.4.2
+scipy==1.17.1
+matplotlib==3.10.9
+pypdf==6.10.2
+PyYAML==6.0.3

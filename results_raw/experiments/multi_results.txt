@@ -1,0 +1,101 @@
+
+==============================================================================================
+support2/slos          n=   9105  p= 32  T=  60  events=0.709  top3bins=0.218  [discrete]
+  train 6373 / test 2732   tie_ratio=0.0183
+==============================================================================================
+  model                 train NLL   test NLL   C-index       IBS  epochs    secs
+  linear/cloglog           2.5844     2.5520    0.7561    0.1211     500     7.4
+  linear/logit             2.5835     2.5517    0.7559    0.1211     500     3.4
+  kan-allspline            2.5752     2.5597    0.7566    0.1210     168    12.1
+  kan/cloglog              2.5623     2.5599    0.7562    0.1214     337    10.6
+  kan-deep/cloglog         2.5746     2.6067    0.7469    0.1243     100     8.9
+  kan-shared/cloglog       2.7317     2.7048    0.7553    0.1238     110   810.9
+
+  DIAGNOSIS  KAN minus linear:  train +0.0221   test -0.0079
+    -> train improves but test does not: OVERFITTING; needs
+       stronger regularisation (l1/entropy or fewer knots).
+
+  AGE partial effect on the log-hazard of discharge
+  (Nawata et al. report the age effect CHANGING AT 40)
+        age     effect
+       33.3     0.0417  ###################
+       37.7     0.0154  ##################
+       42.0     0.0054  ##################
+       46.4     0.0071  ##################
+       50.8     0.0052  ##################
+       55.2    -0.0142  ##################
+       59.6     0.0016  ##################
+       64.0     0.0476  ###################
+       68.4    -0.0484  #################
+       72.8     0.0062  ##################
+       77.2    -0.0319  #################
+       81.6    -0.0523  #################
+    steepest change in slope at age 69.3
+*** No CODEPAGE record, no encoding_override: will use 'iso-8859-1'
+
+==============================================================================================
+prostate               n=    502  p= 23  T=  60  events=0.671  top3bins=0.297  [discrete]
+  train 351 / test 151   tie_ratio=0.1514
+==============================================================================================
+  model                 train NLL   test NLL   C-index       IBS  epochs    secs
+  linear/cloglog           3.1478     3.3734    0.5959    0.1986     152     0.5
+  linear/logit             3.1463     3.3720    0.5955    0.1983     153     0.3
+  kan-allspline            3.1348     3.3383    0.6106    0.1921      80     0.6
+  kan/cloglog              3.1564     3.3874    0.5700    0.2081      85     0.5
+  kan-deep/cloglog         3.2354     3.3984    0.5761    0.2014      67     0.8
+  kan-shared/cloglog       3.2642     3.3933    0.5802    0.2003      72    15.8
+
+  DIAGNOSIS  KAN minus linear:  train -0.0086   test -0.0140
+    -> train fit barely improves: NO detectable nonlinear signal.
+       The KAN is correctly finding nothing; this is a property of
+       the data, not a tuning failure.
+
+==============================================================================================
+gbsg                   n=    686  p=  9  T=  20  events=0.436  top3bins=0.369  [binned-continuous]
+  train 480 / test 206   tie_ratio=0.8367
+==============================================================================================
+  model                 train NLL   test NLL   C-index       IBS  epochs    secs
+  linear/cloglog           1.7868     1.8749    0.7055    0.1436     113     0.3
+  linear/logit             1.7851     1.8740    0.7064    0.1435     114     0.2
+  kan-allspline            1.7754     1.8874    0.7186    0.1474      92     0.5
+  kan/cloglog              1.7674     1.8820    0.7164    0.1457      95     0.5
+  kan-deep/cloglog         1.8392     1.9515    0.6425    0.1613      67     0.8
+  kan-shared/cloglog       1.7523     1.8629    0.7071    0.1461      97     9.5
+
+  DIAGNOSIS  KAN minus linear:  train +0.0195   test -0.0071
+    -> train improves but test does not: OVERFITTING; needs
+       stronger regularisation (l1/entropy or fewer knots).
+*** No CODEPAGE record, no encoding_override: will use 'iso-8859-1'
+
+==============================================================================================
+pbc                    n=    418  p= 10  T=  20  events=0.385  top3bins=0.294  [binned-continuous]
+  train 293 / test 125   tie_ratio=0.9545
+==============================================================================================
+  model                 train NLL   test NLL   C-index       IBS  epochs    secs
+  linear/cloglog           1.4089     1.6676    0.8253    0.1094     117     0.3
+  linear/logit             1.3982     1.6533    0.8248    0.1087     124     0.2
+  kan-allspline            1.2919     1.8853    0.8024    0.1173     116     0.6
+  kan/cloglog              1.3074     1.8406    0.8009    0.1160     107     0.4
+  kan-deep/cloglog         1.3344     2.2717    0.8058    0.1219      83     0.7
+  kan-shared/cloglog       1.3682     1.6617    0.7928    0.1181      87     5.5
+
+  DIAGNOSIS  KAN minus linear:  train +0.1015   test -0.1730
+    -> train improves but test does not: OVERFITTING; needs
+       stronger regularisation (l1/entropy or fewer knots).
+
+==============================================================================================
+valung                 n=    137  p=  8  T=  12  events=0.934  top3bins=0.277  [binned-continuous]
+  train 96 / test 41   tie_ratio=0.7372
+==============================================================================================
+  model                 train NLL   test NLL   C-index       IBS  epochs    secs
+  linear/cloglog           2.1054     2.8110    0.7265    0.1517     500     1.0
+  linear/logit             2.1115     2.5092    0.7265    0.1497     500     0.8
+  kan-allspline            1.9905     3.1346    0.7137    0.1577     164     0.5
+  kan/cloglog              2.0320     2.8771    0.7194    0.1591     137     0.5
+  kan-deep/cloglog         2.1682     2.4924    0.7251    0.1617      92     0.6
+  kan-shared/cloglog       2.1509     2.5557    0.7108    0.1603      81     1.9
+
+  DIAGNOSIS  KAN minus linear:  train +0.0735   test -0.0661
+    -> train improves but test does not: OVERFITTING; needs
+       stronger regularisation (l1/entropy or fewer knots).
+EXIT=0

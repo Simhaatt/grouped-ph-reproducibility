@@ -1,0 +1,32 @@
+
+============================================================================================================
+E7  SIMULATION C -- FALSIFICATION.  Logistic discrete hazards: the
+    exact-discrete conditional PL is correct, cloglog is misspecified.
+    The review's second sub-design, (1-h) = (1-h0)^{exp(b'x)}, is
+    algebraically cloglog(h) = alpha + b'x -- it IS the grouped model,
+    so it is E6 above and cannot serve as a misspecification.
+============================================================================================================
+          n    T  scale   modal       D_T    NB SE    D_link  exact-logit  exact-clog   direction
+       2000    2    1.0   0.872  +0.00295  0.00491  -0.00095     +0.00000    -0.00094   not resolved
+       2000    2    2.0   0.809  +0.02595  0.00830  -0.00317     +0.00001    -0.00316   grouped still wins
+       2000    4    1.0   0.620  +0.00964  0.00576  -0.00032     -0.00000    -0.00032   not resolved
+       2000    4    2.0   0.594  +0.02647  0.00353  -0.00303     -0.00000    -0.00303   grouped still wins
+       2000    8    1.0   0.379  +0.00940  0.00124  -0.00115     +0.00003    -0.00113   grouped still wins
+       2000    8    2.0   0.417  +0.02469  0.00547  -0.00525     +0.00002    -0.00523   grouped still wins
+       2000   20    1.0   0.149  -0.00149  0.00603  -0.00097     -0.00002    -0.00098   not resolved
+       2000   20    2.0   0.252  +0.02597  0.01023  -0.00919     -0.00001    -0.00920   grouped still wins
+      10000    2    1.0   0.869  +0.00339  0.00145  -0.00080         +nan        +nan   grouped still wins
+      10000    2    2.0   0.805  +0.02862  0.00720  -0.00478         +nan        +nan   grouped still wins
+      10000    4    1.0   0.632  +0.00564  0.00185  +0.00007     +0.00000    +0.00007   grouped still wins
+      10000    4    2.0   0.587  +0.02899  0.00072  -0.00673         +nan        +nan   grouped still wins
+      10000    8    1.0   0.383  +0.00274  0.00068  -0.00028     +0.00000    -0.00028   grouped still wins
+      10000    8    2.0   0.423  +0.02906  0.00029  -0.00700         +nan        +nan   grouped still wins
+      10000   20    1.0   0.142  +0.00280  0.00208  +0.00004     -0.00000    +0.00004   not resolved
+      10000   20    2.0   0.246  +0.02351  0.00190  -0.00987         +nan        +nan   grouped still wins
+
+    D_link < 0 means the logit MLE beats the cloglog MLE, i.e. the
+    misspecification is doing what the design intends.  If D_T stays
+    positive while D_link is negative, the formulation effect is not
+    about which link is correct.
+
+total 120s -> [PROJECT_ROOT]\experiments\simulations_e7.txt

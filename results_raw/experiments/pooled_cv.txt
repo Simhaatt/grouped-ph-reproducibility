@@ -1,0 +1,63 @@
+============================================================================================
+OUT-OF-FOLD EVALUATION  (5-fold x 3 repeats, winsorised, fair baseline)
+  every row is a test row -> the whole cohort is the evaluation set
+============================================================================================
+
+metabric               n=   1904  p=  9  T=  20  events=0.579  top3bins=0.262  [binned-continuous]
+  l1=0.01   n_eval=1904 (vs 571 under a 70/30 split)
+  repeat 0:  NLL +0.00271 [-0.00721, +0.01260]
+             C   +0.0063 [-0.0030, +0.0169]   (linear 0.6344 -> KAN 0.6407)
+  repeat 1:  NLL -0.00110 [-0.01340, +0.01105]
+             C   +0.0082 [-0.0018, +0.0188]   (linear 0.6328 -> KAN 0.6410)
+  repeat 2:  NLL +0.00409 [-0.00685, +0.01514]
+             C   +0.0089 [-0.0011, +0.0191]   (linear 0.6323 -> KAN 0.6412)
+  ==> C  +0.0078 +/- 0.0013   resolved on 0/3 repeats
+
+rotgbsg                n=   2232  p=  8  T=  20  events=0.568  top3bins=0.412  [binned-continuous]
+  l1=0.01   n_eval=2232 (vs 670 under a 70/30 split)
+  repeat 0:  NLL +0.02262 [+0.01028, +0.03436]  SIG
+             C   +0.0178 [+0.0079, +0.0270]  SIG   (linear 0.6616 -> KAN 0.6794)
+  repeat 1:  NLL +0.01786 [+0.00681, +0.02881]  SIG
+             C   +0.0161 [+0.0074, +0.0241]  SIG   (linear 0.6625 -> KAN 0.6785)
+  repeat 2:  NLL +0.02357 [+0.01213, +0.03471]  SIG
+             C   +0.0180 [+0.0087, +0.0262]  SIG   (linear 0.6625 -> KAN 0.6805)
+  ==> C  +0.0173 +/- 0.0010   resolved on 3/3 repeats
+
+support-pycox          n=   8873  p= 19  T=  20  events=0.680  top3bins=0.390  [binned-continuous]
+  l1=0.01   n_eval=8873 (vs 2662 under a 70/30 split)
+  repeat 0:  NLL +0.00742 [+0.00352, +0.01138]  SIG
+             C   +0.0141 [+0.0094, +0.0189]  SIG   (linear 0.5997 -> KAN 0.6138)
+  repeat 1:  NLL +0.00613 [+0.00232, +0.00995]  SIG
+             C   +0.0128 [+0.0084, +0.0174]  SIG   (linear 0.6012 -> KAN 0.6140)
+  repeat 2:  NLL +0.00615 [+0.00214, +0.01015]  SIG
+             C   +0.0121 [+0.0074, +0.0171]  SIG   (linear 0.6007 -> KAN 0.6128)
+  ==> C  +0.0130 +/- 0.0010   resolved on 3/3 repeats
+
+nwtco                  n=   4028  p=  8  T=  20  events=0.142  top3bins=0.798  [binned-continuous]
+  l1=0.01   n_eval=4028 (vs 1208 under a 70/30 split)
+  repeat 0:  NLL +0.00985 [+0.00564, +0.01429]  SIG
+             C   -0.0011 [-0.0110, +0.0089]   (linear 0.7093 -> KAN 0.7081)
+  repeat 1:  NLL +0.00907 [+0.00490, +0.01334]  SIG
+             C   +0.0007 [-0.0082, +0.0094]   (linear 0.7062 -> KAN 0.7068)
+  repeat 2:  NLL +0.00657 [+0.00316, +0.01017]  SIG
+             C   +0.0006 [-0.0079, +0.0099]   (linear 0.7079 -> KAN 0.7086)
+  ==> C  +0.0001 +/- 0.0010   resolved on 0/3 repeats
+
+flchain                n=   7874  p=  8  T=  20  events=0.275  top3bins=0.611  [binned-continuous]
+  l1=0.01   n_eval=7874 (vs 2362 under a 70/30 split)
+  repeat 0:  NLL +0.00243 [-0.00083, +0.00572]
+             C   +0.0020 [-0.0005, +0.0051]   (linear 0.7966 -> KAN 0.7986)
+  repeat 1:  NLL +0.00403 [+0.00105, +0.00708]  SIG
+             C   +0.0033 [+0.0007, +0.0057]  SIG   (linear 0.7976 -> KAN 0.8009)
+  repeat 2:  NLL -0.00162 [-0.00525, +0.00194]
+             C   +0.0014 [-0.0015, +0.0046]   (linear 0.7970 -> KAN 0.7984)
+  ==> C  +0.0022 +/- 0.0010   resolved on 1/3 repeats
+
+============================================================================================
+  dataset           n_eval     C delta       sd   C resolved   NLL delta  NLL resolved
+  metabric            1904     +0.0078   0.0013          0/3    +0.00190           0/3
+  rotgbsg             2232     +0.0173   0.0010          3/3    +0.02135           3/3
+  support-pycox       8873     +0.0130   0.0010          3/3    +0.00657           3/3
+  nwtco               4028     +0.0001   0.0010          0/3    +0.00850           3/3
+  flchain             7874     +0.0022   0.0010          1/3    +0.00161           1/3
+EXIT=0

@@ -1,0 +1,85 @@
+================================================================================================
+SYMBOLIC EXTRACTION -- rotgbsg   n=2232  T=20  l1=0.01
+================================================================================================
+
+  RECOVERED FORMULAE (seed 0; ranked by BIC, top 3 shown)
+  covariate              best form     R^2   runners-up
+  x3                           x^2   0.709   sin (0.71), 1/(1+x^2) (0.71)
+  x4                           x^3   0.993   sigmoid (0.99), tanh (0.99)
+  x5                       sigmoid   0.915   tanh (0.92), sin (0.90)
+  x6                       sigmoid   0.853   tanh (0.85), exp (0.79)
+
+  PREDICTIVE COST OF SYMBOLISATION  (5 seeds)
+  model                             test NLL           C-index
+  linear                      2.2822+/-0.0398     0.6694+/-0.0082 
+  KAN                         2.2471+/-0.0458     0.6921+/-0.0153 
+  symbolic                    2.2528+/-0.0413     0.6867+/-0.0253 
+
+  KAN gain over linear      dC = +0.0228 +/- 0.0146
+  symbolic gain over linear dC = +0.0173 +/- 0.0201
+
+  COST OF SYMBOLISATION   C_KAN - C_symbolic = +0.0055 +/- 0.0199   (SE 0.0089)
+    per split: +0.0397, -0.0047, -0.0006, -0.0107, +0.0037
+    -> NOT distinguishable from zero at this split count:
+       the closed-form model matches the KAN's discrimination.
+    for scale, the KAN's own gain over linear is +0.0228 +/- 0.0146
+
+================================================================================================
+SYMBOLIC EXTRACTION -- support-pycox   n=8873  T=20  l1=0.01
+================================================================================================
+
+  RECOVERED FORMULAE (seed 0; ranked by BIC, top 3 shown)
+  covariate              best form     R^2   runners-up
+  x0                           exp   0.983   tanh (0.98), sigmoid (0.98)
+  x2                    log(1+|x|)   0.607   sigmoid (0.58), tanh (0.58)
+  x7                       sigmoid   0.970   tanh (0.97), 1/(1+x^2) (0.97)
+  x8                     1/(1+x^2)   0.772   log(1+|x|) (0.73), sqrt|x| (0.69)
+  x9                          tanh   0.788   sigmoid (0.79), 1/(1+x^2) (0.56)
+  x10                          x^2   0.905   sin (0.91), 1/(1+x^2) (0.91)
+  x11                          sin   0.738   1/(1+x^2) (0.53), log(1+|x|) (0.40)
+  x12                          sin   0.813   1/(1+x^2) (0.81), log(1+|x|) (0.77)
+  x13                    1/(1+x^2)   0.846   sin (0.84), log(1+|x|) (0.81)
+
+  PREDICTIVE COST OF SYMBOLISATION  (5 seeds)
+  model                             test NLL           C-index
+  linear                      2.5732+/-0.0197     0.6014+/-0.0060 
+  KAN                         2.5688+/-0.0189     0.6131+/-0.0047 
+  symbolic                    2.5667+/-0.0179     0.6132+/-0.0042 
+
+  KAN gain over linear      dC = +0.0117 +/- 0.0028
+  symbolic gain over linear dC = +0.0118 +/- 0.0033
+
+  COST OF SYMBOLISATION   C_KAN - C_symbolic = -0.0002 +/- 0.0013   (SE 0.0006)
+    per split: -0.0008, -0.0001, -0.0003, -0.0016, +0.0020
+    -> NOT distinguishable from zero at this split count:
+       the closed-form model matches the KAN's discrimination.
+    for scale, the KAN's own gain over linear is +0.0117 +/- 0.0028
+
+================================================================================================
+SYMBOLIC EXTRACTION -- metabric   n=1904  T=20  l1=0.01
+================================================================================================
+
+  RECOVERED FORMULAE (seed 0; ranked by BIC, top 3 shown)
+  covariate              best form     R^2   runners-up
+  x0                       sigmoid   0.943   tanh (0.94), sin (0.94)
+  x1                       sigmoid   0.917   tanh (0.92), sin (0.88)
+  x2                           x^3   0.956   1/(1+x^2) (0.90), exp (0.89)
+  x3                     1/(1+x^2)   0.836   tanh (0.78), sigmoid (0.78)
+  x8                           |x|   0.995   1/(1+x^2) (0.99), sin (0.98)
+
+  PREDICTIVE COST OF SYMBOLISATION  (5 seeds)
+  model                             test NLL           C-index
+  linear                      2.2004+/-0.0365     0.6240+/-0.0165 
+  KAN                         2.1966+/-0.0386     0.6349+/-0.0174 
+  symbolic                    2.1943+/-0.0282     0.6414+/-0.0188 
+
+  KAN gain over linear      dC = +0.0109 +/- 0.0021
+  symbolic gain over linear dC = +0.0174 +/- 0.0041
+
+  COST OF SYMBOLISATION   C_KAN - C_symbolic = -0.0065 +/- 0.0041   (SE 0.0018)
+    per split: -0.0054, -0.0068, -0.0060, -0.0128, -0.0013
+    -> the symbolic surrogate RANKS BETTER than the KAN it was read
+       off, which means the spline flexibility was not buying the gain.
+    for scale, the KAN's own gain over linear is +0.0109 +/- 0.0021
+
+exit=0

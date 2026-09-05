@@ -1,0 +1,15 @@
+====================================================================================================
+E20  (A7) VIOLATIONS PER COHORT, AND SENSITIVITY TO THEM
+     (A7) wants entry and censoring on grid boundaries.  Counted here,
+     then a partial-interval likelihood is fitted as a sensitivity check.
+====================================================================================================
+     'off-grid <=' is an UPPER BOUND, not a count: on a binned-continuous
+     cohort every censored subject MAY have left mid-interval, and the
+     underlying continuous time is not retained to check.  On a natively
+     discrete cohort it is exactly zero.
+  cohort                T       n  left-trunc  censored  off-grid <=   D_T std  D_T partial
+  support2/slos        60    9105           0      2647          0.0  -0.00006     -0.00019
+  sparcs/drg302        30   34233           0        35          0.0  +0.06769     +0.06717
+  drsa/clinic          50    4828           0       590          0.0  +0.00923     +0.00915
+  flchain              20    7874           0      5705         72.5  +0.00002     -0.00401
+  support-pycox        20    8873           0      2837         32.0  +0.00034     -0.00839

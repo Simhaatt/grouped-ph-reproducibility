@@ -1,0 +1,34 @@
+========================================================================================
+rotgbsg: paired bootstrap on 5 INDEPENDENT splits (fair baseline)
+========================================================================================
+
+  rotgbsg s0       n_test=   670  l1=0.01
+    NLL  linear 2.2642   KAN 2.2216
+    diff (linear - KAN) = +0.04262   95% CI [+0.02303, +0.06192]   -> SIGNIFICANT
+    C-index  linear 0.6608   KAN 0.6868   delta +0.0259
+
+  rotgbsg s1       n_test=   670  l1=0.01
+    NLL  linear 2.3504   KAN 2.2898
+    diff (linear - KAN) = +0.06061   95% CI [+0.02940, +0.10421]   -> SIGNIFICANT
+    C-index  linear 0.6740   KAN 0.6937   delta +0.0197
+
+  rotgbsg s2       n_test=   670  l1=0.01
+    NLL  linear 2.2889   KAN 2.2620
+    diff (linear - KAN) = +0.02691   95% CI [+0.01281, +0.04046]   -> SIGNIFICANT
+    C-index  linear 0.6599   KAN 0.6857   delta +0.0258
+
+  rotgbsg s3       n_test=   670  l1=0.01
+    NLL  linear 2.3153   KAN 2.2875
+    diff (linear - KAN) = +0.02783   95% CI [+0.00386, +0.05671]   -> SIGNIFICANT
+    C-index  linear 0.6741   KAN 0.6786   delta +0.0045
+
+  rotgbsg s4       n_test=   670  l1=0.01
+    NLL  linear 2.2323   KAN 2.1762
+    diff (linear - KAN) = +0.05616   95% CI [+0.04048, +0.07187]   -> SIGNIFICANT
+    C-index  linear 0.6743   KAN 0.7162   delta +0.0420
+
+  NLL diff across splits : +0.04283 +/- 0.01559   min +0.02691  max +0.06061
+  C   diff across splits : +0.0236 +/- 0.0135   min +0.0045  max +0.0420
+  splits whose OWN 95% CI excludes zero: 5/5
+  sign consistency: 5/5 positive
+EXIT=0

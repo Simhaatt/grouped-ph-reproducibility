@@ -1,0 +1,79 @@
+========================================================================================
+rotgbsg: paired bootstrap on 5 INDEPENDENT splits (fair baseline)
+========================================================================================
+
+  rotgbsg s0       n_test=   670  l1=0.01
+    NLL  linear 2.2642   KAN 2.2216
+    diff (linear - KAN) = +0.04262   95% CI [+0.02303, +0.06192]   -> SIGNIFICANT
+    C-index  linear 0.6608   KAN 0.6868   delta +0.0259
+    top-5 rows carry   2.3% of the mean   max |d_i| = 2.482
+
+  rotgbsg s1       n_test=   670  l1=0.01
+    NLL  linear 2.3504   KAN 2.2898
+    diff (linear - KAN) = +0.06061   95% CI [+0.02940, +0.10421]   -> SIGNIFICANT
+    C-index  linear 0.6740   KAN 0.6937   delta +0.0197
+    top-5 rows carry  46.4% of the mean   max |d_i| = 11.415
+
+  rotgbsg s2       n_test=   670  l1=0.01
+    NLL  linear 2.2889   KAN 2.2620
+    diff (linear - KAN) = +0.02691   95% CI [+0.01281, +0.04046]   -> SIGNIFICANT
+    C-index  linear 0.6599   KAN 0.6857   delta +0.0258
+    top-5 rows carry -13.8% of the mean   max |d_i| = 1.198
+
+  rotgbsg s3       n_test=   670  l1=0.01
+    NLL  linear 2.3153   KAN 2.2875
+    diff (linear - KAN) = +0.02783   95% CI [+0.00386, +0.05671]   -> SIGNIFICANT
+    C-index  linear 0.6741   KAN 0.6786   delta +0.0045
+    top-5 rows carry  48.9% of the mean   max |d_i| = 6.477
+
+  rotgbsg s4       n_test=   670  l1=0.01
+    NLL  linear 2.2323   KAN 2.1762
+    diff (linear - KAN) = +0.05616   95% CI [+0.04048, +0.07187]   -> SIGNIFICANT
+    C-index  linear 0.6743   KAN 0.7162   delta +0.0420
+    top-5 rows carry   0.4% of the mean   max |d_i| = 1.447
+
+  NLL diff across splits : +0.04283 +/- 0.01559   min +0.02691  max +0.06061
+  C   diff across splits : +0.0236 +/- 0.0135   min +0.0045  max +0.0420
+  splits whose OWN 95% CI excludes zero: 5/5
+  sign consistency: 5/5 positive
+  top-5-row share of the mean: 16.8% (min -13.8%, max 48.9%)  -> broad-based
+========================================================================================
+metabric: paired bootstrap on 5 INDEPENDENT splits (fair baseline)
+========================================================================================
+
+  metabric s0      n_test=   571  l1=0.01
+    NLL  linear 2.2018   KAN 2.1938
+    diff (linear - KAN) = +0.00801   95% CI [-0.01291, +0.02900]   -> not significant
+    C-index  linear 0.6328   KAN 0.6415   delta +0.0087
+    top-5 rows carry  22.6% of the mean   max |d_i| = 1.763
+
+  metabric s1      n_test=   571  l1=0.01
+    NLL  linear 2.2544   KAN 2.2512
+    diff (linear - KAN) = +0.00317   95% CI [-0.01931, +0.02393]   -> not significant
+    C-index  linear 0.6206   KAN 0.6300   delta +0.0094
+    top-5 rows carry -36.0% of the mean   max |d_i| = 2.662
+
+  metabric s2      n_test=   571  l1=0.01
+    NLL  linear 2.2163   KAN 2.2155
+    diff (linear - KAN) = +0.00080   95% CI [-0.01868, +0.02020]   -> not significant
+    C-index  linear 0.5972   KAN 0.6064   delta +0.0093
+    top-5 rows carry -864.2% of the mean   max |d_i| = 1.374
+
+  metabric s3      n_test=   571  l1=0.01
+    NLL  linear 2.1496   KAN 2.1397
+    diff (linear - KAN) = +0.00984   95% CI [-0.00983, +0.02926]   -> not significant
+    C-index  linear 0.6396   KAN 0.6549   delta +0.0153
+    top-5 rows carry -21.6% of the mean   max |d_i| = 1.772
+
+  metabric s4      n_test=   571  l1=0.01
+    NLL  linear 2.1931   KAN 2.2172
+    diff (linear - KAN) = -0.02406   95% CI [-0.05014, +0.00152]   -> not significant
+    C-index  linear 0.6297   KAN 0.6372   delta +0.0075
+    top-5 rows carry -19.3% of the mean   max |d_i| = 2.122
+
+  NLL diff across splits : -0.00045 +/- 0.01369   min -0.02406  max +0.00984
+  C   diff across splits : +0.0100 +/- 0.0030   min +0.0075  max +0.0153
+  splits whose OWN 95% CI excludes zero: 0/5
+  sign consistency: 4/5 positive
+  top-5-row share of the mean: -183.7% (min -864.2%, max 22.6%)  -> broad-based
+DONE_EXIT=0

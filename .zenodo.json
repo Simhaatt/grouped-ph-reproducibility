@@ -1,0 +1,32 @@
+{
+  "title": "Grouped Proportional Hazards under Coarse Time: Information Loss and Baseline Estimation",
+  "creators": [
+    {
+      "name": "Simhaa T. T.",
+      "affiliation": "Department of Electrical and Electronics Engineering, Sri Sivasubramaniya Nadar College of Engineering, Chennai, Tamil Nadu, India",
+      "orcid": "0009-0006-9041-1103"
+    },
+    {
+      "name": "Kattumannil, Sudheesh Kumar",
+      "affiliation": "Applied Statistics Unit, Indian Statistical Institute, Chennai, Tamil Nadu, India"
+    }
+  ],
+  "description": "Reproducibility package for grouped proportional hazards: information loss identities, baseline-estimation decomposition, frozen aggregate results and figure/table generation. Third-party raw datasets are not redistributed.",
+  "keywords": [
+    "survival analysis",
+    "proportional hazards",
+    "grouped data",
+    "Fisher information",
+    "reproducibility"
+  ],
+  "version": "1.0.0",
+  "upload_type": "software",
+  "license": "AUTHOR_APPROVAL_REQUIRED",
+  "related_identifiers": [
+    {
+      "identifier": "https://github.com/Simhaatt/grouped-ph-reproducibility",
+      "relation": "isSupplementTo",
+      "scheme": "url"
+    }
+  ]
+}

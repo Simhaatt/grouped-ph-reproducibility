@@ -1,0 +1,39 @@
+====================================================================================================
+E24  REPRODUCIBILITY RECORD
+====================================================================================================
+  python        3.14.3
+  platform      Windows-11-10.0.26200-SP0
+  processor     AMD64 Family 25 Model 80 Stepping 0, AuthenticAMD
+  numpy         2.4.2
+  torch         2.12.0+cpu  threads=6
+  scikit-learn  1.8.0
+
+  SEEDS.  Every split is numpy default_rng(seed) with seed = 0..K-1 in
+  experiments/real_data.py::split; hyperparameter selection uses
+  1000 + seed so that a validation split never coincides with a test
+  split.  Simulations seed from hash((cell..., rep)) so that two cells
+  never share a stream.  Torch is seeded inside kanrel.fit.fit.
+
+  SPLIT COUNTS.  protocol_decomp and nuisance_dim use 20 splits;
+  flexibility uses 20 seeds; simulations use 20 replications per cell.
+  All standard errors labelled 'NB SE' carry the Nadeau-Bengio
+  correction for overlapping resamples and are the ones the resolution
+  verdicts use.
+
+====================================================================================================
+E22  FURTHER INTRINSICALLY DISCRETE (R2) COHORTS AVAILABLE
+====================================================================================================
+  CLINIC       LOADS   n(sampled)=   4000  T=  50  discrete=True  modal=0.3565
+  MUSIC        LOADS   n(sampled)=   4000  T= 237  discrete=True  modal=0.0163
+  CLINIC2      unavailable (FileNotFoundError: [Errno 2] No such file or directory: 'da)
+  SYNTHETIC    unavailable (FileNotFoundError: [Errno 2] No such file or directory: 'da)
+  KKBOX        unavailable (FileNotFoundError: [Errno 2] No such file or directory: 'da)
+  GBSG         unavailable (FileNotFoundError: [Errno 2] No such file or directory: 'da)
+  METABRIC     unavailable (FileNotFoundError: [Errno 2] No such file or directory: 'da)
+  SUPPORT      unavailable (FileNotFoundError: [Errno 2] No such file or directory: 'da)
+  NWTCO        unavailable (FileNotFoundError: [Errno 2] No such file or directory: 'da)
+
+  Only splits marked discrete=True can extend the R2 claim; the rest
+  would add R1 configurations, which the paper already has enough of.
+
+total 8s -> [PROJECT_ROOT]\experiments\robustness_e24e22.txt

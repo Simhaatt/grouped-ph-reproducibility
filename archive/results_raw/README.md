@@ -1,0 +1,1 @@
+Frozen release-safe logs are stored once at ../../results_raw/. Exact original bytes, including private local paths, are preserved outside this repository in the private preparation archive. See docs/FILE_INVENTORY.json for both hashes. Never upload the private archive.

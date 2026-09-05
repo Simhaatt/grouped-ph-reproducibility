@@ -1,0 +1,174 @@
+====================================================================================================
+BENCHMARK RESOLUTION: the smallest C-index difference each dataset can detect
+  paired bootstrap, fair baseline, winsorised; 3 seeds averaged
+====================================================================================================
+
+  support-pycox#0  n_test=  2662  l1=0.01  clamp=True  wins=True/q=0
+    NLL  linear 2.5509   KAN 2.5477
+    diff (linear - KAN) = +0.00318   95% CI [-0.00328, +0.00942]   -> not significant
+    C-index  linear 0.6050   KAN 0.6163   delta +0.0113
+    C delta  95% CI [+0.0050, +0.0176]   -> SIGNIFICANT
+
+  support-pycox#1  n_test=  2662  l1=0.01  clamp=True  wins=True/q=0
+    NLL  linear 2.5879   KAN 2.5807
+    diff (linear - KAN) = +0.00718   95% CI [+0.00066, +0.01385]   -> SIGNIFICANT
+    C-index  linear 0.5932   KAN 0.6085   delta +0.0153
+    C delta  95% CI [+0.0079, +0.0220]   -> SIGNIFICANT
+
+  support-pycox#2  n_test=  2662  l1=0.01  clamp=True  wins=True/q=0
+    NLL  linear 2.5722   KAN 2.5692
+    diff (linear - KAN) = +0.00299   95% CI [-0.00467, +0.01044]   -> not significant
+    C-index  linear 0.6038   KAN 0.6173   delta +0.0135
+    C delta  95% CI [+0.0072, +0.0200]   -> SIGNIFICANT
+
+  flchain#0        n_test=  2362  l1=0.01  clamp=True  wins=True/q=0
+    NLL  linear 1.2082   KAN 1.1915
+    diff (linear - KAN) = +0.01675   95% CI [-0.00050, +0.04327]   -> not significant
+    C-index  linear 0.8071   KAN 0.8096   delta +0.0025
+    C delta  95% CI [-0.0010, +0.0059]   -> not significant
+
+  flchain#1        n_test=  2362  l1=0.01  clamp=True  wins=True/q=0
+    NLL  linear 1.2457   KAN 1.2408
+    diff (linear - KAN) = +0.00488   95% CI [-0.00186, +0.01372]   -> not significant
+    C-index  linear 0.8036   KAN 0.8050   delta +0.0015
+    C delta  95% CI [-0.0015, +0.0045]   -> not significant
+
+  flchain#2        n_test=  2362  l1=0.01  clamp=True  wins=True/q=0
+    NLL  linear 1.2092   KAN 1.2329
+    diff (linear - KAN) = -0.02365   95% CI [-0.03374, -0.01387]   -> worse
+    C-index  linear 0.7985   KAN 0.7897   delta -0.0089
+    C delta  95% CI [-0.0158, -0.0019]   -> worse
+
+  nwtco#0          n_test=  1208  l1=0.01  clamp=True  wins=True/q=0
+    NLL  linear 0.6994   KAN 0.6948
+    diff (linear - KAN) = +0.00453   95% CI [+0.00057, +0.00881]   -> SIGNIFICANT
+    C-index  linear 0.6748   KAN 0.6834   delta +0.0087
+    C delta  95% CI [-0.0040, +0.0229]   -> not significant
+
+  nwtco#1          n_test=  1208  l1=0.01  clamp=True  wins=True/q=0
+    NLL  linear 0.8037   KAN 0.7918
+    diff (linear - KAN) = +0.01187   95% CI [+0.00390, +0.02046]   -> SIGNIFICANT
+    C-index  linear 0.7234   KAN 0.7288   delta +0.0054
+    C delta  95% CI [-0.0132, +0.0246]   -> not significant
+
+  nwtco#2          n_test=  1208  l1=0.01  clamp=True  wins=True/q=0
+    NLL  linear 0.7871   KAN 0.7789
+    diff (linear - KAN) = +0.00826   95% CI [+0.00180, +0.01492]   -> SIGNIFICANT
+    C-index  linear 0.6847   KAN 0.6865   delta +0.0018
+    C delta  95% CI [-0.0189, +0.0237]   -> not significant
+
+  rotgbsg#0        n_test=   670  l1=0.01  clamp=True  wins=True/q=0
+    NLL  linear 2.2640   KAN 2.2229
+    diff (linear - KAN) = +0.04115   95% CI [+0.02148, +0.06058]   -> SIGNIFICANT
+    C-index  linear 0.6609   KAN 0.6860   delta +0.0252
+    C delta  95% CI [+0.0100, +0.0403]   -> SIGNIFICANT
+
+  rotgbsg#1        n_test=   670  l1=0.01  clamp=True  wins=True/q=0
+    NLL  linear 2.3343   KAN 2.2855
+    diff (linear - KAN) = +0.04884   95% CI [+0.02767, +0.07325]   -> SIGNIFICANT
+    C-index  linear 0.6740   KAN 0.6936   delta +0.0196
+    C delta  95% CI [+0.0073, +0.0326]   -> SIGNIFICANT
+
+  rotgbsg#2        n_test=   670  l1=0.01  clamp=True  wins=True/q=0
+    NLL  linear 2.2890   KAN 2.2657
+    diff (linear - KAN) = +0.02332   95% CI [+0.01142, +0.03483]   -> SIGNIFICANT
+    C-index  linear 0.6599   KAN 0.6832   delta +0.0232
+    C delta  95% CI [+0.0102, +0.0370]   -> SIGNIFICANT
+
+  metabric#0       n_test=   571  l1=0.01  clamp=True  wins=True/q=0
+    NLL  linear 2.2018   KAN 2.1933
+    diff (linear - KAN) = +0.00847   95% CI [-0.01229, +0.02937]   -> not significant
+    C-index  linear 0.6328   KAN 0.6417   delta +0.0089
+    C delta  95% CI [-0.0104, +0.0297]   -> not significant
+
+  metabric#1       n_test=   571  l1=0.01  clamp=True  wins=True/q=0
+    NLL  linear 2.2544   KAN 2.2479
+    diff (linear - KAN) = +0.00652   95% CI [-0.01436, +0.02621]   -> not significant
+    C-index  linear 0.6206   KAN 0.6309   delta +0.0103
+    C delta  95% CI [-0.0052, +0.0263]   -> not significant
+
+  metabric#2       n_test=   571  l1=0.01  clamp=True  wins=True/q=0
+    NLL  linear 2.2163   KAN 2.2153
+    diff (linear - KAN) = +0.00101   95% CI [-0.01845, +0.02059]   -> not significant
+    C-index  linear 0.5972   KAN 0.6066   delta +0.0095
+    C delta  95% CI [-0.0079, +0.0269]   -> not significant
+
+  gbsg#0           n_test=   206  l1=0.1  clamp=True  wins=True/q=0
+    NLL  linear 1.8798   KAN 1.8817
+    diff (linear - KAN) = -0.00193   95% CI [-0.02000, +0.01570]   -> not significant
+    C-index  linear 0.7094   KAN 0.7156   delta +0.0061
+    C delta  95% CI [-0.0093, +0.0219]   -> not significant
+
+  gbsg#1           n_test=   206  l1=0.1  clamp=True  wins=True/q=0
+    NLL  linear 1.8590   KAN 1.8378
+    diff (linear - KAN) = +0.02117   95% CI [-0.01387, +0.05505]   -> not significant
+    C-index  linear 0.6592   KAN 0.6383   delta -0.0209
+    C delta  95% CI [-0.0434, +0.0025]   -> not significant
+
+  gbsg#2           n_test=   206  l1=0.1  clamp=True  wins=True/q=0
+    NLL  linear 1.9522   KAN 1.9389
+    diff (linear - KAN) = +0.01329   95% CI [-0.01033, +0.03677]   -> not significant
+    C-index  linear 0.6603   KAN 0.6792   delta +0.0188
+    C delta  95% CI [-0.0048, +0.0413]   -> not significant
+*** No CODEPAGE record, no encoding_override: will use 'iso-8859-1'
+
+  pbc#0            n_test=   125  l1=0.1  clamp=True  wins=True/q=0
+    NLL  linear 1.6852   KAN 1.7249
+    diff (linear - KAN) = -0.03972   95% CI [-0.14874, +0.04408]   -> not significant
+    C-index  linear 0.8201   KAN 0.7944   delta -0.0257
+    C delta  95% CI [-0.0558, +0.0024]   -> not significant
+*** No CODEPAGE record, no encoding_override: will use 'iso-8859-1'
+
+  pbc#1            n_test=   125  l1=0.1  clamp=True  wins=True/q=0
+    NLL  linear 1.5612   KAN 1.5348
+    diff (linear - KAN) = +0.02640   95% CI [-0.03274, +0.08567]   -> not significant
+    C-index  linear 0.8505   KAN 0.8524   delta +0.0020
+    C delta  95% CI [-0.0264, +0.0315]   -> not significant
+*** No CODEPAGE record, no encoding_override: will use 'iso-8859-1'
+
+  pbc#2            n_test=   125  l1=0.1  clamp=True  wins=True/q=0
+    NLL  linear 1.7157   KAN 1.7014
+    diff (linear - KAN) = +0.01435   95% CI [-0.05959, +0.07812]   -> not significant
+    C-index  linear 0.7789   KAN 0.7728   delta -0.0061
+    C delta  95% CI [-0.0395, +0.0284]   -> not significant
+
+  valung#0         n_test=    41  l1=0.1  clamp=True  wins=True/q=0
+    NLL  linear 2.7988   KAN 2.5410
+    diff (linear - KAN) = +0.25784   95% CI [-0.15835, +0.78614]   -> not significant
+    C-index  linear 0.7322   KAN 0.7179   delta -0.0142
+    C delta  95% CI [-0.0735, +0.0548]   -> not significant
+
+  valung#1         n_test=    41  l1=0.1  clamp=True  wins=True/q=0
+    NLL  linear 2.2087   KAN 6.0702
+    diff (linear - KAN) = -3.86148   95% CI [-11.70078, +0.10348]   -> not significant
+    C-index  linear 0.7593   KAN 0.7464   delta -0.0128
+    C delta  95% CI [-0.0823, +0.0502]   -> not significant
+
+  valung#2         n_test=    41  l1=0.1  clamp=True  wins=True/q=0
+    NLL  linear 2.3983   KAN 2.5553
+    diff (linear - KAN) = -0.15700   95% CI [-0.33491, +0.00284]   -> not significant
+    C-index  linear 0.7193   KAN 0.6710   delta -0.0483
+    C delta  95% CI [-0.1190, +0.0226]   -> not significant
+
+====================================================================================================
+  dataset           n_test  events     pairs       SE  MDE(80%)    our dC    lit.   verdict
+----------------------------------------------------------------------------------------------------
+  support-pycox       2662    1806     4808k   0.0033    0.0094   +0.0134  +0.020   resolvable
+  flchain             2362     652     1540k   0.0023    0.0064   -0.0017  +0.010   resolvable
+  nwtco               1208     170      205k   0.0091    0.0256   +0.0053  +0.010   CANNOT RESOLVE published claim
+  rotgbsg              670     383      257k   0.0070    0.0196   +0.0227  +0.020   resolvable
+  metabric             571     333      190k   0.0090    0.0253   +0.0096  +0.020   CANNOT RESOLVE published claim
+  gbsg                 206      95       20k   0.0105    0.0294   +0.0013  +0.020   CANNOT RESOLVE published claim
+  pbc                  125      52        6k   0.0156    0.0438   -0.0099  +0.020   CANNOT RESOLVE published claim
+  valung                41      41        2k   0.0342    0.0959   -0.0251  +0.020   CANNOT RESOLVE published claim
+----------------------------------------------------------------------------------------------------
+  5/8 benchmarks CANNOT resolve the effect published on them: nwtco, metabric, gbsg, pbc, valung
+  MDE(80%) = 2.802 * SE.  A reported win below a dataset's MDE is not
+  evidence of anything, however many decimal places it is quoted to.
+
+  RESOLUTION IS NOT A FUNCTION OF n.  It tracks comparable PAIRS, i.e.
+  events x n_test, because that is what the C-index averages over.
+  nwtco has n_test=1208 and resolves WORSE than rotgbsg at n_test=670,
+  because nwtco is 14% events and rotgbsg is 57%.  Sizing a survival
+  benchmark by n is the mistake; size it by events.
+EXIT=0

@@ -1,0 +1,10 @@
+
+============================================================================================
+support2/slos          n=   9105  p= 32  T=  60  events=0.709  top3bins=0.218  [discrete]
+  5 repeated splits -- mean +/- sd ACROSS splits (not within one)
+  l1 = 0.01 (selected in regularization.py)
+  * Cox-linear+Breslow is the CONTROL: it shows what our Breslow
+    conversion itself costs, so CoxKAN is not charged for our pipeline.
+============================================================================================
+EXIT=127
+### KILLED 2026-08-23 by user request before any split completed. NO RESULTS in this file.

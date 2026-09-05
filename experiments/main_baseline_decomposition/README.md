@@ -1,0 +1,1 @@
+Original entry points: protocol_decomp.py; kp_out_of_sample.py; ordering_variable.py. Flat experiment modules are retained for import compatibility. Use the isolated runner in scripts/run_experiment.py; see docs/REPRODUCIBILITY.md.

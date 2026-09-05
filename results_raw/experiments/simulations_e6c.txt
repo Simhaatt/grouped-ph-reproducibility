@@ -1,0 +1,45 @@
+
+============================================================================================================
+E6c  R2 BY COARSENING A FIXED COHORT -- the real sweep's design, under a
+     known truth.  Generated at T0=40 cloglog, then adjacent bins merged.
+     The grouped model stays EXACTLY correct at every grid (Lemma 1), so
+     any trend in D_T is estimation and not creeping misspecification.
+============================================================================================================
+    n=2000  scale=1
+          T  rows/bin   modal        D_T    NB SE    D_base    D_coef   base %
+          2      1000   0.838   +0.29160  0.01035  +0.25973  +0.03187    89.1%
+          4       500   0.659   +0.16725  0.01432  +0.15295  +0.01430    91.4%
+          8       250   0.461   +0.07108  0.01011  +0.06905  +0.00203    97.1%
+         20       100   0.247   +0.01443  0.00515  +0.01486  -0.00043   103.0%
+         40        50   0.141   +0.00318  0.00364  +0.00357  -0.00039   112.2%
+      corr(T, D_T) = -1.000   sign flips: False   (section 6.2 predicts negative, and a flip)
+
+    n=2000  scale=2
+          T  rows/bin   modal        D_T    NB SE    D_base    D_coef   base %
+          2      1000   0.734   +0.31674  0.00960  +0.22919  +0.08755    72.4%
+          4       500   0.606   +0.25345  0.01517  +0.18155  +0.07189    71.6%
+          8       250   0.477   +0.18773  0.01544  +0.13717  +0.05056    73.1%
+         20       100   0.323   +0.10738  0.01282  +0.08656  +0.02083    80.6%
+         40        50   0.223   +0.06048  0.00880  +0.05229  +0.00820    86.4%
+      corr(T, D_T) = -1.000   sign flips: False   (section 6.2 predicts negative, and a flip)
+
+    n=10000  scale=1
+          T  rows/bin   modal        D_T    NB SE    D_base    D_coef   base %
+          2      5000   0.839   +0.29740  0.00606  +0.26437  +0.03302    88.9%
+          4      2500   0.659   +0.17643  0.00749  +0.15955  +0.01688    90.4%
+          8      1250   0.464   +0.08015  0.00573  +0.07515  +0.00500    93.8%
+         20       500   0.250   +0.01846  0.00309  +0.01793  +0.00053    97.1%
+         40       250   0.143   +0.00495  0.00157  +0.00485  +0.00010    98.0%
+      corr(T, D_T) = -1.000   sign flips: False   (section 6.2 predicts negative, and a flip)
+
+    n=10000  scale=2
+          T  rows/bin   modal        D_T    NB SE    D_base    D_coef   base %
+          2      5000   0.736   +0.32167  0.00392  +0.23356  +0.08812    72.6%
+          4      2500   0.609   +0.26022  0.00611  +0.18297  +0.07724    70.3%
+          8      1250   0.479   +0.19285  0.00683  +0.13724  +0.05560    71.2%
+         20       500   0.323   +0.10838  0.00639  +0.08303  +0.02535    76.6%
+         40       250   0.225   +0.05971  0.00508  +0.04935  +0.01036    82.6%
+      corr(T, D_T) = -1.000   sign flips: False   (section 6.2 predicts negative, and a flip)
+
+
+total 1358s -> [PROJECT_ROOT]\experiments\simulations_e6c.txt

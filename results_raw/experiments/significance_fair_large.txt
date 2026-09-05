@@ -1,0 +1,12 @@
+========================================================================================
+PAIRED BOOTSTRAP (FAIR BASELINE: one-hot ordinals for both models)
+  positive difference = KAN assigns higher likelihood = KAN better
+========================================================================================
+
+  sparcs/drg302    n_test= 10270  l1=0
+    NLL  linear 1.4527   KAN 1.4528
+    diff (linear - KAN) = -0.00012   95% CI [-0.00083, +0.00056]   -> not significant
+    C-index  linear 0.6141   KAN 0.6141   delta +0.0000
+EXIT=127
+### KILLED 2026-08-23 by user request during KKBox. The sparcs/drg302 result above is COMPLETE and valid.
+### drsa/music (KKBox) never ran.

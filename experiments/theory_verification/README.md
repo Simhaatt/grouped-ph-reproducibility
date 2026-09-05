@@ -1,0 +1,1 @@
+Original entry points: ../theory/verify_lemmas.py; ../theory/verify_psi.py; ../theory/verify_profiled_info.py. Flat experiment modules are retained for import compatibility. Use the isolated runner in scripts/run_experiment.py; see docs/REPRODUCIBILITY.md.

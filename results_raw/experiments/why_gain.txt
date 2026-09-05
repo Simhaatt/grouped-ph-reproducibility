@@ -1,0 +1,78 @@
+
+============================================================================================
+rotgbsg   n=2232  spline covariates=4
+============================================================================================
+  Spearman rho(linear index, KAN index) = 0.87406
+  covariate         amplitude   nonlin   nonmono
+  x3                   0.4709    0.972     0.962
+  x6                   0.2534    0.760     0.332
+  x4                   1.1915    0.137     0.010
+  x5                   0.3254    0.496     0.507
+  TOTAL curvature (amp x nonlin)   = 0.9745
+  TOTAL reordering (amp x nonmono) = 0.7139
+
+============================================================================================
+support-pycox   n=8873  spline covariates=9
+============================================================================================
+  Spearman rho(linear index, KAN index) = 0.91898
+  covariate         amplitude   nonlin   nonmono
+  x7                   0.4303    0.337     0.477
+  x9                   0.2139    0.644     0.793
+  x10                  0.1188    0.730     0.392
+  x13                  0.1475    0.587     0.670
+  x12                  0.0924    0.592     0.917
+  x0                   0.6498    0.040     0.144
+  TOTAL curvature (amp x nonlin)   = 0.5631
+  TOTAL reordering (amp x nonmono) = 0.7289
+
+============================================================================================
+metabric   n=1904  spline covariates=5
+============================================================================================
+  Spearman rho(linear index, KAN index) = 0.87848
+  covariate         amplitude   nonlin   nonmono
+  x2                   0.5878    0.515     0.420
+  x3                   0.3928    0.646     0.588
+  x8                   1.7787    0.135     0.369
+  x0                   0.2611    0.809     0.619
+  x1                   0.2883    0.369     0.534
+  TOTAL curvature (amp x nonlin)   = 1.1145
+  TOTAL reordering (amp x nonmono) = 1.4495
+
+============================================================================================
+nwtco   n=4028  spline covariates=1
+============================================================================================
+  Spearman rho(linear index, KAN index) = 0.95959
+  covariate         amplitude   nonlin   nonmono
+  age                  0.5572    0.456     0.897
+  TOTAL curvature (amp x nonlin)   = 0.2540
+  TOTAL reordering (amp x nonmono) = 0.4999
+
+============================================================================================
+flchain   n=7874  spline covariates=6
+============================================================================================
+  Spearman rho(linear index, KAN index) = 0.98404
+  covariate         amplitude   nonlin   nonmono
+  lambda               0.2267    0.962     0.622
+  creatinine           0.2510    0.812     0.953
+  flc.grp              0.3826    0.239     0.678
+  sample.yr            0.1190    0.389     0.925
+  age                  3.0080    0.008     0.000
+  kappa                0.5074    0.019     0.015
+  TOTAL curvature (amp x nonlin)   = 0.5931
+  TOTAL reordering (amp x nonmono) = 0.7572
+
+============================================================================================
+DOES RECOVERED STRUCTURE PREDICT THE GAIN?
+============================================================================================
+  dataset               rho  curvature  reordering  pooled dC  pooled dNLL
+  rotgbsg           0.87406     0.9745      0.7139    +0.0173     +0.02135
+  support-pycox     0.91898     0.5631      0.7289    +0.0130     +0.00657
+  metabric          0.87848     1.1145      1.4495    +0.0078     +0.00190
+  nwtco             0.95959     0.2540      0.4999    +0.0001     +0.00850
+  flchain           0.98404     0.5931      0.7572    +0.0022     +0.00161
+
+  corr(reordering, dC)   = +0.100      <- should be HIGH if only non-monotone structure moves C
+  corr(curvature,  dC)   = +0.500
+  corr(curvature,  dNLL) = -0.200      <- should be HIGH: any curvature helps the likelihood
+  corr(reordering, dNLL) = -0.800
+EXIT=0

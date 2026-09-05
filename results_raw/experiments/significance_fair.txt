@@ -1,0 +1,74 @@
+========================================================================================
+PAIRED BOOTSTRAP (FAIR BASELINE: one-hot ordinals for both models)
+  positive difference = KAN assigns higher likelihood = KAN better
+========================================================================================
+
+  rotgbsg          n_test=   670  l1=0.01
+    NLL  linear 2.2642   KAN 2.2216
+    diff (linear - KAN) = +0.04262   95% CI [+0.02303, +0.06192]   -> SIGNIFICANT
+    C-index  linear 0.6608   KAN 0.6868   delta +0.0259
+
+  support-pycox    n_test=  2662  l1=0.01
+    NLL  linear 2.5509   KAN 2.5480
+    diff (linear - KAN) = +0.00289   95% CI [-0.00347, +0.00904]   -> not significant
+    C-index  linear 0.6050   KAN 0.6157   delta +0.0108
+
+  metabric         n_test=   571  l1=0.01
+    NLL  linear 2.2018   KAN 2.1938
+    diff (linear - KAN) = +0.00801   95% CI [-0.01291, +0.02900]   -> not significant
+    C-index  linear 0.6328   KAN 0.6415   delta +0.0087
+
+  flchain          n_test=  2362  l1=0.01
+    NLL  linear 1.2224   KAN 1.1896
+    diff (linear - KAN) = +0.03284   95% CI [+0.00104, +0.08942]   -> SIGNIFICANT
+    C-index  linear 0.8071   KAN 0.8093   delta +0.0022
+
+  nwtco            n_test=  1208  l1=0.01
+    NLL  linear 0.6993   KAN 0.6948
+    diff (linear - KAN) = +0.00459   95% CI [+0.00059, +0.00888]   -> SIGNIFICANT
+    C-index  linear 0.6748   KAN 0.6835   delta +0.0088
+
+  support2/slos    n_test=  2732  l1=0.01
+    NLL  linear 2.5532   KAN 2.5534
+    diff (linear - KAN) = -0.00022   95% CI [-0.01039, +0.01001]   -> not significant
+    C-index  linear 0.7561   KAN 0.7580   delta +0.0019
+
+  gbsg             n_test=   206  l1=0.1
+    NLL  linear 1.8797   KAN 1.8939
+    diff (linear - KAN) = -0.01421   95% CI [-0.04013, +0.01129]   -> not significant
+    C-index  linear 0.7102   KAN 0.7088   delta -0.0015
+*** No CODEPAGE record, no encoding_override: will use 'iso-8859-1'
+
+  pbc              n_test=   125  l1=0.1
+    NLL  linear 1.6905   KAN 1.7238
+    diff (linear - KAN) = -0.03334   95% CI [-0.15051, +0.05986]   -> not significant
+    C-index  linear 0.8188   KAN 0.7975   delta -0.0213
+
+  valung           n_test=    41  l1=0.1
+    NLL  linear 2.8133   KAN 2.5942
+    diff (linear - KAN) = +0.21910   95% CI [-0.22276, +0.75893]   -> not significant
+    C-index  linear 0.7265   KAN 0.7194   delta -0.0071
+
+========================================================================================
+  dataset           n_test    NLL diff                    95% CI           verdict
+  support2/slos       2732    -0.00022   [-0.01039, +0.01001]   not significant
+  support-pycox       2662    +0.00289   [-0.00347, +0.00904]   not significant
+  flchain             2362    +0.03284   [+0.00104, +0.08942]       SIGNIFICANT
+  nwtco               1208    +0.00459   [+0.00059, +0.00888]       SIGNIFICANT
+  rotgbsg              670    +0.04262   [+0.02303, +0.06192]       SIGNIFICANT
+  metabric             571    +0.00801   [-0.01291, +0.02900]   not significant
+  gbsg                 206    -0.01421   [-0.04013, +0.01129]   not significant
+  pbc                  125    -0.03334   [-0.15051, +0.05986]   not significant
+  valung                41    +0.21910   [-0.22276, +0.75893]   not significant
+
+  dataset           C linear     C KAN     delta
+  support2/slos       0.7561    0.7580   +0.0019
+  support-pycox       0.6050    0.6157   +0.0108
+  flchain             0.8071    0.8093   +0.0022
+  nwtco               0.6748    0.6835   +0.0088
+  rotgbsg             0.6608    0.6868   +0.0259
+  metabric            0.6328    0.6415   +0.0087
+  gbsg                0.7102    0.7088   -0.0015
+  pbc                 0.8188    0.7975   -0.0213
+  valung              0.7265    0.7194   -0.0071
+EXIT=0

@@ -1,0 +1,19 @@
+========================================================================================
+PAIRED BOOTSTRAP (FAIR BASELINE: one-hot ordinals for both models)
+  positive difference = KAN assigns higher likelihood = KAN better
+========================================================================================
+
+  drsa/music       n_test= 60000  l1=0  clamp=True  wins=True/q=0
+    NLL  linear 3.5442   KAN 3.5380
+    diff (linear - KAN) = +0.00617   95% CI [+0.00510, +0.00724]   -> SIGNIFICANT
+    C-index  linear 0.5164   KAN 0.5208   delta +0.0044
+    C delta  95% CI [+0.0006, +0.0157]   -> SIGNIFICANT   (bootstrap, 6000 of 60000 units)
+    C delta  95% CI [+0.0021, +0.0067]   -> SIGNIFICANT   (influence, ALL 60000 units, SE 0.00119)
+
+========================================================================================
+  dataset           n_test    NLL diff                    95% CI           verdict
+  drsa/music         60000    +0.00617   [+0.00510, +0.00724]       SIGNIFICANT
+
+  dataset           C linear     C KAN     delta
+  drsa/music          0.5164    0.5208   +0.0044
+EXIT=0

@@ -1,0 +1,71 @@
+==================================================================================
+THEOREM 4 PART 2 -- clamp_inputs A/B
+==================================================================================
+  ns=[500, 1000, 2000, 4000, 8000, 16000]  reps=12  epochs=3000  grid_scale=True
+  Only difference between arms: KANLayer(clamp_inputs=...).
+
+  target=smooth  clamp_inputs=False   (bound -0.889)
+    n=   500  MSE=0.197813  se=0.029705  [208s]
+    n=  1000  MSE=0.090065  se=0.012969  [320s]
+    n=  2000  MSE=0.040393  se=0.005189  [276s]
+    n=  4000  MSE=0.021446  se=0.003147  [310s]
+    n=  8000  MSE=0.009892  se=0.000724  [465s]
+    n= 16000  MSE=0.006420  se=0.000836  [854s]
+    slope = -1.006   95% CI [-1.093, -0.917]   -> VIOLATES BOUND
+
+  target=smooth  clamp_inputs=True   (bound -0.889)
+    n=   500  MSE=0.146358  se=0.022048  [137s]
+    n=  1000  MSE=0.075469  se=0.006748  [170s]
+    n=  2000  MSE=0.038929  se=0.003671  [203s]
+    n=  4000  MSE=0.021846  se=0.003084  [269s]
+    n=  8000  MSE=0.011560  se=0.000821  [423s]
+    n= 16000  MSE=0.007310  se=0.000961  [870s]
+    slope = -0.873   95% CI [-0.955, -0.793]   -> OK
+
+==================================================================================
+SUMMARY
+==================================================================================
+  target    clamp       slope                95% CI    bound  verdict
+  smooth    False      -1.006   [-1.093, -0.917]   -0.889  VIOLATED
+  smooth    True       -0.873   [-0.955, -0.793]   -0.889  OK
+
+  smooth: clamp moves the slope by +0.132  (-1.006 -> -0.873)
+
+  Small-n MSE is the diagnostic for the mechanism: constant
+  extrapolation helps most where the sample is thinnest, so if the
+  clamp is the cause, MSE(clamp=True) < MSE(clamp=False) at n=500
+  and the two converge as n grows.
+    smooth  n=500:0.740  n=1000:0.838  n=2000:0.964  n=4000:1.019  n=8000:1.169  n=16000:1.139
+
+RESULT: theory gate at clamp_inputs=False VIOLATES the minimax bound
+
+==================================================================================
+CORRECTED VERDICTS  (the OK/VIOLATES labels in the body above are WRONG)
+==================================================================================
+The verdict test in the version of this script that produced the body was
+inverted: it used `ci[1] < bound` where the gate uses `ci[1] <= bound`.
+Theorem 4's rate is an UPPER BOUND ON RISK, so a MORE NEGATIVE slope is a
+FASTER decay and cannot violate it; only a shallower slope can.  The slopes,
+CIs and MSEs above are all correct -- only the labels were wrong.
+verify_theorem4.rate_holds is now the single definition and this script
+imports it, so the two can no longer disagree.
+
+  arm                                  slope              95% CI    bound   verdict
+  clamp_inputs=False (sieve MLE)      -1.006   [-1.093,-0.917]   -0.889   OK
+  clamp_inputs=True  (constrained)    -0.873   [-0.955,-0.793]   -0.889   VIOLATED
+
+READING
+  The unclamped estimator -- the one Theorem 4 actually describes -- RESPECTS
+  the bound at -1.006, reproducing the original 2026-08-22 run (-1.005, same
+  CI) to three decimals.  The clamped estimator does not.  The gate is
+  therefore pinned to clamp_inputs=False; see verify_theorem4.g_mse.
+
+  The MSE ratio row above is the mechanism, and it is monotone:
+    n=500  0.740   clamping helps 26% where the sample is thinnest
+    n=2000 0.964   ~break-even
+    n=16000 1.139  clamping HURTS 14% once variance is small
+  Constant extrapolation is a BIAS.  It pays while variance dominates and
+  costs once it does not, so the error curve flattens with n -- which is
+  exactly how a log-log slope moves from -1.006 to -0.873.  Bias-variance,
+  not a defect in the estimator.
+

@@ -1,0 +1,33 @@
+
+============================================================================================================
+E6d  DOES THE SIGN FLIP REPRODUCE?  T pushed hard against n.
+     Generated at T0=160 cloglog, coarsened; the grouped model is
+     EXACTLY correct at every grid, so a flip can only be estimation.
+============================================================================================================
+    n=600  (train n is 0.7n, so rows/bin at T=160 is 2.6)
+          T  rows/bin  tr rows/bin   modal        D_T    NB SE    D_base    D_coef   verdict
+          5     120.0         84.0   0.895   +0.33817  0.03058  +0.30829  +0.02987   grouped wins
+         10      60.0         42.0   0.762   +0.26959  0.02909  +0.24548  +0.02411   grouped wins
+         20      30.0         21.0   0.585   +0.12980  0.06157  +0.11891  +0.01089   grouped wins
+         40      15.0         10.5   0.400   +0.01011  0.04305  +0.00823  +0.00189   not resolved
+         80       7.5          5.2   0.250   -0.03265  0.07330  -0.03108  -0.00157   not resolved
+        160       3.8          2.6   0.145   -0.02561  0.05326  -0.02535  -0.00026   not resolved
+      any negative D_T: True    RESOLVED negative: False
+
+    n=1200  (train n is 0.7n, so rows/bin at T=160 is 5.2)
+          T  rows/bin  tr rows/bin   modal        D_T    NB SE    D_base    D_coef   verdict
+          5     240.0        168.0   0.893   +0.33251  0.03554  +0.29817  +0.03434   grouped wins
+         10     120.0         84.0   0.758   +0.24701  0.01974  +0.22389  +0.02312   grouped wins
+         20      60.0         42.0   0.588   +0.13365  0.03759  +0.12532  +0.00833   grouped wins
+         40      30.0         21.0   0.403   +0.03928  0.03301  +0.03864  +0.00064   not resolved
+         80      15.0         10.5   0.242   +0.00572  0.03363  +0.00365  +0.00207   not resolved
+        160       7.5          5.2   0.146   -0.00402  0.02638  -0.00527  +0.00125   not resolved
+      any negative D_T: True    RESOLVED negative: False
+
+    n=2400  (train n is 0.7n, so rows/bin at T=160 is 10.5)
+          T  rows/bin  tr rows/bin   modal        D_T    NB SE    D_base    D_coef   verdict
+          5     480.0        336.0   0.895   +0.34030  0.00935  +0.30126  +0.03904   grouped wins
+         10     240.0        168.0   0.763   +0.24442  0.01497  +0.22061  +0.02381   grouped wins
+         20     120.0         84.0   0.583   +0.13692  0.01517  +0.12492  +0.01200   grouped wins
+         40      60.0         42.0   0.402   +0.05699  0.00946  +0.05516  +0.00183   grouped wins
+         80      30.0         21.0   0.250   +0.01508  0.00614  +0.01394  +0.00114   grouped wins

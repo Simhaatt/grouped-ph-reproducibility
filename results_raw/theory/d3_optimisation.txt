@@ -1,0 +1,14 @@
+
+============================================================================================
+D3  Is large-n MSE optimisation-limited or statistics-limited?
+============================================================================================
+        n                    budget         MSE        se  epochs run
+     4000    600 ep, pat 60, val .2    0.023451  0.000781         568
+     4000  2500 ep, pat 300, val .2    0.020416  0.003272        1452
+     4000    2500 ep, no early stop    0.017086  0.001964        2500
+    16000    600 ep, pat 60, val .2    0.015414  0.001158         596
+    16000  2500 ep, pat 300, val .2    0.008396  0.002275        2082
+    16000    2500 ep, no early stop    0.006069  0.001786        2500
+
+  If MSE falls materially with a bigger budget, Part 2's slope is
+  training-budget-limited, not the statistical rate.

@@ -1,0 +1,49 @@
+============================================================================================
+INTERPRETABILITY -- support2/slos   n=9105, 13 continuous covariates
+============================================================================================
+  full additive KAN, test NLL 2.5533
+
+  covariate     nonlinearity   amplitude    NLL if forced linear    delta
+  adlsc                0.435      1.0042                  2.5560  +0.0028
+  resp                 0.712      0.3391                  2.5530  -0.0003
+  temp                 0.627      0.2731                  2.5564  +0.0032
+  wblc                 0.775      0.2158                  2.5520  -0.0013
+  age                  0.925      0.1384                  2.5539  +0.0007
+  sod                  0.953      0.1259                  2.5532  -0.0001
+
+  MOST NONLINEAR: adlsc   (nonlinearity 0.435, amplitude 1.0042)
+      value    effect
+       0.00   -0.0422  ###################
+       0.41    0.6265  #########################################
+       0.81    0.0221  #####################
+       1.22    0.0765  #######################
+       1.63    0.1682  ##########################
+       2.03    0.1682  ##########################
+       2.44    0.0775  #######################
+       2.85   -0.0603  ##################
+       3.25   -0.1660  ##############
+       3.66   -0.2094  #############
+       4.07   -0.2096  #############
+       4.47   -0.1874  ##############
+       4.88   -0.1626  ##############
+       5.29   -0.1440  ###############
+       5.69   -0.1344  ###############
+
+  bootstrap stability of adlsc (20 resamples):
+Traceback (most recent call last):
+  File "[PROJECT_ROOT]\experiments\interpretability.py", line 146, in <module>
+    main()
+    ~~~~^^
+  File "[PROJECT_ROOT]\experiments\interpretability.py", line 136, in main
+    curves.append(partial_curve(mb, d.X, j, grid))
+                  ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "[PROJECT_ROOT]\experiments\interpretability.py", line 50, in partial_curve
+    return model.partial_effect(torch.as_tensor(X), j, grid).numpy()
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "[PRIVATE_PATH]", line 124, in decorate_context
+    return func(*args, **kwargs)
+  File "[PROJECT_ROOT]\kanrel\hazard.py", line 211, in partial_effect
+    ref[:, feature] = grid
+    ~~~^^^^^^^^^^^^
+TypeError: can't assign a numpy.ndarray to a torch.FloatTensor
+EXIT=1

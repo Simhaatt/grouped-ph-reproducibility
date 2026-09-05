@@ -1,0 +1,104 @@
+================================================================================================
+KAN vs SPLINE GAM -- rotgbsg   n=2232  T=20  l1=0.01
+================================================================================================
+
+  model                       test NLL             C-index   n_cont=4
+  linear               2.2822+/-0.0398       0.6694+/-0.0082  
+  KAN                  2.2471+/-0.0458       0.6921+/-0.0153  
+  GAM(df=4)            2.2458+/-0.0429       0.6947+/-0.0104  
+  GAM(df=6)            2.2461+/-0.0451       0.6955+/-0.0095  
+  GAM(df=8)            2.2496+/-0.0439       0.6940+/-0.0087  
+
+  KAN gain over linear      dC = +0.0228
+  best GAM (df=6) over linear  dC = +0.0262
+
+  KAN - best GAM   dC = -0.0034 +/- 0.0061   (SE 0.0027)
+    per split: -0.0043, -0.0024, -0.0086, -0.0081, +0.0064
+    -> NOT distinguishable from zero at this split count.
+       The gain is an ADDITIVITY/flexibility effect, not a KAN effect.
+       Report it that way; it is the honest reading and it agrees
+       with section 10, where the closed-form surrogate also matched.
+
+================================================================================================
+KAN vs SPLINE GAM -- support-pycox   n=8873  T=20  l1=0.01
+================================================================================================
+
+  model                       test NLL             C-index   n_cont=9
+  linear               2.5732+/-0.0197       0.6014+/-0.0060  
+  KAN                  2.5687+/-0.0190       0.6133+/-0.0049  
+  GAM(df=4)            2.5661+/-0.0189       0.6166+/-0.0036  
+  GAM(df=6)            2.5678+/-0.0202       0.6158+/-0.0051  
+  GAM(df=8)            2.5694+/-0.0214       0.6150+/-0.0049  
+
+  KAN gain over linear      dC = +0.0119
+  best GAM (df=4) over linear  dC = +0.0152
+
+  KAN - best GAM   dC = -0.0033 +/- 0.0020   (SE 0.0009)
+    per split: -0.0034, -0.0058, -0.0027, -0.0042, -0.0004
+    -> the spline GAM BEATS the KAN. Report it; the formulation
+       results in sections 5-6 do not depend on the index.
+
+================================================================================================
+KAN vs SPLINE GAM -- metabric   n=1904  T=20  l1=0.01
+================================================================================================
+
+  model                       test NLL             C-index   n_cont=5
+  linear               2.2004+/-0.0365       0.6240+/-0.0165  
+  KAN                  2.1966+/-0.0386       0.6349+/-0.0174  
+  GAM(df=4)            2.2008+/-0.0460       0.6379+/-0.0174  
+  GAM(df=6)            2.2077+/-0.0470       0.6332+/-0.0170  
+  GAM(df=8)            2.2129+/-0.0497       0.6307+/-0.0166  
+
+  KAN gain over linear      dC = +0.0109
+  best GAM (df=4) over linear  dC = +0.0138
+
+  KAN - best GAM   dC = -0.0030 +/- 0.0039   (SE 0.0018)
+    per split: -0.0060, +0.0032, -0.0061, -0.0045, -0.0014
+    -> NOT distinguishable from zero at this split count.
+       The gain is an ADDITIVITY/flexibility effect, not a KAN effect.
+       Report it that way; it is the honest reading and it agrees
+       with section 10, where the closed-form surrogate also matched.
+
+================================================================================================
+KAN vs SPLINE GAM -- flchain   n=7874  T=20  l1=0.01
+================================================================================================
+
+  model                       test NLL             C-index   n_cont=6
+  linear               1.2213+/-0.0221       0.7975+/-0.0098  
+  KAN                  1.2197+/-0.0247       0.7980+/-0.0100  
+  GAM(df=4)            1.2167+/-0.0238       0.7999+/-0.0086  
+  GAM(df=6)            1.2165+/-0.0250       0.7995+/-0.0084  
+  GAM(df=8)            1.2172+/-0.0251       0.7988+/-0.0084  
+
+  KAN gain over linear      dC = +0.0005
+  best GAM (df=4) over linear  dC = +0.0024
+
+  KAN - best GAM   dC = -0.0019 +/- 0.0038   (SE 0.0017)
+    per split: +0.0002, -0.0009, -0.0087, +0.0008, -0.0012
+    -> NOT distinguishable from zero at this split count.
+       The gain is an ADDITIVITY/flexibility effect, not a KAN effect.
+       Report it that way; it is the honest reading and it agrees
+       with section 10, where the closed-form surrogate also matched.
+
+================================================================================================
+KAN vs SPLINE GAM -- nwtco   n=4028  T=20  l1=0.01
+================================================================================================
+
+  model                       test NLL             C-index   n_cont=1
+  linear               0.7632+/-0.0493       0.6974+/-0.0210  
+  KAN                  0.7581+/-0.0467       0.6995+/-0.0188  
+  GAM(df=4)            0.7565+/-0.0489       0.7004+/-0.0187  
+  GAM(df=6)            0.7566+/-0.0488       0.6999+/-0.0192  
+  GAM(df=8)            0.7573+/-0.0487       0.6993+/-0.0203  
+
+  KAN gain over linear      dC = +0.0021
+  best GAM (df=4) over linear  dC = +0.0030
+
+  KAN - best GAM   dC = -0.0009 +/- 0.0026   (SE 0.0012)
+    per split: +0.0000, +0.0005, -0.0040, +0.0021, -0.0032
+    -> NOT distinguishable from zero at this split count.
+       The gain is an ADDITIVITY/flexibility effect, not a KAN effect.
+       Report it that way; it is the honest reading and it agrees
+       with section 10, where the closed-form surrogate also matched.
+
+EXIT=0

@@ -1,0 +1,15 @@
+============================================================================================
+D1  Is the coarse-grid bias caused by coarsening the CENSORING times?
+============================================================================================
+   bins |                 random censoring |               boundary censoring
+        |         cloglog        Cox/Efron |         cloglog        Cox/Efron
+     50 |          1.14%            1.21%  |          0.98%            0.90%  |
+     20 |          1.28%            1.59%  |          0.91%            0.62%  |
+     10 |          1.65%            3.63%  |          0.86%            2.98%  |
+      6 |          3.27%           10.42%  |          0.81%            8.91%  |
+      4 |          9.00%           20.09%  |          0.72%           18.00%  |
+      3 |         16.81%           29.67%  |          0.69%           27.47%  |
+
+  If cloglog is flat under boundary censoring but not random, the bias is
+  censoring coarsening -- a data-collection fact -- not the hazard model.
+EXIT=0

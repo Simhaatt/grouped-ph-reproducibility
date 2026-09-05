@@ -1,0 +1,146 @@
+====================================================================================================
+E24  REPRODUCIBILITY RECORD
+====================================================================================================
+  python        3.14.3
+  platform      Windows-11-10.0.26200-SP0
+  processor     AMD64 Family 25 Model 80 Stepping 0, AuthenticAMD
+  numpy         2.4.2
+  torch         2.12.0+cpu  threads=1
+  scikit-learn  1.8.0
+
+  SEEDS.  Every split is numpy default_rng(seed) with seed = 0..K-1 in
+  experiments/real_data.py::split; hyperparameter selection uses
+  1000 + seed so that a validation split never coincides with a test
+  split.  Simulations seed from hash((cell..., rep)) so that two cells
+  never share a stream.  Torch is seeded inside kanrel.fit.fit.
+
+  SPLIT COUNTS.  protocol_decomp and nuisance_dim use 20 splits;
+  flexibility uses 20 seeds; simulations use 20 replications per cell.
+  All standard errors labelled 'NB SE' carry the Nadeau-Bengio
+  correction for overlapping resamples and are the ones the resolution
+  verdicts use.
+
+====================================================================================================
+E20  (A7) VIOLATIONS PER COHORT, AND SENSITIVITY TO THEM
+     (A7) wants entry and censoring on grid boundaries.  Counted here,
+     then a partial-interval likelihood is fitted as a sensitivity check.
+====================================================================================================
+  cohort                T       n  left-trunc  censored  off-grid %   D_T std  D_T partial
+  support2/slos        60    9105           0      2647         0.0  -0.00006     -0.00019
+  sparcs/drg302        30   34233           0        35         0.0  +0.06769     +0.06717
+  drsa/clinic          50    4828           0       590         0.0  +0.00923     +0.00915
+  flchain              20    7874           0      5705        72.5  +0.00002     -0.00401
+  support-pycox        20    8873           0      2837        32.0  +0.00034     -0.00839
+  drsa/music          240   50000           0     17162         0.0  +0.00047     +0.00009
+  nwtco                20    4028           0      3457        85.8  -0.00012     -0.00271
+  metabric             20    1904           0       801        42.1  -0.00069     -0.00873
+
+  A large gap between the last two columns means the (A7) idealisation
+  is doing work the paper has not accounted for.
+
+====================================================================================================
+E21  GRID CONSTRUCTION: equal-width vs equal-count vs native
+     Modal bin mass is the paper's ordering variable and it is highly
+     sensitive to which convention produced it.
+====================================================================================================
+  cohort                T                    native               equal-width               equal-count
+                                modal           D_T       modal           D_T       modal           D_T
+  support2/slos         6      0.4814      +0.03726      0.4814      +0.03726      0.1943      +0.01627
+  support2/slos        10      0.3063      +0.01634      0.3063      +0.01634      0.1450      +0.00548
+  support2/slos        15      0.2699      +0.00878      0.2699      +0.00878      0.1102      +0.00142
+  sparcs/drg302         6      0.9023      +0.29319      0.9023      +0.29319      0.6673      +0.16146
+  sparcs/drg302        10      0.6673      +0.14316      0.6673      +0.14316      0.5448      +0.11476
+  sparcs/drg302        15      0.7184      +0.16835      0.7184      +0.16835      0.5448      +0.09650
+  drsa/clinic           5      0.7730      +0.11135      0.7730      +0.11135      0.3546      +0.02298
+  drsa/clinic          10      0.6313      +0.06395      0.6313      +0.06395      0.3546      +0.01423
+  drsa/clinic          25      0.4745      +0.02649      0.4745      +0.02649      0.3546      +0.01035
+  flchain               4      0.6929      +0.00044      0.6929      +0.00044      0.4637      +0.00940
+  flchain               6      0.6106      -0.00065      0.6106      -0.00065      0.4637      +0.00388
+  flchain              10      0.5575      +0.00031      0.5575      +0.00031      0.4637      -0.00335
+  support-pycox         4      0.4898      +0.00856      0.4898      +0.00856      0.3042      +0.01163
+  support-pycox         6      0.3903      +0.00382      0.3903      +0.00382      0.3027      +0.00580
+  support-pycox        10      0.3027      +0.00166      0.3027      +0.00166      0.2047      +0.00219
+  drsa/music            6      0.4315      +0.01975      0.4315      +0.01975      0.1737      +0.01323
+  drsa/music           12      0.2331      +0.00706      0.2331      +0.00706      0.0922      +0.00498
+  drsa/music           30      0.0955      +0.00116      0.0955      +0.00116      0.0410      +0.00113
+  nwtco                 4      0.8488      -0.00030      0.8488      -0.00030      0.7157      +0.00016
+  nwtco                 6      0.7964      -0.00020      0.7964      -0.00020      0.8294      +0.00007
+  nwtco                10      0.7654      -0.00017      0.7654      -0.00017      0.7964      -0.00006
+  metabric              4      0.3771      +0.00529      0.3771      +0.00529      0.3188      +0.00613
+  metabric              6      0.2621      +0.00229      0.2621      +0.00229      0.2127      +0.00235
+  metabric             10      0.1786      +0.00038      0.1786      +0.00038      0.1786      +0.00133
+
+====================================================================================================
+E23  THE FORMULATION SWEEP WITH SPLINE COVARIATE EFFECTS IN BOTH ARMS
+     If D_T survives dropping linearity, it is not an artefact of the
+     linear index.
+====================================================================================================
+  cohort                T   modal   D_T linear    NB SE   D_T spline    NB SE   agree?
+  support2/slos         6  0.4814     +0.03825  0.00534     +0.03742  0.00507   yes
+  support2/slos        10  0.3063     +0.01709  0.00388     +0.01633  0.00397   yes
+  support2/slos        15  0.2699     +0.00925  0.00254     +0.00846  0.00256   yes
+  sparcs/drg302         6  0.9023     +0.29309  0.00203     +0.29309  0.00203   yes
+  sparcs/drg302        10  0.6673     +0.14365  0.00222     +0.14365  0.00222   yes
+  sparcs/drg302        15  0.7184     +0.16808  0.00278     +0.16808  0.00278   yes
+  drsa/clinic           5  0.7730     +0.10660  0.00921     +0.11170  0.00820   yes
+  drsa/clinic          10  0.6313     +0.06056  0.00761     +0.06387  0.01123   yes
+  drsa/clinic          25  0.4745     +0.02496  0.00477     +0.03706  0.01209   yes
+  flchain               4  0.6929     +0.00090  0.00278     +0.09925  0.06701   yes
+  flchain               6  0.6106     -0.00025  0.00297     +0.07492  0.06760   SIGN FLIP
+  flchain              10  0.5575     +0.00026  0.00058     +0.11604  0.06014   yes
+  support-pycox         4  0.4898     +0.00807  0.00188     +0.03352  0.02101   yes
+  support-pycox         6  0.3903     +0.00360  0.00121     +0.03063  0.02179   yes
+  support-pycox        10  0.3027     +0.00140  0.00083     +0.02323  0.02311   yes
+  drsa/music            6  0.4315     +0.01957  0.00059     +0.01960  0.00062   yes
+  drsa/music           12  0.2331     +0.00690  0.00055     +0.00689  0.00057   yes
+  drsa/music           30  0.0955     +0.00109  0.00031     +0.00108  0.00031   yes
+  nwtco                 4  0.8488     -0.00013  0.00057     -0.00008  0.00061   yes
+  nwtco                 6  0.7964     -0.00012  0.00036     -0.00009  0.00040   yes
+  nwtco                10  0.7654     -0.00012  0.00021     -0.00013  0.00025   yes
+  metabric              4  0.3771     +0.00561  0.00583     +0.07127  0.01321   yes
+  metabric              6  0.2621     +0.00289  0.00402     +0.07379  0.01242   yes
+  metabric             10  0.1786     +0.00055  0.00268     +0.07180  0.01206   yes
+
+====================================================================================================
+E22  FURTHER INTRINSICALLY DISCRETE (R2) COHORTS
+     Four cohorts is thin support for a claim about cohort-specific
+     crossovers, so this looks for more and FITS them rather than
+     listing what might be possible.
+====================================================================================================
+  DRSA archive:
+    CLINIC     available   T=50    discrete=True
+    MUSIC      available   T=237   discrete=True
+    The archive ships exactly these two splits; there is no third.
+
+  SPARCS: every APR-DRG is a distinct patient population measured on the
+  same whole-day scale, so each viable code is a NEW R2 cohort rather
+  than a re-slice of an old one.  Scanning for the largest.
+    twelve largest APR-DRGs: 640(207,764), 560(151,659), 540(79,702), 720(66,790), 194(53,966), 139(49,801), 140(47,397), 383(41,720), 201(38,881), 860(35,865), 750(34,968), 302(34,233)
+
+  cohort                 n    T   modal        D_T     NB SE   verdict
+  sparcs/drg640     207764   30  0.5858   +0.09995   0.00123   discrete wins
+  sparcs/drg560     151659   30  0.6015   +0.13645   0.00157   discrete wins
+  sparcs/drg540      79702   30  0.4617   +0.08001   0.00225   discrete wins
+  sparcs/drg720      66790   30  0.0995   +0.00308   0.00031   discrete wins
+
+  These are out-of-sample tests of the modal-mass rule: the rule was
+  read off drg302 and the other cohorts, and these were not used to
+  form it.
+
+====================================================================================================
+E19  drsa/music SUBSAMPLE STABILITY
+     Section 6 quotes a 50k subsample.  Is D_T a property of the cohort
+     or of the subsample size?
+====================================================================================================
+          n    T   modal        D_T     NB SE    secs
+      10000    6  0.4269   +0.02399   0.00271       5
+      10000   12  0.2357   +0.00947   0.00198      11
+      10000   30  0.0956   +0.00236   0.00130      44
+      25000    6  0.4302   +0.02241   0.00215       8
+      25000   12  0.2302   +0.00845   0.00143      31
+      25000   30  0.0948   +0.00173   0.00067     131
+      50000    6  0.4315   +0.01957   0.00059      22
+      50000   12  0.2331   +0.00690   0.00055      58
+      50000   30  0.0955   +0.00109   0.00031     271
+    2796646    6  0.4332   +0.02075   0.00017    1347
+    2796646   12  0.2338   +0.00776   0.00010    4618

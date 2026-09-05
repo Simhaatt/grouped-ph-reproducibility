@@ -1,0 +1,1 @@
+Original entry points: simulations.py e6c; simulations.py e6d; robustness_suite.py. Flat experiment modules are retained for import compatibility. Use the isolated runner in scripts/run_experiment.py; see docs/REPRODUCIBILITY.md.

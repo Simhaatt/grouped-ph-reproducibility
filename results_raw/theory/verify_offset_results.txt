@@ -1,0 +1,36 @@
+============================================================================
+ORDER OF THE REMAINDER   (non-proportional hazard, exact bin integrals)
+============================================================================
+  lambda_min = 1.0000   sup|lam'/lam| = 0.7906   sup|lam''/lam| = 1.0000
+
+      T    err(right)      /Delta |   err(MIDpoint)    /Delta^2
+     16     4.894e-02    0.391507 |       6.261e-04    0.040073
+     32     2.460e-02    0.393546 |       1.597e-04    0.040877
+     64     1.233e-02    0.394460 |       4.031e-05    0.041274
+    128     6.170e-03    0.394874 |       1.012e-05    0.041471
+    256     3.087e-03    0.395080 |       2.537e-06    0.041569
+    512     1.544e-03    0.395183 |       6.350e-07    0.041618
+   1024     7.719e-04    0.395234 |       1.589e-07    0.041642
+
+  right endpoint : ratio/Delta   -> 0.395234   predicted (1/2)sup|lam'/lam|  = 0.395285
+  MIDPOINT       : ratio/Delta^2 -> 0.041642   predicted (1/24)sup|lam''/lam| = 0.041667
+  -> midpoint anchor is second order.  Lemma 2 should be stated with the MIDPOINT.
+
+============================================================================
+NECESSITY of lambda bounded AWAY FROM ZERO   (constant should scale ~ 1/lambda_min)
+============================================================================
+      a0   lambda_min    err/Delta^2   x lambda_min
+     2.0       2.0000       0.020827       0.041654
+     1.0       1.0000       0.041642       0.041642
+     0.5       0.5000       0.083236       0.041618
+     0.2       0.2000       0.207724       0.041545
+     0.1       0.1000       0.414237       0.041424
+    0.05       0.0500       0.823672       0.041184
+  -> const * lambda_min is ~constant, i.e. const ~ 1/lambda_min.
+     log lambda is not Lipschitz as lambda -> 0, so Lemma 2 needs
+     0 < lambda_min <= lambda <= lambda_max < infinity.
+     This is STRICTLY STRONGER than Theorem 3's hypothesis (bounded above only).
+
+============================================================================
+RESULT: GATE PASSES
+============================================================================

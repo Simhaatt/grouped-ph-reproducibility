@@ -1,0 +1,118 @@
+{
+  "checks": [
+    {
+      "check": "Required files exist",
+      "pass": true
+    },
+    {
+      "check": "All 93 frozen aggregate files match recorded SHA-256",
+      "pass": true
+    },
+    {
+      "check": "All 34 distinct configurations match original protocol",
+      "pass": true
+    },
+    {
+      "check": "20 successful full-cohort splits stored for all 34 configurations",
+      "pass": true
+    },
+    {
+      "check": "Original main seed policy 0..19 and test fraction 0.3 remain",
+      "pass": true
+    },
+    {
+      "check": "Nadeau-Bengio SE agrees with naive SE within printed precision",
+      "pass": true
+    },
+    {
+      "check": "positive_B matches manuscript",
+      "pass": true
+    },
+    {
+      "check": "nonpositive_KP matches manuscript",
+      "pass": true
+    },
+    {
+      "check": "resolved_positive_KP matches manuscript",
+      "pass": true
+    },
+    {
+      "check": "validation_resolved_KP matches manuscript",
+      "pass": true
+    },
+    {
+      "check": "SPARCS T=6 four reported values match exact cohort/arm",
+      "pass": true
+    },
+    {
+      "check": "All numerical cells in manuscript main-examples and independent-SPARCS tables match keyed logs",
+      "pass": true
+    },
+    {
+      "check": "27 E8 and 135 Weibull cells present",
+      "pass": true
+    },
+    {
+      "check": "Published E8 correlations match original ordinal-ranking algorithm",
+      "pass": true
+    },
+    {
+      "check": "All 170 numerical cells in supplied supplement S1/S2 match keyed frozen results",
+      "pass": true
+    },
+    {
+      "check": "Supplement S3/S4 all 25 paired differences and SEs match",
+      "pass": true
+    },
+    {
+      "check": "Generated main/baseline_decomposition matches frozen values in every cell",
+      "pass": true
+    },
+    {
+      "check": "Generated simulations/event_concentration matches frozen values in every cell",
+      "pass": true
+    },
+    {
+      "check": "Generated simulations/grouped_weibull matches frozen values in every cell",
+      "pass": true
+    },
+    {
+      "check": "Generated main/independent_sparcs matches frozen values in every cell",
+      "pass": true
+    },
+    {
+      "check": "Generated supplementary/flexibility matches frozen values in every cell",
+      "pass": true
+    },
+    {
+      "check": "Generated summary JSON matches recomputation",
+      "pass": true
+    },
+    {
+      "check": "All three figures present in PDF and PNG",
+      "pass": true
+    },
+    {
+      "check": "No detected private machine paths, common secret signatures or excluded file types",
+      "pass": true
+    },
+    {
+      "check": "Author-approved licence inserted",
+      "pass": false
+    },
+    {
+      "check": "Real GitHub URL inserted",
+      "pass": false
+    },
+    {
+      "check": "Unresolved release blockers addressed in review record",
+      "pass": false
+    }
+  ],
+  "failures": [
+    "Author-approved licence inserted",
+    "Real GitHub URL inserted",
+    "Unresolved release blockers addressed in review record"
+  ],
+  "scope": "release-readiness"
+}

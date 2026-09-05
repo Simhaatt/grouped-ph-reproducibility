@@ -1,0 +1,133 @@
+
+============================================================================================
+sparcs/drg302          n=  34233  p= 12  T=  30  events=0.999  top3bins=0.826  [discrete]
+  5 repeated splits -- mean +/- sd ACROSS splits (not within one)
+  l1 = 0 (selected in regularization.py)
+  * Cox-linear+Breslow is the CONTROL: it shows what our Breslow
+    conversion itself costs, so CoxKAN is not charged for our pipeline.
+============================================================================================
+  model                           test NLL           C-index               IBS
+  ours/linear-cloglog      1.4626+/-0.0057   0.6121+/-0.0022   0.0232+/-0.0003
+  ours/KAN-cloglog         1.4604+/-0.0057   0.6124+/-0.0024   0.0231+/-0.0003
+  CoxKAN (published)       1.5295+/-0.0051   0.6126+/-0.0023   0.0251+/-0.0003
+  Cox-linear+Breslow*      1.5316+/-0.0051   0.6119+/-0.0023   0.0252+/-0.0003
+
+============================================================================================
+support2/slos          n=   9105  p= 32  T=  60  events=0.709  top3bins=0.218  [discrete]
+  5 repeated splits -- mean +/- sd ACROSS splits (not within one)
+  l1 = 0.01 (selected in regularization.py)
+  * Cox-linear+Breslow is the CONTROL: it shows what our Breslow
+    conversion itself costs, so CoxKAN is not charged for our pipeline.
+============================================================================================
+  model                           test NLL           C-index               IBS
+  ours/linear-cloglog      2.5846+/-0.0211   0.7578+/-0.0039   0.1205+/-0.0020
+  ours/KAN-cloglog         2.5815+/-0.0204   0.7597+/-0.0051   0.1204+/-0.0024
+  CoxKAN (published)       2.5921+/-0.0161   0.7597+/-0.0054   0.1207+/-0.0019
+  Cox-linear+Breslow*      2.5783+/-0.0234   0.7583+/-0.0045   0.1205+/-0.0017
+
+============================================================================================
+metabric               n=   1904  p=  9  T=  20  events=0.579  top3bins=0.262  [binned-continuous]
+  5 repeated splits -- mean +/- sd ACROSS splits (not within one)
+  l1 = 0.01 (selected in regularization.py)
+  * Cox-linear+Breslow is the CONTROL: it shows what our Breslow
+    conversion itself costs, so CoxKAN is not charged for our pipeline.
+============================================================================================
+  model                           test NLL           C-index               IBS
+  ours/linear-cloglog      2.2004+/-0.0366   0.6240+/-0.0165   0.1602+/-0.0037
+  ours/KAN-cloglog         2.1972+/-0.0401   0.6364+/-0.0189   0.1585+/-0.0047
+  CoxKAN (published)       2.2457+/-0.0765   0.6355+/-0.0164   0.1624+/-0.0039
+  Cox-linear+Breslow*      2.1996+/-0.0394   0.6244+/-0.0159   0.1603+/-0.0038
+
+============================================================================================
+rotgbsg                n=   2232  p=  7  T=  20  events=0.568  top3bins=0.412  [binned-continuous]
+  5 repeated splits -- mean +/- sd ACROSS splits (not within one)
+  l1 = 0.01 (selected in regularization.py)
+  * Cox-linear+Breslow is the CONTROL: it shows what our Breslow
+    conversion itself costs, so CoxKAN is not charged for our pipeline.
+============================================================================================
+  model                           test NLL           C-index               IBS
+  ours/linear-cloglog      2.2852+/-0.0449   0.6704+/-0.0094   0.1595+/-0.0024
+  ours/KAN-cloglog         2.2526+/-0.0506   0.6920+/-0.0132   0.1540+/-0.0046
+  CoxKAN (published)       3.3866+/-2.4910   0.6916+/-0.0093   0.1845+/-0.0669
+  Cox-linear+Breslow*      2.2852+/-0.0407   0.6712+/-0.0108   0.1599+/-0.0027
+
+============================================================================================
+support-pycox          n=   8873  p= 14  T=  20  events=0.680  top3bins=0.390  [binned-continuous]
+  5 repeated splits -- mean +/- sd ACROSS splits (not within one)
+  l1 = 0.01 (selected in regularization.py)
+  * Cox-linear+Breslow is the CONTROL: it shows what our Breslow
+    conversion itself costs, so CoxKAN is not charged for our pipeline.
+============================================================================================
+  model                           test NLL           C-index               IBS
+  ours/linear-cloglog      2.5979+/-0.0194   0.5714+/-0.0063   0.1809+/-0.0019
+  ours/KAN-cloglog         2.5669+/-0.0184   0.6143+/-0.0046   0.1748+/-0.0014
+  CoxKAN (published)       2.5831+/-0.0278   0.6150+/-0.0029   0.1755+/-0.0021
+  Cox-linear+Breslow*      2.5974+/-0.0199   0.5713+/-0.0070   0.1813+/-0.0020
+
+============================================================================================
+flchain                n=   7874  p=  8  T=  20  events=0.275  top3bins=0.611  [binned-continuous]
+  5 repeated splits -- mean +/- sd ACROSS splits (not within one)
+  l1 = 0.01 (selected in regularization.py)
+  * Cox-linear+Breslow is the CONTROL: it shows what our Breslow
+    conversion itself costs, so CoxKAN is not charged for our pipeline.
+============================================================================================
+  model                           test NLL           C-index               IBS
+  ours/linear-cloglog      1.2248+/-0.0207   0.7975+/-0.0098   0.0852+/-0.0033
+  ours/KAN-cloglog         1.2172+/-0.0281   0.7999+/-0.0088   0.0851+/-0.0034
+  CoxKAN (published)       1.2483+/-0.0517   0.7985+/-0.0083   0.0856+/-0.0033
+  Cox-linear+Breslow*      1.2212+/-0.0234   0.7976+/-0.0097   0.0854+/-0.0034
+
+============================================================================================
+nwtco                  n=   4028  p=  6  T=  20  events=0.142  top3bins=0.798  [binned-continuous]
+  5 repeated splits -- mean +/- sd ACROSS splits (not within one)
+  l1 = 0.01 (selected in regularization.py)
+  * Cox-linear+Breslow is the CONTROL: it shows what our Breslow
+    conversion itself costs, so CoxKAN is not charged for our pipeline.
+============================================================================================
+  model                           test NLL           C-index               IBS
+  ours/linear-cloglog      0.7626+/-0.0487   0.6979+/-0.0213   0.0596+/-0.0038
+  ours/KAN-cloglog         0.7581+/-0.0486   0.6986+/-0.0173   0.0583+/-0.0038
+  CoxKAN (published)       0.7605+/-0.0515   0.6977+/-0.0200   0.0580+/-0.0042
+  Cox-linear+Breslow*      0.7640+/-0.0516   0.6987+/-0.0187   0.0595+/-0.0040
+*** No CODEPAGE record, no encoding_override: will use 'iso-8859-1'
+
+============================================================================================
+pbc                    n=    418  p= 10  T=  20  events=0.385  top3bins=0.294  [binned-continuous]
+  5 repeated splits -- mean +/- sd ACROSS splits (not within one)
+  l1 = 0.1 (selected in regularization.py)
+  * Cox-linear+Breslow is the CONTROL: it shows what our Breslow
+    conversion itself costs, so CoxKAN is not charged for our pipeline.
+============================================================================================
+  model                           test NLL           C-index               IBS
+  ours/linear-cloglog      1.5468+/-0.1644   0.8295+/-0.0357   0.1032+/-0.0158
+  ours/KAN-cloglog         1.5796+/-0.1611   0.8054+/-0.0499   0.1099+/-0.0151
+  CoxKAN (published)       2.1708+/-0.4158   0.7720+/-0.0241   0.1216+/-0.0216
+  Cox-linear+Breslow*      1.5600+/-0.1862   0.8301+/-0.0388   0.1032+/-0.0195
+
+============================================================================================
+gbsg                   n=    686  p=  9  T=  20  events=0.436  top3bins=0.369  [binned-continuous]
+  5 repeated splits -- mean +/- sd ACROSS splits (not within one)
+  l1 = 0.1 (selected in regularization.py)
+  * Cox-linear+Breslow is the CONTROL: it shows what our Breslow
+    conversion itself costs, so CoxKAN is not charged for our pipeline.
+============================================================================================
+  model                           test NLL           C-index               IBS
+  ours/linear-cloglog      1.8660+/-0.0836   0.6898+/-0.0318   0.1445+/-0.0078
+  ours/KAN-cloglog         1.8732+/-0.0851   0.6803+/-0.0376   0.1470+/-0.0081
+  CoxKAN (published)       2.2054+/-0.2286   0.6629+/-0.0238   0.1592+/-0.0069
+  Cox-linear+Breslow*      1.8707+/-0.0905   0.6965+/-0.0321   0.1427+/-0.0102
+*** No CODEPAGE record, no encoding_override: will use 'iso-8859-1'
+
+============================================================================================
+prostate               n=    502  p= 23  T=  60  events=0.671  top3bins=0.297  [discrete]
+  5 repeated splits -- mean +/- sd ACROSS splits (not within one)
+  l1 = 0.3 (selected in regularization.py)
+  * Cox-linear+Breslow is the CONTROL: it shows what our Breslow
+    conversion itself costs, so CoxKAN is not charged for our pipeline.
+============================================================================================
+  model                           test NLL           C-index               IBS
+  ours/linear-cloglog      3.3245+/-0.1147   0.6156+/-0.0275   0.1931+/-0.0052
+  ours/KAN-cloglog         3.3284+/-0.1421   0.6050+/-0.0398   0.1938+/-0.0086
+  CoxKAN (published)       6.0648+/-3.3667   0.5791+/-0.0268   0.2702+/-0.0775
+  Cox-linear+Breslow*      3.6991+/-0.3886   0.6139+/-0.0256   0.1936+/-0.0045
+EXIT=0

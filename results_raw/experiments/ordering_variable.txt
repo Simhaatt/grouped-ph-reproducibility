@@ -1,0 +1,57 @@
+========================================================================================================
+WHICH SCALAR ORDERS D_T ON THE REAL COHORTS?
+  D_T read from protocol_decomp.txt (FULL COHORT blocks, cox:efron+breslow)
+  34 configurations available
+========================================================================================================
+  cohort               T  reg    modal  ev modal   ev/bin   events        D_T
+  support2/slos        6   R2   0.4814    0.4912     1076     6458   +0.03928
+  support2/slos       10   R2   0.3063    0.3306      646     6458   +0.01839
+  support2/slos       15   R2   0.2699    0.2818      431     6458   +0.01019
+  support2/slos       20   R2   0.2170    0.2179      323     6458   +0.00624
+  support2/slos       30   R2   0.1450    0.1527      215     6458   +0.00257
+  support2/slos       60   R2   0.0756    0.0776      108     6458   +0.00041
+  sparcs/drg302        6   R2   0.9023    0.9032     5700    34198   +0.29336
+  sparcs/drg302       10   R2   0.6673    0.6679     3420    34198   +0.14313
+  sparcs/drg302       15   R2   0.7184    0.7191     2280    34198   +0.16779
+  sparcs/drg302       30   R2   0.5448    0.5454     1140    34198   +0.06707
+  drsa/clinic          5   R2   0.7730    0.8374      848     4238   +0.10464
+  drsa/clinic         10   R2   0.6313    0.7095      424     4238   +0.05785
+  drsa/clinic         25   R2   0.4745    0.5406      170     4238   +0.02269
+  drsa/clinic         50   R2   0.3546    0.4040       85     4238   +0.00842
+  flchain              4   R1   0.6929    0.2503      542     2169   +0.00151
+  flchain              6   R1   0.6106    0.2006      362     2169   +0.00044
+  flchain             10   R1   0.5575    0.1010      217     2169   +0.00036
+  flchain             20   R1   0.4637    0.0507      108     2169   +0.00002
+  support-pycox        4   R1   0.4898    0.2614     1509     6036   +0.00892
+  support-pycox        6   R1   0.3903    0.2071     1006     6036   +0.00416
+  support-pycox       10   R1   0.3027    0.1175      604     6036   +0.00170
+  support-pycox       20   R1   0.1856    0.0611      302     6036   +0.00042
+  drsa/music           6   R2   0.4315    0.4670     5473    32838   +0.02025
+  drsa/music          12   R2   0.2331    0.2417     2736    32838   +0.00736
+  drsa/music          30   R2   0.0955    0.1020     1095    32838   +0.00134
+  drsa/music          60   R2   0.0487    0.0534      547    32838   +0.00028
+  nwtco                4   R1   0.8488    0.2539      143      571   -0.00005
+  nwtco                6   R1   0.7964    0.2102       95      571   -0.00009
+  nwtco               10   R1   0.7654    0.1086       57      571   -0.00008
+  nwtco               20   R1   0.7157    0.0595       29      571   -0.00009
+  metabric             4   R1   0.3771    0.2502      276     1103   +0.00761
+  metabric             6   R1   0.2621    0.2004      184     1103   +0.00394
+  metabric            10   R1   0.1786    0.1006      110     1103   +0.00164
+  metabric            20   R1   0.1092    0.0517       55     1103   -0.00002
+
+========================================================================================================
+SPEARMAN AGAINST D_T
+========================================================================================================
+  subset                  n cfg    modal bin mass (section 6.3)                modal EVENT mass                  events per bin
+  pooled (pseudorep.)        34                          0.1804                          0.8680                          0.7103
+  R2 only                    18                          0.9856                          0.9773                          0.5397
+  R1 only                    16                         -0.5147                          0.4265                          0.8029
+
+  Pooling across regimes is pseudoreplication -- section 6.3 records that
+  lesson -- so the R2 row is the one that decides which scalar to use.
+  Largest |rho| within R2: modal bin mass (section 6.3).
+
+  CAVEAT.  These three are strongly collinear on real cohorts, so a
+  ranking among them here is weak evidence on its own.  E8 is the
+  identified comparison; this table is the check that the real data is
+  consistent with it.

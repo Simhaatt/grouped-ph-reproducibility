@@ -1,0 +1,57 @@
+============================================================================================
+FORMULATION EFFECT, WITH AN INTERVAL   (Cox+Breslow minus discrete hazard)
+  index held fixed at LINEAR in both arms; positive favours the discrete hazard
+============================================================================================
+
+  sparcs/drg302    split 0  n_test=10270
+    Cox+Breslow 1.5217   discrete 1.4528
+    formulation = +0.06891   95% CI [+0.06247, +0.07530]  -> SIGNIFICANT
+
+  sparcs/drg302    split 1  n_test=10270
+    Cox+Breslow 1.5346   discrete 1.4563
+    formulation = +0.07821   95% CI [+0.06695, +0.09116]  -> SIGNIFICANT
+
+  sparcs/drg302    split 2  n_test=10270
+    Cox+Breslow 1.5291   discrete 1.4623
+    formulation = +0.06682   95% CI [+0.06014, +0.07342]  -> SIGNIFICANT
+  ==> sparcs/drg302: +0.07131 +/- 0.00607   resolved on 3/3 splits
+
+  support2/slos    split 0  n_test=2732
+    Cox+Breslow 2.5436   discrete 2.5532
+    formulation = -0.00951   95% CI [-0.01287, -0.00619]  -> worse
+
+  support2/slos    split 1  n_test=2732
+    Cox+Breslow 2.5793   discrete 2.5851
+    formulation = -0.00578   95% CI [-0.00897, -0.00259]  -> worse
+
+  support2/slos    split 2  n_test=2732
+    Cox+Breslow 2.5691   discrete 2.5774
+    formulation = -0.00829   95% CI [-0.01170, -0.00488]  -> worse
+  ==> support2/slos: -0.00786 +/- 0.00190   resolved on 0/3 splits
+
+  rotgbsg          split 0  n_test=670
+    Cox+Breslow 2.2628   discrete 2.2622
+    formulation = +0.00066   95% CI [-0.00646, +0.00788]  -> not significant
+
+  rotgbsg          split 1  n_test=670
+    Cox+Breslow 2.3284   discrete 2.3322
+    formulation = -0.00376   95% CI [-0.01467, +0.00600]  -> not significant
+
+  rotgbsg          split 2  n_test=670
+    Cox+Breslow 2.2835   discrete 2.2852
+    formulation = -0.00173   95% CI [-0.00626, +0.00268]  -> not significant
+  ==> rotgbsg: -0.00161 +/- 0.00221   resolved on 0/3 splits
+
+  metabric         split 0  n_test=571
+    Cox+Breslow 2.1966   discrete 2.1991
+    formulation = -0.00249   95% CI [-0.01010, +0.00541]  -> not significant
+
+  metabric         split 1  n_test=571
+    Cox+Breslow 2.2472   discrete 2.2487
+    formulation = -0.00158   95% CI [-0.00803, +0.00491]  -> not significant
+
+  metabric         split 2  n_test=571
+    Cox+Breslow 2.2162   discrete 2.2138
+    formulation = +0.00245   95% CI [-0.00806, +0.01275]  -> not significant
+  ==> metabric: -0.00054 +/- 0.00263   resolved on 0/3 splits
+EXIT=0

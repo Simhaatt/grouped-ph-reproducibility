@@ -1,0 +1,79 @@
+========================================================================================================
+D_T UNDER BRESLOW AGAINST D_T UNDER KALBFLEISCH-PRENTICE
+  Same Cox coefficients (Efron ties), same test rows, same 20 splits.
+  The ONLY difference between the two columns is how alpha_t is formed:
+    Breslow                a moment estimator, d_t / sum_{R_t} r_i
+    Kalbfleisch-Prentice   the cloglog PROFILE MLE for alpha given beta
+  D_T > 0 favours the grouped joint MLE.  'resolved' is |D_T| > 1.96 NB SE.
+========================================================================================================
+  configuration          reg  modal  D_T Breslow    NB SE  res     D_T KP    NB SE  res   base%
+  metabric@T4             R1  0.377     +0.00761  0.00485   no   -0.00024  0.00022   no  103.1%
+  metabric@T6             R1  0.262     +0.00394  0.00333   no   -0.00013  0.00012   no  103.4%
+  metabric@T10            R1  0.179     +0.00164  0.00232   no   -0.00008  0.00007   no  105.1%
+  metabric@T20            R1  0.109     -0.00002  0.00135   no   -0.00004  0.00004   no -120.6%
+  nwtco@T4                R1  0.849     -0.00005  0.00041   no   -0.00002  0.00002   no   69.5%
+  nwtco@T6                R1  0.796     -0.00009  0.00029   no   -0.00001  0.00001   no   88.4%
+  nwtco@T10               R1  0.765     -0.00008  0.00017   no   -0.00001  0.00001   no   92.4%
+  nwtco@T20               R1  0.716     -0.00009  0.00008   no   -0.00000  0.00001   no   94.5%
+  flchain@T4              R1  0.693     +0.00151  0.00253   no   -0.00194  0.00238   no  228.1%
+  flchain@T6              R1  0.611     +0.00044  0.00229   no   -0.00141  0.00203   no  417.3%
+  flchain@T10             R1  0.557     +0.00036  0.00062   no   -0.00025  0.00030   no  171.1%
+  flchain@T20             R1  0.464     +0.00002  0.00030   no   -0.00010  0.00012   no  745.3%
+  support-pycox@T4        R1  0.490     +0.00892  0.00173  yes   -0.00006  0.00007   no  100.7%
+  support-pycox@T6        R1  0.390     +0.00416  0.00116  yes   -0.00003  0.00003   no  100.8%
+  support-pycox@T10       R1  0.303     +0.00170  0.00077  yes   -0.00001  0.00001   no  100.8%
+  support-pycox@T20       R1  0.186     +0.00042  0.00045   no   -0.00000  0.00001   no  101.2%
+  drsa/clinic@T5          R2  0.773     +0.10464  0.00762  yes   -0.00069  0.00060   no  100.7%
+  drsa/clinic@T10         R2  0.631     +0.05785  0.00643  yes   -0.00011  0.00104   no  100.8%
+  drsa/clinic@T25         R2  0.474     +0.02269  0.00422  yes   -0.00022  0.00023   no  101.0%
+  drsa/clinic@T50         R2  0.355     +0.00842  0.00252  yes   -0.00010  0.00012   no  101.2%
+  support2/slos@T6        R2  0.481     +0.03928  0.00446  yes   -0.00027  0.00045   no  100.7%
+  support2/slos@T10       R2  0.306     +0.01839  0.00305  yes   -0.00018  0.00024   no  101.0%
+  support2/slos@T15       R2  0.270     +0.01019  0.00233  yes   -0.00013  0.00013   no  101.3%
+  support2/slos@T20       R2  0.217     +0.00624  0.00177  yes   -0.00008  0.00008   no  101.3%
+  support2/slos@T30       R2  0.145     +0.00257  0.00130  yes   -0.00004  0.00004   no  101.6%
+  support2/slos@T60       R2  0.076     +0.00041  0.00069   no   -0.00001  0.00001   no  103.1%
+  sparcs/drg302@T6        R2  0.902     +0.29336  0.00261  yes   +0.00135  0.00128   no   99.5%
+  sparcs/drg302@T10       R2  0.667     +0.14313  0.00264  yes   -0.00031  0.00071   no  100.2%
+  sparcs/drg302@T15       R2  0.718     +0.16779  0.00350  yes   +0.00045  0.00025   no   99.7%
+  sparcs/drg302@T30       R2  0.545     +0.06707  0.00232  yes   +0.00024  0.00060   no   99.7%
+  drsa/music@T6           R2  0.431     +0.02025  0.00122  yes   -0.00000  0.00001   no  100.0%
+  drsa/music@T12          R2  0.233     +0.00736  0.00082  yes   -0.00000  0.00000   no  100.0%
+  drsa/music@T30          R2  0.096     +0.00134  0.00040  yes   -0.00000  0.00000   no  100.0%
+  drsa/music@T60          R2  0.049     +0.00028  0.00022   no   -0.00000  0.00000   no  100.0%
+
+========================================================================================================
+READING
+========================================================================================================
+  configurations: 34   (18 R2, 16 R1)
+  D_T positive under Breslow:                 29/34
+  D_T zero or NEGATIVE under KP:              31/34
+  D_T resolved POSITIVE under KP:             0/34
+
+  largest Breslow effect: sparcs/drg302@T6 at +0.29336 (112.4 NB SE)
+    the same configuration under KP:      +0.00135 (1.1 NB SE)
+  baseline share of D_T where |D_T| > 1e-4: median 100.9%, range 99.5 to 417.3%
+
+  NOT ONE of THESE configurations shows a resolved advantage for the
+  grouped joint MLE once Cox is given a profile-MLE baseline.
+  NOT UNIVERSAL: kp_out_of_sample.txt finds 3 of 12 out-of-sample
+  configurations resolved POSITIVE under KP, the largest +0.00455 at
+  modal mass 0.9372.  The residual is ordered (Spearman +0.83 against
+  modal mass) and runs -0.33% to +1.33% of the Breslow effect, with a
+  baseline share of 98.7 to 100.2% throughout.  Quote the boundary,
+  not a blanket null.  The KP column here
+  is negative throughout, which is what theory predicts: the partial
+  likelihood does not pay the Neyman-Scott cost of estimating T free
+  alpha_t, so its coefficient is if anything slightly better.
+
+  CONSEQUENCE FOR THE PAPER.  The formulation effect is a BASELINE
+  ESTIMATOR effect.  The grouped cloglog model and Cox-plus-Breslow
+  are the same model; what differs is that the grouped likelihood
+  gets the profile MLE for the baseline for free while the standard
+  Cox prediction pipeline substitutes a moment estimator.
+
+  That is still a real and large finding -- the Breslow column reaches
+  13.7 standard errors -- and it carries a directly usable
+  recommendation: when predicting interval probabilities from a Cox
+  fit on heavily tied data, use a Kalbfleisch-Prentice baseline
+  rather than Breslow, or equivalently fit the grouped model.

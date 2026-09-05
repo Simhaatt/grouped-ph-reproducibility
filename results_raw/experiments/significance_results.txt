@@ -1,0 +1,45 @@
+========================================================================================
+PAIRED BOOTSTRAP: is the KAN-vs-linear difference real?
+  positive difference = KAN assigns higher likelihood = KAN better
+========================================================================================
+
+  drsa/music       n_test= 60000  l1=0
+    NLL  linear 3.5441   KAN 3.5355
+    diff (linear - KAN) = +0.00861   95% CI [+0.00744, +0.00978]   -> SIGNIFICANT
+    C-index  linear 0.5163   KAN 0.5243   delta +0.0081
+
+  sparcs/drg302    n_test= 10270  l1=0
+    NLL  linear 1.4551   KAN 1.4529
+    diff (linear - KAN) = +0.00219   95% CI [+0.00074, +0.00365]   -> SIGNIFICANT
+    C-index  linear 0.6136   KAN 0.6141   delta +0.0005
+
+  support2/slos    n_test=  2732  l1=0.01
+    NLL  linear 2.5532   KAN 2.5543
+    diff (linear - KAN) = -0.00113   95% CI [-0.01143, +0.00910]   -> not significant
+    C-index  linear 0.7561   KAN 0.7579   delta +0.0018
+
+  gbsg             n_test=   206  l1=0.03
+    NLL  linear 1.8825   KAN 1.8801
+    diff (linear - KAN) = +0.00243   95% CI [-0.02589, +0.03088]   -> not significant
+    C-index  linear 0.7055   KAN 0.7183   delta +0.0128
+*** No CODEPAGE record, no encoding_override: will use 'iso-8859-1'
+
+  pbc              n_test=   125  l1=0.03
+    NLL  linear 1.6670   KAN 1.7457
+    diff (linear - KAN) = -0.07879   95% CI [-0.25175, +0.05565]   -> not significant
+    C-index  linear 0.8277   KAN 0.8076   delta -0.0200
+
+  valung           n_test=    41  l1=0
+    NLL  linear 2.8133   KAN 2.8771
+    diff (linear - KAN) = -0.06378   95% CI [-0.29359, +0.16706]   -> not significant
+    C-index  linear 0.7265   KAN 0.7194   delta -0.0071
+
+========================================================================================
+  dataset           n_test    NLL diff                    95% CI           verdict
+  drsa/music         60000    +0.00861   [+0.00744, +0.00978]       SIGNIFICANT
+  sparcs/drg302      10270    +0.00219   [+0.00074, +0.00365]       SIGNIFICANT
+  support2/slos       2732    -0.00113   [-0.01143, +0.00910]   not significant
+  gbsg                 206    +0.00243   [-0.02589, +0.03088]   not significant
+  pbc                  125    -0.07879   [-0.25175, +0.05565]   not significant
+  valung                41    -0.06378   [-0.29359, +0.16706]   not significant
+EXIT=0

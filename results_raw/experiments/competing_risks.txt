@@ -1,0 +1,22 @@
+============================================================================================
+A7  COMPETING RISKS: is treating in-hospital death as censoring harmful?
+============================================================================================
+  n=9105  train=6373 test=2732   discharged 70.9% / died 24.8% / censored 4.2%
+
+    day   observed   competing  naive(sep fit)  naive(same fit)     bias
+        discharged         CIF     1-prod(1-h)      1-prod(1-h)       pp
+      3     0.0201      0.0250          0.0247           0.0251     -0.0
+      5     0.1179      0.1218          0.1236           0.1234     +0.2
+      7     0.2193      0.2305          0.2380           0.2371     +0.8
+     10     0.3357      0.3570          0.3759           0.3751     +1.9
+     14     0.4491      0.4728          0.5096           0.5091     +3.7
+     20     0.5512      0.5719          0.6344           0.6341     +6.3
+     30     0.6215      0.6416          0.7377           0.7363     +9.6
+     45     0.6739      0.6863          0.8188           0.8159    +13.2
+     60     0.6936      0.7065          0.8642           0.8608    +15.8
+
+  At day 60: observed discharged 0.694, competing-risks CIF 0.707, naive 0.864
+  -> naive analysis OVERSTATES discharge probability by +15.8 percentage points
+  -> absolute error vs observed:  competing 0.0129   naive 0.1706
+  -> competing-risks model is BETTER calibrated
+cr exit=0
