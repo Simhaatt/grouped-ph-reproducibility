@@ -30,8 +30,8 @@ import pandas as pd
 # Search order for raw files; override with KANREL_DATA.
 DATA_DIRS = [
     Path(os.environ.get("KANREL_DATA", "")),
-    Path(__file__).resolve().parents[2] / "data",
-    Path(__file__).resolve().parents[2],
+    Path(__file__).resolve().parent.parent / "data",
+    Path(__file__).resolve().parent.parent,
     Path.home() / "Downloads",
 ]
 
@@ -337,8 +337,6 @@ LOADERS = {
 }
 
 
-# RELEASE NOTE: official DRSA README identifies MUSIC as Last.fm-derived.
-# Historical KKBox/day-unit statements below require author provenance review.
 # ------------------------------------------------------------------- DRSA
 def _drsa_field_map(featindex: Path) -> dict[int, int]:
     """featindex lines are '<field>:<value>\t<index>' -> {index: field}."""
@@ -369,14 +367,28 @@ def load_drsa(split: str = "CLINIC", horizon: int | None = None,
     so ``b`` is a KNOWN administrative censoring time -- which means IPCW needs no
     censoring-distribution estimate here.
 
-    split="MUSIC"  is KKBox churn, 2,796,646 rows, integer days, tie ratio 7e-4.
-                   The single largest intrinsically-discrete cohort available.
+    split="MUSIC"  is NOT KKBox.  Ren et al. describe MUSIC as a user-lifetime
+                   analysis over the Last.fm 1K-user listening dataset (Celma,
+                   2010): the tracked event is a user's return visit to the
+                   service, and the duration is the time from one visit to the
+                   next.  This comment previously said "KKBox churn", which an
+                   external audit flagged and the DRSA documentation contradicts.
+                   2,796,646 rows, tie ratio 7e-4.
+
+                   ⚠️ UNRESOLVED AND CONSEQUENTIAL.  If ~1,000 users contribute
+                   2.8M visit intervals, rows are REPEATED MEASURES WITHIN USER,
+                   not independent subjects, and every standard error computed on
+                   this cohort is understated -- our splits randomise over rows,
+                   so the same user appears in train and test.  The .yzbx format
+                   carries no user identifier, so this cannot be checked from the
+                   distributed files.  Until it is, treat drsa/music standard
+                   errors as lower bounds and do not quote them as resolved.
     split="CLINIC" is a small clinical cohort, 4,828 rows.
 
     CAVEAT: DRSA one-hot encoded every covariate, so there are no continuous
     features here -- only a handful of categorical FIELDS with many levels each.
     We recover the field structure and return one ordinal column per field, which
-    is what a KAN can actually use.  For continuous KKBox covariates (plan price,
+    is what a KAN can actually use.  For continuous covariates (where a raw
     plan days, n_prev_churns) the raw WSDM archive must be processed instead.
     """
     root = Path(root)
