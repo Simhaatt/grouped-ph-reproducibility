@@ -4,9 +4,9 @@
 - [ ] Confirm no raw restricted or third-party subject-level data are included.
 - [ ] Review sharing rights for aggregate logs and manuscript figures.
 - [ ] Verify downloaded cache hashes/row counts and the DRSA MUSIC source/time-unit discrepancy, or state specific full-refit limitations.
-- [ ] Approve the software licence and replace LICENSE/metadata placeholders.
-- [ ] Confirm author names, affiliations, ORCID and professional contact details.
-- [ ] Obtain editable supplement source or explicitly retain the PDF-wrapper limitation.
+- [x] Owner-selected CC BY 4.0 applied and metadata updated.
+- [x] Author details confirmed by owner.
+- [x] Owner waived editable supplement source; supplied PDF and wrapper retained.
 - [ ] Review the E8 ordinal-rank versus standard Spearman definition.
 - [ ] Complete clean installation test and document its environment.
 - [ ] Run python scripts/reproduce_figures.py and visually review PDF and PNG outputs.

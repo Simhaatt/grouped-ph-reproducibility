@@ -3,7 +3,6 @@ message: "Please cite the version-specific Zenodo DOI after release."
 type: software
 title: "Grouped Proportional Hazards under Coarse Time: Information Loss and Baseline Estimation"
 authors:
-  # Confirm this name segmentation with the author before release.
   - given-names: "Simhaa"
     family-names: "T. T."
     orcid: "https://orcid.org/0009-0006-9041-1103"
@@ -15,4 +14,4 @@ version: 1.0.0
 # date-released: YYYY-MM-DD (set on publication)
 # doi: ZENODO_VERSION_DOI (set after Zenodo archiving)
 repository-code: https://github.com/Simhaatt/grouped-ph-reproducibility
-# license: AUTHOR_APPROVED_SPDX_ID
+license: CC-BY-4.0

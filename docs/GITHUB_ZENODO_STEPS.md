@@ -6,7 +6,7 @@ Current setup: repository created at https://github.com/Simhaatt/grouped-ph-repr
 
 ## 1. Now: finish the local publication decisions
 
-Read RELEASE_BLOCKERS.md. Confirm a software licence with both authors and insert its full text into LICENSE. Use the same SPDX licence in CITATION.cff and the Zenodo-supported licence identifier in .zenodo.json. Confirm names, affiliations, ORCID and manuscript/contact details. Resolve or explicitly disclose the data-source, seed, correlation and missing-source limitations. The raw-cache acquisition mechanism is documented; review the DRSA MUSIC source discrepancy. Do a clean environment test. Review new figures and manuscript numerical claims. The existing frozen outputs must remain unchanged.
+Read RELEASE_BLOCKERS.md. The owner selected CC BY 4.0, confirmed author details and waived editable supplement source. These decisions and licence metadata are already recorded. Resolve or explicitly disclose the data-source, seed, correlation and missing-source limitations. The raw-cache acquisition mechanism is documented; review the DRSA MUSIC source discrepancy. Do a clean environment test. Review new figures and manuscript numerical claims. The existing frozen outputs must remain unchanged.
 
 For documented review completion, create docs/RELEASE_APPROVAL.json with these keys set to true **only when reviewed**: licence_review, data_and_cache_review, seed_limitation_disclosed, correlation_definition_review, supplement_source_review, manuscript_review, clean_environment_test, author_metadata_review. This is a review record, not a way to bypass outstanding issues.
 

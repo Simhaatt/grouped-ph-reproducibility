@@ -85,7 +85,7 @@ print('NOTE: Aggregate verification does not refit models or recover missing per
 print('NOTE: E8 standard tie-aware Spearman differs from the archived ordinal-rank statistic; see RELEASE_BLOCKERS.md.')
 if args.release:
     metadata=json.loads((ROOT/'.zenodo.json').read_text())
-    check('Author-approved licence inserted',metadata.get('license') not in ['AUTHOR_APPROVAL_REQUIRED',None] and 'PENDING AUTHOR APPROVAL' not in (ROOT/'LICENSE').read_text())
+    check('Author-approved licence inserted',metadata.get('license') not in ['AUTHOR_APPROVAL_REQUIRED',None] and 'PENDING AUTHOR APPROVAL' not in (ROOT/'LICENSE').read_text(encoding='utf-8'))
     check('Real GitHub URL inserted', 'YOUR_USERNAME' not in json.dumps(metadata))
     check('Unresolved release blockers addressed in review record',(ROOT/'docs/RELEASE_APPROVAL.json').exists() and all(json.loads((ROOT/'docs/RELEASE_APPROVAL.json').read_text()).get(k) is True for k in ['licence_review','data_and_cache_review','seed_limitation_disclosed','correlation_definition_review','supplement_source_review','manuscript_review','clean_environment_test','author_metadata_review']))
 report={'checks':checks,'failures':failures,'scope':'frozen-output consistency' if not args.release else 'release-readiness'}

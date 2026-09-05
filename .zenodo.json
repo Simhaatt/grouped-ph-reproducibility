@@ -21,7 +21,7 @@
   ],
   "version": "1.0.0",
   "upload_type": "software",
-  "license": "AUTHOR_APPROVAL_REQUIRED",
+  "license": "cc-by-4.0",
   "related_identifiers": [
     {
       "identifier": "https://github.com/Simhaatt/grouped-ph-reproducibility",

@@ -1,0 +1,10 @@
+{
+  "licence_review": true,
+  "author_metadata_review": true,
+  "supplement_source_review": true,
+  "decision_notes": {
+    "licence": "Owner requested CC4.0; implemented as CC BY 4.0 for author-owned material.",
+    "authors": "Owner confirmed existing author details.",
+    "supplement": "Owner waived editable supplement source. Existing PDF and wrapper retained; no original results removed."
+  }
+}

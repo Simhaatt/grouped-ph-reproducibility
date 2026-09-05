@@ -74,6 +74,6 @@ Every main figure and table has a source map in [docs/EXPERIMENT_MAP.md](docs/EX
 
 Cite this package's version-specific Zenodo DOI once issued. Repository URL: `https://github.com/Simhaatt/grouped-ph-reproducibility`. DOI and release date are intentionally not invented. See `CITATION.cff` and `.zenodo.json`; the latter still contains explicit publication-blocking placeholders.
 
-No licence was supplied. `LICENSE` records the pending author decision; this draft is not yet an open-source grant. Confirm rights to the code, manuscript and aggregate outputs before release. Author affiliations and the first author's ORCID come from the supplied manuscript. Contact: Simhaa T. T., simhaa2310510@ssn.edu.in (the manuscript's corresponding-author address).
+The authors' original material is licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/); see LICENSE and NOTICE.md for scope. Third-party material retains its own terms. Author names, affiliations and ORCID have been confirmed by the repository owner. Contact: Simhaa T. T., simhaa2310510@ssn.edu.in. Editable supplement source is not required at the owner's direction; the supplied supplement PDF is retained for numerical provenance.
 
 Start publication with [docs/GITHUB_ZENODO_STEPS.md](docs/GITHUB_ZENODO_STEPS.md). Do not initialise Git in the parent research folder, which contains large third-party datasets.

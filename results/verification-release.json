@@ -98,11 +98,11 @@
     },
     {
       "check": "Author-approved licence inserted",
-      "pass": false
+      "pass": true
     },
     {
       "check": "Real GitHub URL inserted",
-      "pass": false
+      "pass": true
     },
     {
       "check": "Unresolved release blockers addressed in review record",
@@ -110,8 +110,6 @@
     }
   ],
   "failures": [
-    "Author-approved licence inserted",
-    "Real GitHub URL inserted",
     "Unresolved release blockers addressed in review record"
   ],
   "scope": "release-readiness"
