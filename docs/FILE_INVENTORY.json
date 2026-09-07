@@ -493,7 +493,7 @@
     "source": "experiments/simulations_e8.txt",
     "original_sha256": "cb8df1f3d4e60dab31c87380e8ad9ca20d449c77e10e3ca40751c99e186c48d2",
     "release": "results_raw/experiments/simulations_e8.txt",
-    "release_sha256": "a6fb4e6622516ad0b5bba01a01f917819bd6988a864c18285a4d295caca6e280",
+    "release_sha256": "0a069dc1e9df0eb1c5acffdc41c80d880c2bc49591bac57654ecb53107a34cb2",
     "redacted": true
   },
   {
@@ -649,5 +649,61 @@
     "release": "results_raw/theory/verify_ties_results.txt",
     "release_sha256": "ad0b02d31ca9502f6e278d8e188b1c00a70e2e92c19a9b4ea333fac860b138cb",
     "redacted": false
+  },
+  {
+    "source": "experiments/exact_arm_sim.txt",
+    "original_sha256": "7d10d6114c6e8b75ce8d76e74f8b7e68e7f771e69fa8251dd68804e082dbbdd4",
+    "release": "results_raw/experiments/exact_arm_sim.txt",
+    "release_sha256": "e413c1a55fdb706870f88138140e4d83d18f7e683761e1adba8f8a70e3a4fb3d",
+    "redacted": true
+  },
+  {
+    "source": "experiments/exact_arm_sim.json",
+    "original_sha256": "c37c1eaf64fd61ac97d853596258c610bed9ba8a9b513f59ba398896ae85cc7b",
+    "release": "results_raw/experiments/exact_arm_sim.json",
+    "release_sha256": "256ab8ef7a4182047086d16268d2450de81c3cf6a6714e0c3f5ba0d9f19d0d89",
+    "redacted": true
+  },
+  {
+    "source": "experiments/exact_arm_real.txt",
+    "original_sha256": "8fd59384ceb9b3c2ae6d383c69bf0ba0e14e29af04827e3433607ca97551b8c7",
+    "release": "results_raw/experiments/exact_arm_real.txt",
+    "release_sha256": "e85c23134a1a4b0eb1aeffb022df5f415a5cb12ee79d3b836d1bb0a59fad23e1",
+    "redacted": true
+  },
+  {
+    "source": "experiments/exact_arm_real.json",
+    "original_sha256": "eb8e2dfa85c44acfcbf0a622919c60fbd35d12ac695ca32417382e139ba0f62e",
+    "release": "results_raw/experiments/exact_arm_real.json",
+    "release_sha256": "b52d21f4bcebb246007b0e85b94b72be55955ded5f04e58f9dbf562103480633",
+    "redacted": true
+  },
+  {
+    "source": "experiments/exact_arm_ladder.txt",
+    "original_sha256": "4e84251c48ddbf12212fff7b547b495568fbb18fa6ea5947ca9bf411c0612097",
+    "release": "results_raw/experiments/exact_arm_ladder.txt",
+    "release_sha256": "f9db5d2d6ca63b5a162832c038043499d0292d3ee6771e4ec1d96f33f5d35f5c",
+    "redacted": true
+  },
+  {
+    "source": "experiments/exact_arm_ladder.json",
+    "original_sha256": "589c5334f7afd3269c1c38d269e222b42eb471130226907f9914f10cfb33aff1",
+    "release": "results_raw/experiments/exact_arm_ladder.json",
+    "release_sha256": "6c38d5249483083fca7cccf3e873008f731286d9cca0a481bf0c6e2fec8a9f81",
+    "redacted": true
+  },
+  {
+    "source": "experiments/kp_out_of_sample_v2.txt",
+    "original_sha256": "4a9995b172f3948ef8429bcdcc4198bddf5128be45e06c5a6d182a4336d1e69d",
+    "release": "results_raw/experiments/kp_out_of_sample_v2.txt",
+    "release_sha256": "0c3d53485a2204490d1f305b0676ce730280d2c6c80f750069baf070f140e1b8",
+    "redacted": true
+  },
+  {
+    "source": "experiments/kp_out_of_sample_v2.json",
+    "original_sha256": "fc575ba98cac2d0b18e423e281290e0b122fda123ae608efc9266ee62eeb0f52",
+    "release": "results_raw/experiments/kp_out_of_sample_v2.json",
+    "release_sha256": "019c19eef6b87d396f713f8d71daebff53e8ea9db51314107eb8b80108637a76",
+    "redacted": true
   }
 ]

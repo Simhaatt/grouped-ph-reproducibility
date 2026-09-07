@@ -1,0 +1,122 @@
+====================================================================================================
+1b + 3  EXACT-DISCRETE ARM AND COEFFICIENT COMPARISON ON REAL DATA
+  20 splits per configuration, seeds 0..19, identical to protocol_decomp.py
+  R = ||beta_arm - beta_grouped|| / ||beta_grouped||, standardised scale.  0 means the arms agree.
+  Modal EVENT mass is reported alongside modal all-exit mass; the former is the tie-severity measure.
+====================================================================================================
+
+----------------------------------------------------------------------------------------------------
+drsa/clinic @ T=5   n=4828   modal event mass=0.8374   modal all-exit mass=0.7730
+  exact cost = 17,139,400 (max_t d_t = 3549); budget = 8,000,000 -> INFEASIBLE, subsampling
+  20 full splits, 20 subsampled splits, 0 failures, 449s
+  FULL COHORT  (20 splits)
+    arm               R vs grouped    NB SE   cosine  max|dbeta|    n
+    breslow                0.50740  0.02339  0.97249     0.04264   20
+    efron                  0.13856  0.01173  0.99874     0.01199   20
+    exact-discrete      infeasible
+  SUBSAMPLE n_train=3306  (20 splits)
+    arm               R vs grouped    NB SE   cosine  max|dbeta|    n
+    breslow                0.50952  0.02594  0.97042     0.04395   20
+    efron                  0.13887  0.01392  0.99868     0.01219   20
+    exact-discrete         0.71803  0.03861  0.97823     0.06534   20
+
+----------------------------------------------------------------------------------------------------
+support2/slos @ T=6   n=9105   modal event mass=0.4912   modal all-exit mass=0.4814
+  exact cost = 28,890,165 (max_t d_t = 3172); budget = 8,000,000 -> INFEASIBLE, subsampling
+  20 full splits, 20 subsampled splits, 0 failures, 808s
+  FULL COHORT  (20 splits)
+    arm               R vs grouped    NB SE   cosine  max|dbeta|    n
+    breslow                0.24757  0.00435  0.99619     0.09552   20
+    efron                  0.05172  0.00238  0.99941     0.02526   20
+    exact-discrete      infeasible
+  SUBSAMPLE n_train=4756  (20 splits)
+    arm               R vs grouped    NB SE   cosine  max|dbeta|    n
+    breslow                0.24919  0.00647  0.99592     0.09414   20
+    efron                  0.05156  0.00317  0.99943     0.02481   20
+    exact-discrete         0.35050  0.01077  0.99162     0.13138   20
+
+----------------------------------------------------------------------------------------------------
+sparcs/drg302 @ T=6   n=34233   modal event mass=0.9032   modal all-exit mass=0.9023
+  exact cost = 1,057,457,370 (max_t d_t = 30889); budget = 8,000,000 -> INFEASIBLE, subsampling
+  20 full splits, 20 subsampled splits, 0 failures, 868s
+  FULL COHORT  (20 splits)
+    arm               R vs grouped    NB SE   cosine  max|dbeta|    n
+    breslow                0.61118  0.05989  0.90726     0.39454   20
+    efron                  0.36169  0.13513  0.91207     0.31553   20
+    exact-discrete      infeasible
+  SUBSAMPLE n_train=2986  (20 splits)
+    arm               R vs grouped    NB SE   cosine  max|dbeta|    n
+    breslow                0.74198  0.13041  0.71038     2.85941   20
+    efron                  0.58639  0.21642  0.72347     2.80419   20
+    exact-discrete         0.92285  0.17103  0.81758     2.54652   20
+
+----------------------------------------------------------------------------------------------------
+sparcs/drg302 @ T=10   n=34233   modal event mass=0.6679   modal all-exit mass=0.6673
+  exact cost = 781,984,419 (max_t d_t = 22842); budget = 8,000,000 -> INFEASIBLE, subsampling
+  20 full splits, 20 subsampled splits, 0 failures, 1443s
+  FULL COHORT  (20 splits)
+    arm               R vs grouped    NB SE   cosine  max|dbeta|    n
+    breslow                0.35740  0.03930  0.98603     0.21828   20
+    efron                  0.09953  0.08574  0.98766     0.08781   20
+    exact-discrete      infeasible
+  SUBSAMPLE n_train=3505  (20 splits)
+    arm               R vs grouped    NB SE   cosine  max|dbeta|    n
+    breslow                0.59438  0.16906  0.77688     0.96494   20
+    efron                  0.48128  0.22570  0.78187     0.93911   20
+    exact-discrete         0.62977  0.11011  0.86604     0.88079   20
+
+----------------------------------------------------------------------------------------------------
+sparcs/drg302 @ T=15   n=34233   modal event mass=0.7191   modal all-exit mass=0.7184
+  exact cost = 841,926,402 (max_t d_t = 24593); budget = 8,000,000 -> INFEASIBLE, subsampling
+  20 full splits, 20 subsampled splits, 0 failures, 1318s
+  FULL COHORT  (20 splits)
+    arm               R vs grouped    NB SE   cosine  max|dbeta|    n
+    breslow                0.32252  0.06386  0.98158     0.19936   20
+    efron                  0.09094  0.10414  0.98357     0.08085   20
+    exact-discrete      infeasible
+  SUBSAMPLE n_train=3347  (20 splits)
+    arm               R vs grouped    NB SE   cosine  max|dbeta|    n
+    breslow                0.61406  0.18647  0.74205     1.01831   20
+    efron                  0.53591  0.23120  0.74267     0.99956   20
+    exact-discrete         0.67000  0.14829  0.75781     1.00251   20
+
+----------------------------------------------------------------------------------------------------
+drsa/clinic @ T=50   n=4828   modal event mass=0.4040   modal all-exit mass=0.3546
+  exact cost = 8,270,364 (max_t d_t = 1712); budget = 8,000,000 -> INFEASIBLE, subsampling
+  20 full splits, 0 subsampled splits, 0 failures, 764s
+  FULL COHORT  (20 splits)
+    arm               R vs grouped    NB SE   cosine  max|dbeta|    n
+    breslow                0.25283  0.01031  0.98883     0.02884   20
+    efron                  0.01351  0.00188  0.99998     0.00165   20
+    exact-discrete         0.13331  0.01820  0.99131     0.01951   20
+
+----------------------------------------------------------------------------------------------------
+sparcs/drg302 @ T=30   n=34233   modal event mass=0.5454   modal all-exit mass=0.5448
+  exact cost = 638,513,916 (max_t d_t = 18651); budget = 8,000,000 -> INFEASIBLE, subsampling
+  20 full splits, 20 subsampled splits, 0 failures, 2606s
+  FULL COHORT  (20 splits)
+    arm               R vs grouped    NB SE   cosine  max|dbeta|    n
+    breslow                0.16348  0.00700  0.99910     0.09014   20
+    efron                  0.01312  0.00070  0.99992     0.00900   20
+    exact-discrete      infeasible
+  SUBSAMPLE n_train=3854  (20 splits)
+    arm               R vs grouped    NB SE   cosine  max|dbeta|    n
+    breslow                0.71658  0.21823  0.54866     1.61598   20
+    efron                  0.68307  0.25422  0.54959     1.60700   20
+    exact-discrete         0.73543  0.19917  0.54785     1.62052   20
+
+====================================================================================================
+READING
+====================================================================================================
+  cohort             T  level                        R Efron   R exact   closer to grouped
+  drsa/clinic        5  SUBSAMPLE n_train=3306       0.13887   0.71803   Efron
+  support2/slos      6  SUBSAMPLE n_train=4756       0.05156   0.35050   Efron
+  sparcs/drg302      6  SUBSAMPLE n_train=2986       0.58639   0.92285   Efron
+  sparcs/drg302     10  SUBSAMPLE n_train=3505       0.48128   0.62977   Efron
+  sparcs/drg302     15  SUBSAMPLE n_train=3347       0.53591   0.67000   Efron
+  drsa/clinic       50  FULL COHORT                  0.01351   0.13331   Efron
+  sparcs/drg302     30  SUBSAMPLE n_train=3854       0.68307   0.73543   Efron
+
+  exact is closer to the grouped coefficient in 0 of 7 paired comparisons
+
+  wrote experiments/exact_arm_real.txt

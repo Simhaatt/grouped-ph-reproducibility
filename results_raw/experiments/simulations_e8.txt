@@ -36,7 +36,7 @@ E8  MODAL BIN MASS vs ROWS PER INTERVAL, CROSSED.  On real cohorts the
       16000   20     800     mid   0.230     0.256      719  +0.01447  0.00211  +0.01430  +0.00017
       16000   20     800    high   0.503     0.510      789  +0.09120  0.00360  +0.08513  +0.00607
 
-total 1454s -> F:\kanreliability\experiments\simulations_e8.txt
+total 1454s -> experiments/simulations_e8.txt
 
     ORDERING over 27 cells, Spearman against D_T:
       modal bin mass (section 6.3)   rho = -0.1469

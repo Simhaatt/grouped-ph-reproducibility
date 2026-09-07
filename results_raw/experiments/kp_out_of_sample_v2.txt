@@ -1,0 +1,39 @@
+========================================================================================================================
+2  OUT-OF-SAMPLE TEST OF THE KP-NULL -- 20 SPLITS, MODAL EVENT MASS
+  New SPARCS APR-DRG cohorts, none used to form any claim in the paper.
+  20 splits per configuration, matching protocol_decomp.py; NB SE is Nadeau-Bengio corrected.
+  Each cohort capped at 50,000 rows (see MAX_ROWS).
+  'modalEv' is the largest share of FAILURES in one interval -- the tie-severity measure.
+  'modalAll' is the largest share of all exits, which the first version reported by mistake.
+  D_T > 0 favours the grouped joint MLE.  'res' is |D_T| > 1.96 NB SE.
+========================================================================================================================
+  cohort                  n     ev   T  Tev  maxEv  modalEv modalAll  D_T Breslow    NB SE  res     D_T KP    NB SE  res   base%
+  sparcs/drg640@T6    50000  50000   6    4  49418   0.9884   0.9884     +0.42282  0.00146  yes   +0.00350  0.00093  yes   99.2%   [44s]
+  sparcs/drg640@T15   50000  50000  15   10  32447   0.6489   0.6489     +0.17693  0.00208  yes   +0.00067  0.00108   no   99.6%   [169s]
+  sparcs/drg640@T30   50000  50000  30   20  29156   0.5831   0.5831     +0.09908  0.00198  yes   +0.00068  0.00103   no   99.3%   [712s]
+  sparcs/drg560@T6    50000  49981   6    6  49500   0.9904   0.9900     +0.42682  0.00316  yes   +0.00209  0.00226   no   99.5%   [38s]
+  sparcs/drg560@T15   50000  49981  15   15  32626   0.6528   0.6525     +0.19122  0.00300  yes   +0.00031  0.00159   no   99.9%   [176s]
+  sparcs/drg560@T30   50000  49981  30   29  30061   0.6014   0.6012     +0.13572  0.00257  yes   +0.00071  0.00061   no   99.5%   [753s]
+  sparcs/drg540@T6    50000  49882   6    6  46859   0.9394   0.9372     +0.34245  0.00217  yes   +0.00476  0.00063  yes   98.6%   [32s]
+  sparcs/drg540@T15   50000  49882  15   15  38770   0.7772   0.7754     +0.21163  0.00251  yes   +0.00169  0.00032  yes   99.2%   [135s]
+  sparcs/drg540@T30   50000  49882  30   29  23286   0.4668   0.4657     +0.08017  0.00208  yes   +0.00014  0.00011   no   99.8%   [704s]
+  sparcs/drg720@T6    50000  48576   6    6  21033   0.4330   0.4207     +0.05685  0.00173  yes   +0.00051  0.00025  yes   99.1%   [25s]
+  sparcs/drg720@T15   50000  48576  15   15   9730   0.2003   0.1946     +0.01192  0.00096  yes   +0.00002  0.00006   no   99.8%   [89s]
+  sparcs/drg720@T30   50000  48576  30   29   4948   0.1019   0.0990     +0.00319  0.00052  yes   +0.00000  0.00002   no  100.0%   [347s]
+
+========================================================================================================================
+READING
+========================================================================================================================
+  configurations: 12
+  resolved POSITIVE under Breslow: 12/12
+  resolved POSITIVE under KP:      4/12
+
+  modal EVENT mass spans 0.1019 to 0.9904; modal ALL-EXIT mass spans 0.0990 to 0.9900
+  Spearman(modal EVENT mass, D_T Breslow) = 1.0000
+  Spearman(modal ALL-EXIT mass, D_T Breslow) = 1.0000   [what v1 reported]
+  Spearman(modal EVENT mass, D_T KP)      = 0.8671
+
+  SOME configurations DO show a resolved grouped advantage under KP.  That must be reported rather than reconciled -- it bounds
+  the KP-null rather than confirming it.
+
+  wrote experiments/kp_out_of_sample_v2.txt

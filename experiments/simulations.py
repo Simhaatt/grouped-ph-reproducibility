@@ -291,9 +291,19 @@ def e7(log):
                          "not resolved")
                 ex1 = agg(rows, "D_exact_vs_logit")[0]
                 ex2 = agg(rows, "D_exact_vs_cloglog")[0]
+                # A bare "+nan" reads as a numerical failure.  It is not: the
+                # exact recursion costs n x (max_t d_t + 1) and at n=10000 with
+                # heavy ties that exceeds the budget, so no exact fit was made.
+                # Say which of the two it is, because they call for opposite
+                # responses -- one is a bug, the other is the finding.
+                n_ex = sum(1 for r in rows if "beta_exact" in r)
+                def _ex(v):
+                    if np.isfinite(v):
+                        return format(v, ">+13.5f")
+                    return format("infeasible" if n_ex == 0 else "n/a", ">13")
                 log(f"    {n:>7}{T:>5}{scale:>7.1f}{np.mean(modal):>8.3f}"
                     f"{m:>+10.5f}{se:>9.5f}{agg(rows,'D_link')[0]:>+10.5f}"
-                    f"{ex1:>+13.5f}{ex2:>+12.5f}   {arrow}")
+                    f"{_ex(ex1)}{_ex(ex2)[1:]}   {arrow}")
     log("")
     log("    D_link < 0 means the logit MLE beats the cloglog MLE, i.e. the")
     log("    misspecification is doing what the design intends.  If D_T stays")
