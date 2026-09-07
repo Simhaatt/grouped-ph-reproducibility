@@ -13,7 +13,7 @@ try:
     required=['README.md','LICENSE','CITATION.cff','.zenodo.json','environment.yml','requirements.txt','.gitignore','CHANGELOG.md','MANIFEST.md','manuscript/template.tex','manuscript/supplement.tex','manuscript/supplement.pdf','manuscript/references.bib','data/README.md','data/DATA_SOURCES.md','docs/REPRODUCIBILITY.md','docs/EXPERIMENT_MAP.md','docs/DATA_DICTIONARY.md','docs/RELEASE_CHECKLIST.md']
     check('Required files exist',all((ROOT/p).is_file() for p in required))
     inv=json.loads((ROOT/'docs/FILE_INVENTORY.json').read_text())
-    check('All 101 frozen aggregate files match recorded SHA-256',len(inv)==101 and all((ROOT/r['release']).is_file() and hashlib.sha256((ROOT/r['release']).read_bytes()).hexdigest()==r['release_sha256'] for r in inv))
+    check('All 102 frozen aggregate files match recorded SHA-256',len(inv)==102 and all((ROOT/r['release']).is_file() and hashlib.sha256((ROOT/r['release']).read_bytes()).hexdigest()==r['release_sha256'] for r in inv))
     m=main_rows();e=event_rows();w=weibull_rows();v=validation_rows();f=flexibility_rows();s=summaries()
     expected=json.loads((ROOT/'experiments/protocol_decomp.json').read_text())
     check('All 34 distinct configurations match original protocol',set((r['cohort'],r['T']) for r in m)==set((r['cohort'],r['T']) for r in expected))

@@ -5,7 +5,7 @@
       "pass": true
     },
     {
-      "check": "All 101 frozen aggregate files match recorded SHA-256",
+      "check": "All 102 frozen aggregate files match recorded SHA-256",
       "pass": true
     },
     {

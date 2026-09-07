@@ -20,7 +20,13 @@ TWO LEVELS, AND THE DIFFERENCE MATTERS.
             probe, not a verdict.
 
   STALE     A recompute probe re-ran one representative cell and got a
-            different answer.  This is a verdict.  It is what happened to E5.
+            different answer.  This is a verdict, and it fails the run.
+
+  SUPERSEDED  A log that fails its probe AND has a recorded replacement.  E5 is
+            the case: exact_arm_sim.txt reruns the same design under current
+            seeding.  Recorded rather than silently tolerated, so that an
+            UNEXPECTED stale log still fails -- otherwise the run would fail
+            forever on a known-retired file and a reader would stop looking.
 
 Dependencies are the real import closure of each experiment script, restricted
 to project modules, not a blanket list -- a change to kanrel/stats.py should
@@ -49,7 +55,13 @@ warnings.filterwarnings("ignore")
 
 # log -> (script that produces it, probe key or None)
 SPEC = {
-    "simulations_e5.txt": ("experiments/simulations.py", "e5"),
+    # Superseded on purpose: exact_arm_sim.py reruns this design on the
+    # same cells under current seeding and adds the exact-discrete arm.
+    # Expected staleness is recorded so that an UNEXPECTED stale log is
+    # still a failure; without this the run fails forever and a reader
+    # learns to ignore it.
+    "simulations_e5.txt": ("experiments/simulations.py", "e5",
+                           "exact_arm_sim.txt"),
     "simulations_e6c.txt": ("experiments/simulations.py", None),
     "simulations_e6d.txt": ("experiments/simulations.py", None),
     "simulations_e6e7e8.txt": ("experiments/simulations.py", None),
@@ -185,9 +197,12 @@ def main():
     print("  " + "-" * 92)
 
     suspect, stale, missing, verified, fresh = [], [], [], [], []
+    superseded = []
     for name in sorted(SPEC):
         path = EXP / name
-        script, probe = SPEC[name]
+        row = SPEC[name]
+        script, probe = row[0], row[1]
+        superseded_by = row[2] if len(row) > 2 else None
         if not path.exists():
             missing.append(name)
             continue
@@ -209,6 +224,11 @@ def main():
                     verdict = "VERIFIED"
                     note = f"probe reproduces {got:+.6f}"
                     verified.append(name)
+                elif superseded_by:
+                    verdict = "SUPERSEDED"
+                    note = (f"replaced by {superseded_by}; probe "
+                            f"{got:+.6f} vs log {want:+.6f}")
+                    superseded.append(name)
                 else:
                     verdict = "STALE"
                     note = f"probe got {got:+.6f}, log says {want:+.6f}"
@@ -219,7 +239,7 @@ def main():
         elif probe:
             note = (note + "; " if note else "") + "probe available (--probe)"
         print(f"  {name:<38}{datetime.fromtimestamp(mt):%Y-%m-%d %H:%M}  "
-              f"{verdict:<10}{note}")
+              f"{verdict:<12}{note}")
         if verdict == "SUSPECT":
             suspect.append(name)
         elif verdict == "fresh":
@@ -228,7 +248,11 @@ def main():
     print()
     print("=" * 96)
     print(f"  {len(fresh)} fresh, {len(verified)} probe-VERIFIED, "
-          f"{len(suspect)} suspect, {len(stale)} STALE, {len(missing)} missing")
+          f"{len(suspect)} suspect, {len(superseded)} superseded, "
+          f"{len(stale)} STALE, {len(missing)} missing")
+    for name in superseded:
+        print(f"  {name} is superseded by {SPEC[name][2]} and is retained only "
+              f"as the historical record; nothing should source it.")
     if stale:
         print()
         print("  CONFIRMED STALE -- these do not reproduce from the current "
